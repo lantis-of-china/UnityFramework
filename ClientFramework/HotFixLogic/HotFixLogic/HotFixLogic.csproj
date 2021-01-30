@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CE01D26-047F-4896-BAF7-A84A66F5B37B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QiPaiDll</RootNamespace>
+    <AssemblyName>QiPaiDll</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Commons.Xml.Relaxng">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Commons.Xml.Relaxng.dll</HintPath>
+    </Reference>
+    <Reference Include="CompressEncryptionCore">
+      <HintPath>..\..\..\QiPai\Assets\Zip\CompressEncryptionCore.dll</HintPath>
+    </Reference>
+    <Reference Include="cscompmgd, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\cscompmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomMarshalers" />
+    <Reference Include="I18N">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.CJK">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.CJK.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.MidEast">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.MidEast.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Other">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.Other.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Rare">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.Rare.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\I18N.West.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.DB2">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\IBM.Data.DB2.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ILRuntime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\ILRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\..\..\QiPai\Assets\Zip\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.C5">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.C5.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cairo">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Cairo.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CodeContracts">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.CodeContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CompilerServices.SymbolWriter">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.CompilerServices.SymbolWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CSharp">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Tds">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Data.Tds.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Debugger.Soft">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Debugger.Soft.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Http">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Management">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Messaging">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Messaging.RabbitMQ">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Messaging.RabbitMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Options">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Parallel">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security.Win32">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Security.Win32.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Simd">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Simd.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Tasklets">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.Tasklets.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Mono.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\QiPai\Assets\Zip\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="spine-unity">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\spine-unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>..\..\..\QiPai\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.2d-4.0.1\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsNativeModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UIElementsNativeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VirtualTexturingModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>D:\UnityHub\Editor\2020.1.0a25\Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrameWork\CSharpFrameWork\AssetManager\AssetsManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\CSharpFrameWork\AssetPathManager\AssetsPathManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\CSharpFrameWork\DebugLoger\Debuger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisEntitySystem\Code\EntityCore\Entity.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisEntitySystem\Code\EntityCore\EntitySystem.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisEntitySystem\Code\Entity\BranchEntity.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisEntitySystem\Code\Entity\ComponentEntity.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisEntitySystem\Code\Entity\LogicTrunkEntity.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisExtend\Code\IDSpawner.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisExtend\Code\LantisDictronaryList.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisExtend\Code\LantisList.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisExtend\Code\LantisQueue.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisLocker\Code\SafeLocker.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisLocker\Code\SafeLogerChecker.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisLogger\Code\Logger.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Branchs\NetClientBranch.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Branchs\NetServerBranch.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Branchs\NetUdpBranch.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Branchs\ThreadWaiterBranch.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Components\NetClientComponents.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Components\NetMessageDriverComponents.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Components\NetServerComponents.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\Components\NetUdpComponent.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\MessageContent.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\MessageProcess.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SocketTcp\MessageReciver.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SocketTcp\MessageSender.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SocketTcp\MessageSenderManager.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SocketTcp\SenderState.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\ComplateRecorder.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\FrameUdpCenter.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpLineParkGroup.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpLineParkTool.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpPark.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpParkTool.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpSubmit.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpSubmitComplate.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\SockeUdp\UdpSubmitData.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisNetwork\Code\ThreadWaiter\ThreadWaiter.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisPool\Code\LantisPool.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisPool\Code\LantisPoolInterface.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\LantisPool\Code\LantisPoolSystem.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\MemoryStream\Code\MemoryStream.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\Lantis\MemoryStream\Code\MemoryUnit.cs" />
+    <Compile Include="FrameWork\CSharpFrameWork\SenceShort.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\AssetsItemLoader\AssetsItemLoader.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\AssetsParkManager\AssetsParkManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\AudioOutManager\AudioOutManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\AudioOutManager\MicrophoneManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\BitBuf\BitBufferTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\ConfigDataManager\ConfigDataManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\ControlInputManager\ControlInputManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\DelayRun\DelayRun.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\DelegateDiv\DelegateDiv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\EventNotices\EventNotices.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\FrameWorkDrvice\FrameWorkDrvice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\FsmSystem\FsmSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\GameEntryLogic\GameEntryManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\GameSerialzTool\GameSerialzTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\GpsTools.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\IEnumeraManager\IEnumeratorManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\LayerManager\LayerManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\MessageFrameWork\Process\MessageDriver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\MessageFrameWork\Process\MessageProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\MessageFrameWork\Process\Process.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\NetFrameWork\HttpTools.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\NetFrameWork\TcpNet\UserNetWork.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\NetFrameWork\TcpShort\TcpNet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\NetFrameWork\UdpNet\UdpNetWork.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\NetFrameWork\UdpNet\UdpPark.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\Random\ServerRandom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\RenderOutManager\ProtoNet\BitBuffer\BitBuffer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\RenderOutManager\RenderOutManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\RigibodyManager\RigibodyManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\SdkTools\SdkTools.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\ServerLog\ServerLog.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\UIASystem\UIEffectManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\UIASystem\UIManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\UpResourceManager\UpResourceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\UtilityFun\UtilityTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\GameRunFrameWork\AppMain\AppMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\GameRunFrameWork\GoableData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\GameRunFrameWork\StringConfigClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\ConfigData\ConfigSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\ConfigData\ConfigSkillBuff.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Character\OtherCharacter.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Character\MainCharacter.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\ConfigData\LocalConfigLoader.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Define\BuffEventType.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Define\ChactarPropyteType.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\LocalEventNotices\LocalEventNotices.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\EffectLogic.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\SkillBuffLogic.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\Define\DefinePower.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\LoadPrefab.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\Componts\CharacterManager\CharaterManager.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\PropLogic.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\SkillLogic.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_UnReleseRoomProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_RoomInfoProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_SkillBuffTriggerProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_RemoveSkillBuffProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_AddSkillBuffProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_GameStateChangeProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_SkillHitProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_SkillRemoveProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_SkillEndProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_UseSkillProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_GamerMoveStopProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_GamerMoveProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_EatPropsProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_SpawnPropsProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_GamerMoveStop.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_HitSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_Matching.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_SkillBuff.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_AddSkillBuff.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_EatProp.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_GamerMoveStop.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_HitSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_Matching.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_RemoveSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_RemoveSkillBuff.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_SkillBuffTrigger.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_SkillEnd.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_UnReleseRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\UINameSpace\UISingleMobaFightEnd.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Words\WorldDefineName.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIDebuger.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Words\SingleMobaFightWorld.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\Componts\CameraControl\CameraFloowComp.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Logic\Componts\CameraManager\CameraManager.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\FrameWork\WorldManager\WorldManager.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\GameEntry\GameEntry.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\LogicDataSpace\LogicDataSpace.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_EntryRoomProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_JoinRoomProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgCall\SingleMoba_LeaveRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\MsgSend\MessageSend.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_EatProp.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_EntryRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_GamerMove.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_LoadRoomAssetsFinish.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_RoleLeaveRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\CS_UseSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_Buff.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_GamePlayerInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_GamerStateChange.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_PlayerInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_Prop.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\P_Skill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_EntryRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_GameInit.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_GamerMove.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_GamerStateChange.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_JoinRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_ReleseProp.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_RoleLeaveRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_RoomInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_SpawnProps.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgDefine\SingleMoba\SC_UseSkill.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Msg\MsgType\NetMessageType.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\UINameSpace\UISingleMobaFight.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\UINameSpace\ConfigProject.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\UINameSpace\UIDefineName.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\UINameSpace\UISingleMobaRall.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\P_ConditionItem.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGeneralRall.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\ConfigData\ConfigGoodsData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\LogicDataSpace\LogicDataSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\AddGameLogicRecordCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\AgentCodeEntryProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\RealNameProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\RefencerechargeProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\BuyStoreProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\DepachGameLogicRecordCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\DepachMsgCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\HeartCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\RenfenceInfoProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_ChangeBankPasswordProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_CheckLockProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_LoginBankProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_NetLinkWringProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_TipMessageProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_TranslateBankPointProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_UserAgentRequet.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_UDPNotice.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_QuickJoin.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SC_UserEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\SystemMsgCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\UserCreateCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageCall\UserLoginCallProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\MessageSend\MessageSend.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\BaseDataAttribute\GameCoreData.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\BaseDataAttribute\RoleInfor.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\CherishBitProtocolBase\CherishBitProtocolBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CreateRole.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CreateRoleBack.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CreateRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_AgentCode.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_AgentRequirt.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_BankTranlate.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_BuyStore.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_ChangedBankPassword.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_CheckGameLock.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_FoceUnReleseRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_GetRoleMsg.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_GetSystem.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_Heart.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_LoadRoomAssetsFinish.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_LoginOut.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_QuickJoinGame.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_RealName.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_RefenceInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UpLoadFile.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserCreateRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserEntrySucess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserLoginOut.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_ValiedBank.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\GolabServerInfor.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\JoinRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MessageRegistBack.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MessageUserLogin.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MessageUserLoginBack.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MessageUserRegist.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MTCS_REGIS_BACK.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MTCS_USER_LOGIN_OUT.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MTCS_USER_LOGIN_VALIDATE.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\MTCS_USER_LOGIN_VALIDATE_BACK.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\P_ClubScoreBackItem.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\P_GameLogicRecord.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\P_MsgInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\Refencerecharge_SC.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_AgentCode.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_AgentRequirt.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_BankTranlate.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_BuyStore.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_ChangeBankPassword.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_CheckGameLock.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_ClubScoreBack.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_GameGradeAdd.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_GameGrades.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_Heart.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_NetLinkWring.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_QuickJoinGame.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_RealName.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_RefenceInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_RoleMsg.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_StateChangeRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_SystemMsg.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_UpLoadFile.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_UserCreateRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_UserJoinRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_UserLeaveRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_UserUnReleseRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\SC_ValiedBank.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\TipMessage_SC.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UDPAddress.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UDPNotice.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UserEntry.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UserEntryBack.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UserValiadateInfor.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\UserValiadateInforWarp.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgType\NetMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\ConfigProject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\RallAllTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\StoreTable\DailiPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\StoreTable\PutongPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\StoreTable\PutongTable\FKPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\StoreTable\PutongTable\ZSPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\TablePanelItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGameRallShow.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIBank.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIAgent.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGeneralTip.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIRealName.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIBuyTip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UICreate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIDefineName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIEntrySplsh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGameMask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGameSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UILogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIRall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIRallGift.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIRankList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIShowTipMsg.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UITipMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UITipUpdate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIGpsInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIWaitting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\UIQuickJoin.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\ModeTable\Mode_0_Item.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\UINameSpace\PanelItem\ModeTable\Mode_1_Item.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\IMClubData.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_RequestMenberJoinClubProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_GetUserInfoProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_AgreeMenberJoinProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_MenberRequestEntryProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_RequestAddGroupProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_AddBlackList.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_AddGameSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_AddGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_AgrentMenberJoin.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_ChangeMenberScore.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_ChangeRechargeToClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_CreateGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_CreateGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_DeleteMenber.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_FindGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_GetClubGrade.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_GetGroups.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_GetMenberInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_GetMenbers.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_GetUserInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_LeaveClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_RemoveBlackList.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_RequestAddClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_RequestMenberJoinClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_SetClubSign.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_SetCollect.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_SetGameSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\CS_UnReleseClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_ClubGradeInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_ClubSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_GameSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_GroupInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_Menber.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_MenberInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_RequestInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\P_RoomInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_AddBlackList.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_AddGameSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_AddGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_AgrentMenber.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_ChangeMenberScore.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_ChangeRechargeToClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_CreateGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_CreateGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_DeleteMenber.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_FindGroup.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_GetClubGrade.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_GetGroups.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_GetMenberInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_GetMenbers.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_GetUserInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_JoinGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_LeaveClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_LeaveGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_MenberChangeOnLineState.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_MenberJoin.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_MenberRequestEntry.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_RemoveBlackList.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_RequestAddClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_RequestMenberJoinClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_SetClubSign.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_SetCollect.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_SetGameSetting.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_StateChangeGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_UnReleseClub.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgDefine\IMClub\SC_UnReleseGameRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_LeaveGroupProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_UnReleseGroupProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\GeneralAll\TipMessageType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Logic\GoableClubDataInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Logic\IMClubMessageItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Logic\IMCludWarp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Logic\RoomManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_AddGroupProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_BackCreateRoomProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_ChangeMenberScoreProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_CreateGroupProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_DeleteGroupProcess.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_FindGroupProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_GetClubGradeProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_GetGroupsProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_GetMenbersProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_SetClubCollectProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgCall\IMClub_SetSignProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\MsgSend\MessageSend.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\Msg\MsgType\NetMessageType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\ChatItem\ClubChatItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\ConfigProject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\GroupSettingItem\ClubBestSettingPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\GroupSettingItem\ClubBlackListPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\GroupSettingItem\ClubMenberListPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\GroupSettingItem\ClubRuleSettingPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\GroupSettingItem\ClubStatisticsPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\PanelItem\ClubChatPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\PanelItem\ClubGradePanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\PanelItem\ClubRoomPanel_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\UIDefineName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\UIIMClubMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\UISetRoomCheXuan_IMClub.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\UISetRoomCheXuan_IMClub\CheXuanMangQuanSet_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\IMClub\UINameSpace\UISetRoomCheXuan_IMClub\CheXuanSet_Select.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).dll" "$(TargetDir)..\..\..\..\..\QiPai\Assets\StreamingAssets\raw.data"
+copy "$(TargetDir)$(TargetName).pdb" "$(TargetDir)..\..\..\..\..\QiPai\Assets\StreamingAssets\raw.pdb"
+D:\UnityHub\Editor\2020.1.11f1c1\Editor\Data\MonoBleedingEdge\bin\mono D:\UnityHub\Editor\2020.1.11f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.5\pdb2mdb.exe $(TargetDir)$(TargetName).dll
+copy "$(TargetDir)$(TargetName).dll.mdb" "$(TargetDir)..\..\..\..\..\QiPai\Assets\StreamingAssets\raw.mdb"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
