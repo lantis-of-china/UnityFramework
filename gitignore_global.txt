@@ -1,0 +1,2 @@
+﻿ClientFramework/QiPai/Library/
+ClientFramework/QiPaiArt/Library/
