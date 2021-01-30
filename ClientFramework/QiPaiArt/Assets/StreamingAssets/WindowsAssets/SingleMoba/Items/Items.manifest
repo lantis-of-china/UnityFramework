@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3727999913
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: propskill.data
+      Dependencies: {}

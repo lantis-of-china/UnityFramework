@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+<datas>
+<data  Key="10001" Icon="" Item="" Name="普通子弹伤害" Descaption="对宿主造成一次性直接伤害。" LifeTime="0" Repeated="0" EventType="10100" EventParamar1="10" EventParamar2="0" EventParamar3="0" EventParamar4="0" RecordTypes="" ConditionTypes="" ConditionValues="" EventTimer="0" EventInvateTimer="0" EventTimesMax="1" />
+<data  Key="10002" Icon="" Item="" Name="让范围内玩家获取一个伤害。" Descaption="爆炸造成范围伤害。" LifeTime="100000" Repeated="0" EventType="10200" EventParamar1="10001" EventParamar2="0" EventParamar3="0" EventParamar4="0" RecordTypes="" ConditionTypes="" ConditionValues="" EventTimer="0" EventInvateTimer="0" EventTimesMax="1" />
+</datas>
+</template>

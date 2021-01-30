@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3156481008
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: fightsence.data
+      Dependencies: {}

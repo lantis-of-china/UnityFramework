@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 659325780
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4f53a0c40f9a2d8b22d3d71370620059
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ec768c4f971f70d14b743a5e43e6726e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 32cc6e3515664d249959f57754ecc91b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Games/SingleMoba/GamePrefab/Items/buttle.prefab
+Dependencies: []

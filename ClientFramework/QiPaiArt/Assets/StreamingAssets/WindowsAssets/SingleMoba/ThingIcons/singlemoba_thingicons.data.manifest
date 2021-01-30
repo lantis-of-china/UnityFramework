@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 1780465674
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: aa517522e652a6bcf1d80e434a7ed0b8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c92feb8daf166311b3e47737bd87795
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_5.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_2.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_3.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_10.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_1.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_9.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_8.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_6.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_7.png
+- Assets/Games/SingleMoba/GamePrefab/ThingIcons/ck_arrow_4.png
+Dependencies: []
