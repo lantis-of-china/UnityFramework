@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+<datas>
+<data  Key="10001" Icon="icon_skill_buttle" Item="buttle" ItemType="0" Name="普通子弹" Descaption="命中的第一个敌人会受到10点伤害。" StartEffect="" HitEffect="" EndTakeEffect="" LifeTime="1.0" DisEnableInput="0" CDTime="1" Consume="1" MoveType="1" MoveDistance="15" MoveHitType="1" MoveHitTeam="1" MoveHitRange="0.5" MoveHitEndCount="1" EndTakeRange="0" StartUserBuffKeys="" HitSelfBuffKeys="" HitEnemyBuffKeys="10001" EndTakeSelfBuffKeys="" EndTakeEnemyBuffKeys="" EndTakeEventTimer="0" EndTakeEventInvateTimer="0" EndTakeEventTimesMax="0" />
+<data  Key="10002" Icon="icon_skill_boom" Item="boom" ItemType="0" Name="炸弹" Descaption="对进入范围的敌人造成伤害。" StartEffect="" HitEffect="" EndTakeEffect="effect_boom_end" LifeTime="3.0" DisEnableInput="0" CDTime="1" Consume="1" MoveType="2" MoveDistance="5" MoveHitType="1" MoveHitTeam="1" MoveHitRange="2.0" MoveHitEndCount="1" EndTakeRange="3" StartUserBuffKeys="" HitSelfBuffKeys="" HitEnemyBuffKeys="" EndTakeSelfBuffKeys="10002" EndTakeEnemyBuffKeys="10002" EndTakeEventTimer="0" EndTakeEventInvateTimer="0" EndTakeEventTimesMax="1" />
+<data  Key="10003" Icon="" Item="" ItemType="1" Name="突进" Descaption="向着前方进行一小段范围的突进。" StartEffect="" HitEffect="" EndTakeEffect="" LifeTime="0.3" DisEnableInput="1" CDTime="1" Consume="0" MoveType="1" MoveDistance="5" MoveHitType="0" MoveHitTeam="1" MoveHitRange="0" MoveHitEndCount="0" EndTakeRange="0" StartUserBuffKeys="" HitSelfBuffKeys="" HitEnemyBuffKeys="" EndTakeSelfBuffKeys="" EndTakeEnemyBuffKeys="" EndTakeEventTimer="0" EndTakeEventInvateTimer="0" EndTakeEventTimesMax="0" />
+</datas>
+</template>

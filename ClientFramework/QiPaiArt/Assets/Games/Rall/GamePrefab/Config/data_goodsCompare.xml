@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+<datas>
+<data  Key="1" GoodsType="1" Count="5" Price="5" AgentPrice="3" />
+<data  Key="2" GoodsType="1" Count="10" Price="10" AgentPrice="6" />
+<data  Key="3" GoodsType="1" Count="20" Price="20" AgentPrice="10" />
+<data  Key="4" GoodsType="1" Count="50" Price="50" AgentPrice="22" />
+<data  Key="5" GoodsType="1" Count="100" Price="100" AgentPrice="48" />
+<data  Key="6" GoodsType="1" Count="200" Price="200" AgentPrice="98" />
+<data  Key="7" GoodsType="2" Count="5" Price="5" AgentPrice="3" />
+<data  Key="8" GoodsType="2" Count="10" Price="10" AgentPrice="6" />
+<data  Key="9" GoodsType="2" Count="20" Price="20" AgentPrice="10" />
+<data  Key="10" GoodsType="2" Count="50" Price="50" AgentPrice="22" />
+<data  Key="11" GoodsType="2" Count="100" Price="100" AgentPrice="48" />
+<data  Key="12" GoodsType="2" Count="200" Price="200" AgentPrice="98" />
+</datas>
+</template>
