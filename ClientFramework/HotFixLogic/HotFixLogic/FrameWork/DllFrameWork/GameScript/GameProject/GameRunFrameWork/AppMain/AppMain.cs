@@ -622,22 +622,22 @@ public class LSharpEntryGame
 		yield return new WaitForSeconds(0.5f);
 		FrameWorkDrvice.UiManagerInstance.OpenUI(Rall.ConfigProject.projectFloderName, Rall.UIDefineName.UIGameMask_Rall, false);
 		FrameWorkDrvice.UiManagerInstance.OpenUI(Rall.ConfigProject.projectFloderName, Rall.UIDefineName.UIDebuger_Rall, true);
-		//FrameWorkDrvice.UiManagerInstance.OpenUI(Rall.ConfigProject.projectFloderName, Rall.UIDefineName.UIEntrysplsh_Rall, true);
+		FrameWorkDrvice.UiManagerInstance.OpenUI(Rall.ConfigProject.projectFloderName, Rall.UIDefineName.UIEntrysplsh_Rall, true);
 		FrameWorkDrvice.UiManagerInstance.OpenUI(Rall.ConfigProject.projectFloderName, Rall.UIDefineName.UIGeneralTip_Rall, true);
 		UINameSpace.UITipMessage.OpenTip();
 		yield return new WaitForSeconds(0.2f);
 
 		
-		GameLogic.ConfigLoader.Load();
-		FrameWorkDrvice.Instance.AddEventToUpdate(GLGame.WorldManager.Instance.Update);
-		FrameWorkDrvice.Instance.AddEventToLateUpdate(GLGame.WorldManager.Instance.LateUpdate);
-		UINameSpace.UIFadeMasker.OpenFade(0.0f, 1.0f, () =>
-		{
-			Debug.Log("UINameSpace.UIFadeMasker.OpenFade call back");
-			FrameWorkDrvice.UiManagerInstance.SetPortrait();
-			GLGame.WorldManager.Instance.RegisterFunction();
-			GLGame.WorldManager.Instance.OpenWorld(GameLogic.ConfigProject.projectFloderName, GameLogic.WorldDefineSoupport.startSence);
-		});
+		//GameLogic.ConfigLoader.Load();
+		//FrameWorkDrvice.Instance.AddEventToUpdate(GLGame.WorldManager.Instance.Update);
+		//FrameWorkDrvice.Instance.AddEventToLateUpdate(GLGame.WorldManager.Instance.LateUpdate);
+		//UINameSpace.UIFadeMasker.OpenFade(0.0f, 1.0f, () =>
+		//{
+		//	Debug.Log("UINameSpace.UIFadeMasker.OpenFade call back");
+		//	FrameWorkDrvice.UiManagerInstance.SetPortrait();
+		//	GLGame.WorldManager.Instance.RegisterFunction();
+		//	GLGame.WorldManager.Instance.OpenWorld(GameLogic.ConfigProject.projectFloderName, GameLogic.WorldDefineSoupport.startSence);
+		//});
 		
 
 		FrameWorkDrvice.ConfigDataManagerInstance.LoaeConfig();

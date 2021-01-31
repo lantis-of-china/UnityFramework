@@ -1,26 +1,15 @@
 ﻿// 此文件由协议导出插件自动生成
-// ID : 00001]
+// ID : 00001]
+
 //********
 using System;
 using System.Collections.Generic;
 using System.IO;
-using AskDao;
 using BaseDataAttribute;
 using Server;
-using Baccarat;
-using BingShangQuGunQiu;
-using BuYu;
-using CheXuan;
-using CMSloto;
 using IMClub;
-using LaoHuJi;
-using MaJiang_QuanZhou;
-using MaJiang_XueZhan;
-using PaoDeKuai;
 using SingleMoba;
 using Template;
-using WuXingJingCai;
-
 
 namespace SingleMoba{
 /// <summary>

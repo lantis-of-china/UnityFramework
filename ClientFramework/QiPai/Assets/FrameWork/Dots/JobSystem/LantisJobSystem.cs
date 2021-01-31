@@ -32,7 +32,7 @@ namespace Lantis
     public class LantisJobSystem
     {
         public static object lockself = new object();
-        public static LantisDictronaryList<object, LantisJobRegistBase> jobRegistHandle = new LantisDictronaryList<object, LantisJobRegistBase>();
+        public static UnityDictronaryList<object, LantisJobRegistBase> jobRegistHandle = new UnityDictronaryList<object, LantisJobRegistBase>();
 
         public static void AddRegistParamar(object job, LantisJobRegistBase regist)
         {

@@ -28,8 +28,6 @@ namespace QiPaiDll
         public AVIMMessage() { }
 
         public string Content = "";
-        public string ConversationId = "";
-        public string FromClientId = "";
         public string Id = "";
         public bool MentionAll;
         public IEnumerable<string> MentionList;

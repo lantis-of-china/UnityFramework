@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lantis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,8 @@ namespace SingleMoba
 		private static float eatDistance = 2.5f;
 		private static List<int> currentCheckKeys;
 		public static List<int> eatPropList = new List<int>();
-		public static LantisDictronaryList<int, SpawnLogic> datas = new LantisDictronaryList<int, SpawnLogic>();
-		public static Dictionary<int, Dictionary<int, LantisDictronaryList<int, List<SpawnLogic>>>> lantisDatas = new Dictionary<int, Dictionary<int, LantisDictronaryList<int, List<SpawnLogic>>>>();
+		public static UnityDictronaryList<int, SpawnLogic> datas = new UnityDictronaryList<int, SpawnLogic>();
+		public static Dictionary<int, Dictionary<int, UnityDictronaryList<int, List<SpawnLogic>>>> lantisDatas = new Dictionary<int, Dictionary<int, UnityDictronaryList<int, List<SpawnLogic>>>>();
 
 		public static void AddProps(List<P_Prop> props)
 		{
@@ -82,7 +83,7 @@ namespace SingleMoba
 
 		public static List<SpawnLogic> GetSpawnLogicXY(int x, int y)
 		{
-			Dictionary<int, LantisDictronaryList<int, List<SpawnLogic>>> yDatas = null;
+			Dictionary<int, UnityDictronaryList<int, List<SpawnLogic>>> yDatas = null;
 
 			if (lantisDatas.ContainsKey(x))
 			{
@@ -90,11 +91,11 @@ namespace SingleMoba
 			}
 			else
 			{
-				yDatas = new Dictionary<int, LantisDictronaryList<int, List<SpawnLogic>>>();
+				yDatas = new Dictionary<int, UnityDictronaryList<int, List<SpawnLogic>>>();
 				lantisDatas.Add(x, yDatas);
 			}
 
-			LantisDictronaryList<int, List<SpawnLogic>> lantisDictronaryList = null;
+			UnityDictronaryList<int, List<SpawnLogic>> lantisDictronaryList = null;
 
 			if (yDatas.ContainsKey(y))
 			{
@@ -102,7 +103,7 @@ namespace SingleMoba
 			}
 			else
 			{
-				lantisDictronaryList = new LantisDictronaryList<int, List<SpawnLogic>>();
+				lantisDictronaryList = new UnityDictronaryList<int, List<SpawnLogic>>();
 				lantisDictronaryList.AddValue(y, new List<SpawnLogic>());
 				yDatas.Add(y, lantisDictronaryList);
 			}

@@ -52,6 +52,13 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.1.11f1c1</UnityVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2020.1.11f1c1</UnityVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Zlib\Deflate.cs" />
     <Compile Include="Assets\FrameWorkRun\CsvAnalysic.cs" />
@@ -117,347 +124,123 @@
     <Compile Include="Assets\OtherCompoments\InlineText\SpriteAsset.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_monster.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_skill.xml" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonBasicOutline.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\StdLib.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Waveform.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_talkEvent.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_cardStore.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_6\hm.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_14_out\item_monster_14.atlas.txt" />
-     <None Include="Assets\AssetsPackage\TowerDefence_Vsquad\INFO\Info.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
-     <None Include="Assets\OtherCompoments\Spine\version.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\event_jingling1_out\event_jingling1.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_28\antusheng.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_120\bulaimeiyouling.atlas.txt" />
-     <None Include="Assets\Games\SiChuanMaJiang\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_talk.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_thing.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_language.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\noLihgt.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_monsterCome.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_skill.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_talkEvent.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_role_level_up.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_25\msqw.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_monsterTeam.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_gameThing.xml" />
-     <None Include="Assets\Games\GLGame\Source2\NumberFont\numberFontExport.fnt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_22\xiaoemo.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_12\cat.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_chapterGuide.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_115\shenminvwu.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_102\dqueen.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_8\langren.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_card.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_thingMoudle.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_chapterGuide.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Bloom.shader" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_15_out\item_monster_15.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_characterMoudle.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\OutsideSence\shader\glxz_ground.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Vectorscope.compute" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Sampling.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_4501\huiguniang.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample_LightingEquation.hlsl" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_language.xml" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_10_out\item_monster_10.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_11\nvwu.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_eventClue.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_alpha.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\Rall\Config\data_goodsCompare.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_monsterInfor.xml" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaOutline.cginc" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Waveform.compute" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_3701\熊皮猎手.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_talent.xml" />
-     <None Include="Assets\Shader\MaskIcon.shader" />
-     <None Include="Assets\StreamingAssets\AndroidAssets\Rall\Config\data_goodsCompare.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_language.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend Z.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_heroInfo.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\PSSL.hlsl" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_gameThing.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_role_level_up.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\glxz_shuijin.shader" />
-     <None Include="Assets\Shader\ZTextShader.shader" />
-     <None Include="Assets\Games\TexasPoker\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_chapterGuide.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\LightMeter.shader" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_hero.xml" />
-     <None Include="Assets\Games\BuYu\GamePrefab\name.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_110_out\item_monster_110.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_bufCondition.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\glxz_fakemirror.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_10\wa.atlas.txt" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_gameEventTalk.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\common_uvliudong.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_heroInfo.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5302\baixuegongzhu.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_2_out\item_monster_2.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_121\heilanhuzi.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_14\lv.atlas.txt" />
-     <None Include="Assets\Games\SingleMoba\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_monster.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_add_dep.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_9\songrongshuyao.atlas.txt" />
-     <None Include="Assets\AssetsPackage\AurynSky\Gems Ultimate Pack\READ ME.txt" />
-     <None Include="Assets\StreamingAssets\Version.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_monsterTeam.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\heroSprite\Hero_Antusheng\antushengQban.atlas.txt" />
-     <None Include="Assets\StreamingAssets\ResourceVersion.txt" />
-     <None Include="Assets\Shader\NewUnlitShader.shader" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_6_out\item_monster_6.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D11.hlsl" />
-     <None Include="Assets\StreamingAssets\WindowsAssets3\Rall\Config\data_goodsCompare.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_104_out\item_monster_104.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_thing.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_3201\xiaoairen.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonBasic.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_skill.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_language.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_blend_disslved.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_bless.xml" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_8_out\item_monster_8.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_uvliudong_a.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_thingMoudle.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\OutsideSence\shader\glxz_ground_billboard.shader" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Unlit.shader" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_skill.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend Mask.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_105\th_gz.atlas.txt" />
-     <None Include="Assets\Shader\Edge.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_function.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_110\tonghuangongzhu.atlas.txt" />
-     <None Include="Assets\Games\CheXuan\GamePrefab\Config\data_cardCompare.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_119\cfgzl.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\heroSprite\Hero_Huiguniang\huiguniang.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_blessMoudle.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_attributeWithLevel.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Add Mask.shader" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_awardBox.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_map.xml" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\Rall\Config\data_goodsCompare.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\glxz_glass.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_role_level_up.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_monster.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend.shader" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\glxz_toon_alcut.shader" />
-     <None Include="Assets\Games\Baccarat\GamePrefab\name.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_23\shenmirenA.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_fightLevel.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell_Fresnel_Opaque.shader" />
-     <None Include="Assets\Games\IMClub\GamePrefab\name.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_105_out\item_monster_105.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_7501\shouweiB.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_blessMoudle.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_eventClue.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_hero.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_111\cfgz.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Vectorscope.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D9.hlsl" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_gameThing.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_monsterCome.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell_dissolution_add.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_24\fsqw.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\event_jingling2_out\event_jingling2.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\ACES.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\FinalPass.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_17\antusheng.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_7\renoua.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Histogram.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_bufCondition.xml" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonLit.shader" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_5_out\item_monster_5.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_achievement.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_headAndSource.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Histogram.compute" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Switch.hlsl" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_1701\suren.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets3\SingleMoba\Config\data_skill.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Metal.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Uber.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\CheXuan\Config\data_cardCompare.xml" />
-     <None Include="Assets\OtherCompoments\EffectCamera\MobileBloom.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_bless.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_yicixingliudong.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_achievement.xml" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\xRLib.hlsl" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_chapter.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5\kulou.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\name.txt" />
-     <None Include="Assets\Games\WuXingJingCai\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\AskDao\Config\data_npc.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_awardBox.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets3\CheXuan\Config\data_cardCompare.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\SingleMoba\Config\data_skill.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Effect\Shader\common_yicixingliudong_a.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_107\bulaimeiyuedui.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_bless.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_7601\shouwei.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_talk.xml" />
-     <None Include="Assets\Games\SingleMoba\GamePrefab\Config\data_skill.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_103\kl.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_card.xml" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_11_out\item_monster_11.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonLitOutline.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_headAndSource.xml" />
-     <None Include="Assets\AssetsPackage\Suriyun\README.txt" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaMain.cginc" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Overlays.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_101\zbnvwu.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_117\lanhuzi.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\PSP2.hlsl" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_fightLevel.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\shader\common_wuqicaizhi.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_chapter.xml" />
-     <None Include="Assets\AssetsPackage\TowerDefence_Vsquad\Materials\Scene\sky.shader" />
-     <None Include="Assets\OtherCompoments\GameEffect\nosie_aplhe.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\SingleMoba\Config\data_skillBuff.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_talk.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\OpenGL.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_buf.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_26\zhanshiqingwa.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_buf.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_109\shengmu.atlas.txt" />
-     <None Include="Assets\Games\Rall\GamePrefab\Config\data_goodsCompare.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5801\King&amp;Nightingale.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\readme.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_21\renoub.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_4\xiaoheimao.atlas.txt" />
-     <None Include="Assets\Games\SelfGirl\selfgirl.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5401\heixuegongzhu.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_13_out\item_monster_13.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaSkin.cginc" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_cardStore.xml" />
-     <None Include="Assets\StreamingAssets\AndroidAssets\SingleMoba\Config\data_skill.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStd.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_headAndSource.xml" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_gameEventResult.xml" />
-     <None Include="Assets\OtherCompoments\EffectCamera\MobileURPBloom.shader" />
-     <None Include="Assets\Games\LaoHuJi\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_thingMoudle.xml" />
-     <None Include="Assets\Games\SingleMoba\GamePrefab\Config\data_skillBuff.xml" />
-     <None Include="Assets\Games\GLGame\Source\sceneAsset\城市夜晚广场 动画_导出\城市夜晚场景新新.atlas.txt" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_chapterPage.xml" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
-     <None Include="Assets\Games\QuanZhouMaJiang\GamePrefab\name.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_buf.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell-Particle Add.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_awardBox.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_20\lang.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_7_out\item_monster_7.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_113\heixuegongz.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_talent.xml" />
-     <None Include="Assets\Games\PaoDeKuai\GamePrefab\name.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_heroInfo.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_108\yongyegongzhu.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Fog.hlsl" />
-     <None Include="Assets\StreamingAssets\AndroidAssets\SingleMoba\Config\data_skillBuff.xml" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\sence_select_youling_out\Monster_ghost.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5901\King&amp;Nightingale.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_bufCondition.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_hero.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_chapter.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell Add Zoff.shader" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_1_out\item_monster_1.atlas.txt" />
-     <None Include="Assets\Games\Rall\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_card.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_114\wolf.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_monsterTeam.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_achievement.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_talent.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_13\ji.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_outsideWorldPos.xml" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_roleSetup.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_eventClue.xml" />
-     <None Include="Assets\Games\CheXuan\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GamePrefab\Config\data_goodsCompare.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets\GLGame\Config\data_fightLevel.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_gameEvent.xml" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_blessMoudle.xml" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample_Shared.hlsl" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_monsterCome.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\XboxOne.hlsl" />
-     <None Include="Assets\StreamingAssets\WindowsAssets3\SingleMoba\Config\data_skillBuff.xml" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_gameThing.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Copy.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_2\xiaohongmao.atlas.txt" />
-     <None Include="Assets\Games\GLGame\GamePrefab\Config\data_outsideWorldPos.xml" />
-     <None Include="Assets\OtherCompoments\GameEffect\cgwell_dissolution_blend.shader" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D12.hlsl" />
-     <None Include="Assets\Games\BingShangQuGunQiu\GamePrefab\name.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_thing.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_1\tugou.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_101_out\item_monster_101.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
-     <None Include="Assets\Games\ZhangTuGame\GamePrefab\Config\data_gameEventOption.xml" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_3301\xiaoairen3.atlas.txt" />
-     <None Include="Assets\OtherCompoments\GameEffect\nosie.shader" />
-     <None Include="Assets\Shader\MaskerShader.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_outsideWorldPos.xml" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_27\shenmiqingwa.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_19\xiaotianshi.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_4_out\Monster_xiaohongmao01.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_15\bgq.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_12_out\item_monster_12.atlas.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_talkEvent.xml" />
-     <None Include="Assets\Games\GLGame\Source\MonsterAssets\item_monster_111_out\item_monster_111.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Vulkan.hlsl" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_3101\xiaoanren1.atlas.txt" />
-     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Colors.hlsl" />
-     <None Include="Assets\StreamingAssets\ServerAddress.txt" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GLGame\Config\data_cardStore.xml" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\Sence\Tex\huiguang.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_5301\baixuegongzhu.atlas.txt" />
-     <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
-     <None Include="Assets\Games\GLGame\Source2\HeroSpine\item_monster_18\xiaoairen.atlas.txt" />
-     <None Include="Assets\Games\GLGame\Source2\Scene\loginSence\Sence\glxz_toon.shader" />
-     <None Include="Assets\StreamingAssets\WindowsAssets2\GamePrefab\Config\data_cardCompare.xml" />
-     <None Include="Assets\AssetsPackage\Toon Gas Station\Documentation\Toon Gas Station Documentation.txt" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\StdLib.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Waveform.shader" />
+    <None Include="Assets\AssetsPackage\TowerDefence_Vsquad\INFO\Info.txt" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
+    <None Include="Assets\OtherCompoments\Spine\version.txt" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Bloom.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Vectorscope.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Sampling.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample_LightingEquation.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
+    <None Include="Assets\StreamingAssets\WindowsAssets\Rall\Config\data_goodsCompare.xml" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaOutline.cginc" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Waveform.compute" />
+    <None Include="Assets\Shader\MaskIcon.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend Z.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\PSSL.hlsl" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
+    <None Include="Assets\Shader\ZTextShader.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\LightMeter.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
+    <None Include="Assets\Games\SingleMoba\GamePrefab\name.txt" />
+    <None Include="Assets\AssetsPackage\AurynSky\Gems Ultimate Pack\READ ME.txt" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
+    <None Include="Assets\Shader\NewUnlitShader.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D11.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonBasic.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Unlit.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend Mask.shader" />
+    <None Include="Assets\Shader\Edge.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Add Mask.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Alpha Blend.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell_Fresnel_Opaque.shader" />
+    <None Include="Assets\Games\IMClub\GamePrefab\name.txt" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Vectorscope.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D9.hlsl" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell_dissolution_add.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\ACES.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\FinalPass.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Histogram.shader" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonLit.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Histogram.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Switch.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Metal.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Uber.shader" />
+    <None Include="Assets\OtherCompoments\EffectCamera\MobileBloom.shader" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\xRLib.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
+    <None Include="Assets\StreamingAssets\WindowsAssets\SingleMoba\Config\data_skill.xml" />
+    <None Include="Assets\Games\SingleMoba\GamePrefab\Config\data_skill.xml" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\README.txt" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaMain.cginc" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Overlays.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\PSP2.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
+    <None Include="Assets\AssetsPackage\TowerDefence_Vsquad\Materials\Scene\sky.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\nosie_aplhe.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
+    <None Include="Assets\StreamingAssets\WindowsAssets\SingleMoba\Config\data_skillBuff.xml" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\OpenGL.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+    <None Include="Assets\Games\Rall\GamePrefab\Config\data_goodsCompare.xml" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\readme.txt" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\CharaSkin.cginc" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\CopyStd.shader" />
+    <None Include="Assets\OtherCompoments\EffectCamera\MobileURPBloom.shader" />
+    <None Include="Assets\Games\SingleMoba\GamePrefab\Config\data_skillBuff.xml" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell-Particle Add.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Fog.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell Add Zoff.shader" />
+    <None Include="Assets\Games\Rall\GamePrefab\name.txt" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\ToonShading\URPToonLit\SimpleURPToonLitOutlineExample_Shared.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\XboxOne.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Copy.shader" />
+    <None Include="Assets\OtherCompoments\GameEffect\cgwell_dissolution_blend.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\D3D12.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
+    <None Include="Assets\OtherCompoments\GameEffect\nosie.shader" />
+    <None Include="Assets\Shader\MaskerShader.shader" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Vulkan.hlsl" />
+    <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Colors.hlsl" />
+    <None Include="Assets\AssetsPackage\Suriyun\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
+    <None Include="Assets\AssetsPackage\Toon Gas Station\Documentation\Toon Gas Station Documentation.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Progrom\UnityHub\Editor\2020.1.11f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -992,17 +775,38 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>D:\Progrom\UnityHub\Editor\2020.1.11f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -1016,32 +820,17 @@
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1063,6 +852,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

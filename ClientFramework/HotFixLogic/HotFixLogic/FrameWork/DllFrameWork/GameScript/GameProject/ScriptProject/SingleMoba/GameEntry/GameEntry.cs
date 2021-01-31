@@ -14,7 +14,7 @@ namespace GameEntrySpace
         public static int RegistSystem()
         {
             FrameWorkDrvice.GameEntryManagerInstanece.RegistFunctionCallFun(
-                new CM_GameEntry()
+                new SingleMoba_GameEntry()
                 {
                     gameType = (int)eRoomType.AskDao,
                     gameName = "最简王者",
