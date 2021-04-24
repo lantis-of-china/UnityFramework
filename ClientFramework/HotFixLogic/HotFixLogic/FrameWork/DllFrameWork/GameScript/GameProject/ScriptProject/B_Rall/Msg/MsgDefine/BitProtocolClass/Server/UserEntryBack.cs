@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///用户进入服务器返回
 /// <\summary>
-public class UserEntryBack : CherishBitProtocolBase {
+public class UserEntryBack : LantisBitProtocolBase {
 /// <summary>
 ///指示是否成功 1 成功 2 账号密码错误 3 验证超时重新登陆
 /// <\summary>
@@ -29,48 +29,48 @@ public Int64 unitxTime;
 /// <summary>
 ///服务器id
 /// <\summary>
-public string serverId;
+public String serverId;
 /// <summary>
 ///
 /// <\summary>
 public List<P_ConditionItem> conditionList;
 public UserEntryBack(){}
 
-public UserEntryBack(Int32 _ResaultState, BaseDataAttribute.GameCoreData __gameCoreData, Int64 _unitxTime, string _serverId, List<P_ConditionItem> _conditionList){
+public UserEntryBack(Int32 _ResaultState, BaseDataAttribute.GameCoreData __gameCoreData, Int64 _unitxTime, String _serverId, List<P_ConditionItem> _conditionList){
 this.ResaultState = _ResaultState;
 this._gameCoreData = __gameCoreData;
 this.unitxTime = _unitxTime;
 this.serverId = _serverId;
 this.conditionList = _conditionList;
 }
-private byte[] get_ResaultState_encoding(){
-byte[] outBuf = null;
+private Byte[] get_ResaultState_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)ResaultState);
 return outBuf;
 }
 
 
-private byte[] get__gameCoreData_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)_gameCoreData).Serializer();
+private Byte[] get__gameCoreData_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)_gameCoreData).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_unitxTime_encoding(){
-byte[] outBuf = null;
+private Byte[] get_unitxTime_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)unitxTime);
 return outBuf;
 }
 
 
-private byte[] get_serverId_encoding(){
-byte[] outBuf = null;
-string str = (string)serverId;
+private Byte[] get_serverId_encoding(){
+Byte[] outBuf = null;
+String str = (String)serverId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -80,14 +80,14 @@ return outBuf;
 }
 
 
-private byte[] get_conditionList_encoding(){
-byte[] outBuf = null;
+private Byte[] get_conditionList_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_ConditionItem> listBase = conditionList;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
-byte[] baseBuf = baseObject.Serializer();
+LantisBitProtocolBase baseObject = listBase[i];
+Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
 outBuf = memoryWrite.ToArray();
@@ -95,8 +95,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_ResaultState_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ResaultState_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ResaultState = new Int32();
@@ -104,16 +104,16 @@ ResaultState = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set__gameCoreData_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__gameCoreData_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _gameCoreData = new BaseDataAttribute.GameCoreData();
 curIndex = _gameCoreData.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_unitxTime_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_unitxTime_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 unitxTime = new Int64();
@@ -121,8 +121,8 @@ unitxTime = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_serverId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_serverId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 serverId = "";
@@ -136,8 +136,8 @@ curIndex++;
 serverId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_conditionList_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_conditionList_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 conditionList = new List<P_ConditionItem>();
@@ -150,9 +150,9 @@ conditionList.Add(curTarget);
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(ResaultState !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_ResaultState_encoding();
@@ -183,11 +183,11 @@ byteBuf = get_conditionList_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_ResaultState_fromBuf(sourceBuf,startOffset);
 startOffset = set__gameCoreData_fromBuf(sourceBuf,startOffset);
 startOffset = set_unitxTime_fromBuf(sourceBuf,startOffset);
@@ -195,28 +195,28 @@ startOffset = set_serverId_fromBuf(sourceBuf,startOffset);
 startOffset = set_conditionList_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_ResaultState_json(){
-if(ResaultState==null){return "";}string resultJson = "\"ResaultState\":";resultJson += "\"";resultJson += ResaultState.ToString();resultJson += "\"";return resultJson;
+public String get_ResaultState_json(){
+if(ResaultState==null){return "";}String resultJson = "\"ResaultState\":";resultJson += "\"";resultJson += ResaultState.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get__gameCoreData_json(){
-if(_gameCoreData==null){return "";}string resultJson = "\"_gameCoreData\":";resultJson += ((CherishBitProtocolBase)_gameCoreData).SerializerJson();return resultJson;
+public String get__gameCoreData_json(){
+if(_gameCoreData==null){return "";}String resultJson = "\"_gameCoreData\":";resultJson += ((LantisBitProtocolBase)_gameCoreData).SerializerJson();return resultJson;
 }
 
 
-public string get_unitxTime_json(){
-if(unitxTime==null){return "";}string resultJson = "\"unitxTime\":";resultJson += "\"";resultJson += unitxTime.ToString();resultJson += "\"";return resultJson;
+public String get_unitxTime_json(){
+if(unitxTime==null){return "";}String resultJson = "\"unitxTime\":";resultJson += "\"";resultJson += unitxTime.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_serverId_json(){
-if(serverId==null){return "";}string resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
+public String get_serverId_json(){
+if(serverId==null){return "";}String resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_conditionList_json(){
-if(conditionList==null){return "";}string resultJson = "\"conditionList\":";resultJson += "[";
+public String get_conditionList_json(){
+if(conditionList==null){return "";}String resultJson = "\"conditionList\":";resultJson += "[";
 List<P_ConditionItem> listObj = (List<P_ConditionItem>)conditionList;
 for(int i = 0;i < listObj.Count;++i){
 P_ConditionItem item = listObj[i];
@@ -257,8 +257,8 @@ addB.DeserializerJson(item.ToJson());
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(ResaultState !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(ResaultState !=  null){
 resultStr += get_ResaultState_json();
 }
 else {}if(_gameCoreData !=  null){
@@ -276,7 +276,7 @@ resultStr += ",";resultStr += get_conditionList_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["ResaultState"] != null){
 set_ResaultState_fromJson(jsonObj["ResaultState"]);

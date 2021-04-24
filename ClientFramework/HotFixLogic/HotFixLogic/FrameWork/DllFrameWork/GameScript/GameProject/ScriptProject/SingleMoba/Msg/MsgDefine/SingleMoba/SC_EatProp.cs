@@ -4,12 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
+
 
 namespace SingleMoba{
 /// <summary>
 ///吃道具
 /// <\summary>
-public class SC_EatProp : CherishBitProtocolBase {
+public class SC_EatProp : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -53,7 +57,7 @@ return outBuf;
 
 private Byte[] get_players_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)players).Serializer();
+outBuf = ((LantisBitProtocolBase)players).Serializer();
 return outBuf;
 }
 
@@ -136,7 +140,7 @@ return resultJson;
 
 
 public String get_players_json(){
-if(players==null){return "";}String resultJson = "\"players\":";resultJson += ((CherishBitProtocolBase)players).SerializerJson();return resultJson;
+if(players==null){return "";}String resultJson = "\"players\":";resultJson += ((LantisBitProtocolBase)players).SerializerJson();return resultJson;
 }
 
 

@@ -13,23 +13,23 @@ namespace Server{
 /// <summary>
 ///用户注册返回
 /// <\summary>
-public class MessageRegistBack : CherishBitProtocolBase {
+public class MessageRegistBack : LantisBitProtocolBase {
 public MessageRegistBack(){}
 
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
-byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+Byte[] byteBuf = null;
+Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 return startOffset;}
-public override string SerializerJson(){
-string resultStr = "{";resultStr += "}";return resultStr;
+public override String SerializerJson(){
+String resultStr = "{";resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 }
 }

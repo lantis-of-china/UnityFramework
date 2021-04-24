@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///提示消息
 /// <\summary>
-public class TipMessage_SC : CherishBitProtocolBase {
+public class TipMessage_SC : LantisBitProtocolBase {
 /// <summary>
 ///提示消息参数
 /// <\summary>
@@ -27,15 +27,15 @@ public TipMessage_SC(Int32 _messageType, List<Int32> _messagePamars){
 this.messageType = _messageType;
 this.messagePamars = _messagePamars;
 }
-private byte[] get_messageType_encoding(){
-byte[] outBuf = null;
+private Byte[] get_messageType_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)messageType);
 return outBuf;
 }
 
 
-private byte[] get_messagePamars_encoding(){
-byte[] outBuf = null;
+private Byte[] get_messagePamars_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<Int32> listInt32 = (List<Int32>)messagePamars;
 memoryWrite.Write(BitConverter.GetBytes(listInt32.Count),0,4);
@@ -48,8 +48,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_messageType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_messageType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 messageType = new Int32();
@@ -57,8 +57,8 @@ messageType = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_messagePamars_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_messagePamars_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 messagePamars = new List<Int32>();
@@ -71,9 +71,9 @@ curIndex += 4;
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(messageType !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_messageType_encoding();
@@ -86,22 +86,22 @@ byteBuf = get_messagePamars_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_messageType_fromBuf(sourceBuf,startOffset);
 startOffset = set_messagePamars_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_messageType_json(){
-if(messageType==null){return "";}string resultJson = "\"messageType\":";resultJson += "\"";resultJson += messageType.ToString();resultJson += "\"";return resultJson;
+public String get_messageType_json(){
+if(messageType==null){return "";}String resultJson = "\"messageType\":";resultJson += "\"";resultJson += messageType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_messagePamars_json(){
-if(messagePamars==null){return "";}string resultJson = "\"messagePamars\":";resultJson += "[";List<Int32> listObj = (List<Int32>)messagePamars;
+public String get_messagePamars_json(){
+if(messagePamars==null){return "";}String resultJson = "\"messagePamars\":";resultJson += "[";List<Int32> listObj = (List<Int32>)messagePamars;
 for(int i = 0;i < listObj.Count;++i){
 Int32 item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
@@ -123,8 +123,8 @@ messagePamars.Add(Int32.Parse(jsonItem.ToString()));}
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(messageType !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(messageType !=  null){
 resultStr += get_messageType_json();
 }
 else {}if(messagePamars !=  null){
@@ -133,7 +133,7 @@ resultStr += ",";resultStr += get_messagePamars_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["messageType"] != null){
 set_messageType_fromJson(jsonObj["messageType"]);

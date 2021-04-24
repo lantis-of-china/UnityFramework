@@ -13,38 +13,38 @@ namespace IMClub{
 /// <summary>
 ///�޸ĳ�Ա��Ϣ[ʹ��֪ͨ=changeMenberScore]
 /// <\summary>
-public class SC_ChangeMenberScore : CherishBitProtocolBase {
+public class SC_ChangeMenberScore : LantisBitProtocolBase {
 /// <summary>
 ///������Ϣ 0ʧ�� 1�ɹ�
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///ȺID
 /// <\summary>
-public string clubId;
+public String clubId;
 /// <summary>
 ///��ԱID
 /// <\summary>
 public Int32 menberId;
 /// <summary>
-///�ı��ķ�ֵ
+///�ı�ķ�ֵ
 /// <\summary>
 public Int32 scoreChange;
 /// <summary>
-///�ı�����ֵ
+///�ı���ֵ
 /// <\summary>
 public Int32 score;
 /// <summary>
-///���������� 0ֱ������ 1���� 2����
+///���������� 0ֱ������ 1��� 2����
 /// <\summary>
-public byte controlType;
+public Byte controlType;
 /// <summary>
 ///���� 0�� 1��
 /// <\summary>
-public byte credit;
+public Byte credit;
 public SC_ChangeMenberScore(){}
 
-public SC_ChangeMenberScore(byte _result, string _clubId, Int32 _menberId, Int32 _scoreChange, Int32 _score, byte _controlType, byte _credit){
+public SC_ChangeMenberScore(Byte _result, String _clubId, Int32 _menberId, Int32 _scoreChange, Int32 _score, Byte _controlType, Byte _credit){
 this.result = _result;
 this.clubId = _clubId;
 this.menberId = _menberId;
@@ -53,21 +53,21 @@ this.score = _score;
 this.controlType = _controlType;
 this.credit = _credit;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_clubId_encoding(){
-byte[] outBuf = null;
-string str = (string)clubId;
+private Byte[] get_clubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)clubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -77,53 +77,53 @@ return outBuf;
 }
 
 
-private byte[] get_menberId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_menberId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)menberId);
 return outBuf;
 }
 
 
-private byte[] get_scoreChange_encoding(){
-byte[] outBuf = null;
+private Byte[] get_scoreChange_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)scoreChange);
 return outBuf;
 }
 
 
-private byte[] get_score_encoding(){
-byte[] outBuf = null;
+private Byte[] get_score_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)score);
 return outBuf;
 }
 
 
-private byte[] get_controlType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)controlType;
+private Byte[] get_controlType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)controlType;
 return outBuf;
 }
 
 
-private byte[] get_credit_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)credit;
+private Byte[] get_credit_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)credit;
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_clubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_clubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 clubId = "";
@@ -137,8 +137,8 @@ curIndex++;
 clubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_menberId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_menberId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 menberId = new Int32();
@@ -146,8 +146,8 @@ menberId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_scoreChange_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_scoreChange_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 scoreChange = new Int32();
@@ -155,8 +155,8 @@ scoreChange = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_score_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_score_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 score = new Int32();
@@ -164,27 +164,27 @@ score = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_controlType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_controlType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-controlType = new byte();
+controlType = new Byte();
 controlType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_credit_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_credit_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-credit = new byte();
+credit = new Byte();
 credit = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -227,11 +227,11 @@ byteBuf = get_credit_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_clubId_fromBuf(sourceBuf,startOffset);
 startOffset = set_menberId_fromBuf(sourceBuf,startOffset);
@@ -241,43 +241,43 @@ startOffset = set_controlType_fromBuf(sourceBuf,startOffset);
 startOffset = set_credit_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_clubId_json(){
-if(clubId==null){return "";}string resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
+public String get_clubId_json(){
+if(clubId==null){return "";}String resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_menberId_json(){
-if(menberId==null){return "";}string resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
+public String get_menberId_json(){
+if(menberId==null){return "";}String resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_scoreChange_json(){
-if(scoreChange==null){return "";}string resultJson = "\"scoreChange\":";resultJson += "\"";resultJson += scoreChange.ToString();resultJson += "\"";return resultJson;
+public String get_scoreChange_json(){
+if(scoreChange==null){return "";}String resultJson = "\"scoreChange\":";resultJson += "\"";resultJson += scoreChange.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_score_json(){
-if(score==null){return "";}string resultJson = "\"score\":";resultJson += "\"";resultJson += score.ToString();resultJson += "\"";return resultJson;
+public String get_score_json(){
+if(score==null){return "";}String resultJson = "\"score\":";resultJson += "\"";resultJson += score.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_controlType_json(){
-if(controlType==null){return "";}string resultJson = "\"controlType\":";resultJson += "\"";resultJson += controlType.ToString();resultJson += "\"";return resultJson;
+public String get_controlType_json(){
+if(controlType==null){return "";}String resultJson = "\"controlType\":";resultJson += "\"";resultJson += controlType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_credit_json(){
-if(credit==null){return "";}string resultJson = "\"credit\":";resultJson += "\"";resultJson += credit.ToString();resultJson += "\"";return resultJson;
+public String get_credit_json(){
+if(credit==null){return "";}String resultJson = "\"credit\":";resultJson += "\"";resultJson += credit.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -302,16 +302,16 @@ score= Int32.Parse(jsonObj.ToString());
 
 
 public void set_controlType_fromJson(LitJson.JsonData jsonObj){
-controlType= byte.Parse(jsonObj.ToString());
+controlType= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_credit_fromJson(LitJson.JsonData jsonObj){
-credit= byte.Parse(jsonObj.ToString());
+credit= Byte.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(clubId !=  null){
@@ -335,7 +335,7 @@ resultStr += ",";resultStr += get_credit_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

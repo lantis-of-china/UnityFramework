@@ -1,21 +1,19 @@
 ﻿// 此文件由协议导出插件自动生成
-// ID : 00001]
-
+// ID : 00001]
 //********
 using System;
 using System.Collections.Generic;
 using System.IO;
 using BaseDataAttribute;
 using Server;
-using IMClub;
 using SingleMoba;
-using Template;
+
 
 namespace SingleMoba{
 /// <summary>
 ///
 /// <\summary>
-public class SC_UnReleseRoom : CherishBitProtocolBase {
+public class SC_UnReleseRoom : LantisBitProtocolBase {
 /// <summary>
 ///如果是加入房间带上房间ID
 /// <\summary>

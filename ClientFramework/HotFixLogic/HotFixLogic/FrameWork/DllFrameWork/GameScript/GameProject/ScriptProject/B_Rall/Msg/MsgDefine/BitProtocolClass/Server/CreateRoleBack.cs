@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///创建角色返回
 /// <\summary>
-public class CreateRoleBack : CherishBitProtocolBase {
+public class CreateRoleBack : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -23,14 +23,14 @@ public CreateRoleBack(){}
 public CreateRoleBack(Int32 _state){
 this.state = _state;
 }
-private byte[] get_state_encoding(){
-byte[] outBuf = null;
+private Byte[] get_state_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)state);
 return outBuf;
 }
 
-private int set_state_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_state_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 state = new Int32();
@@ -38,25 +38,25 @@ state = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(state !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_state_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_state_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_state_json(){
-if(state==null){return "";}string resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
+public String get_state_json(){
+if(state==null){return "";}String resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -64,14 +64,14 @@ public void set_state_fromJson(LitJson.JsonData jsonObj){
 state= Int32.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(state !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(state !=  null){
 resultStr += get_state_json();
 }
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["state"] != null){
 set_state_fromJson(jsonObj["state"]);

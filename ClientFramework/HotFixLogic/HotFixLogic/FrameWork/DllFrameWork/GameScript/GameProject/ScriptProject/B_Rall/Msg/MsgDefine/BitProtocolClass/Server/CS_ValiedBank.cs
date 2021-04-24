@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///银行登录
 /// <\summary>
-public class CS_ValiedBank : CherishBitProtocolBase {
+public class CS_ValiedBank : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -20,27 +20,27 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///
 /// <\summary>
-public string password;
+public String password;
 public CS_ValiedBank(){}
 
-public CS_ValiedBank(UserValiadateInfor _UserValiadate, string _password){
+public CS_ValiedBank(UserValiadateInfor _UserValiadate, String _password){
 this.UserValiadate = _UserValiadate;
 this.password = _password;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_password_encoding(){
-byte[] outBuf = null;
-string str = (string)password;
+private Byte[] get_password_encoding(){
+Byte[] outBuf = null;
+String str = (String)password;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -49,16 +49,16 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_password_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_password_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 password = "";
@@ -72,9 +72,9 @@ curIndex++;
 password = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -87,22 +87,22 @@ byteBuf = get_password_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_password_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_password_json(){
-if(password==null){return "";}string resultJson = "\"password\":";resultJson += "\"";resultJson += password.ToString();resultJson += "\"";return resultJson;
+public String get_password_json(){
+if(password==null){return "";}String resultJson = "\"password\":";resultJson += "\"";resultJson += password.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -115,8 +115,8 @@ public void set_password_fromJson(LitJson.JsonData jsonObj){
 password= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(password !=  null){
@@ -125,7 +125,7 @@ resultStr += ",";resultStr += get_password_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

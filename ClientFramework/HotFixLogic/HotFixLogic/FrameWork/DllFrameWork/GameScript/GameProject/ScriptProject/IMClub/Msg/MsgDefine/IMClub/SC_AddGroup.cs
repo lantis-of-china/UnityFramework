@@ -1,6 +1,6 @@
 ﻿// 此文件由协议导出插件自动生成
 // ID : 00001]
-//****�������ֲ�S2C_AddGroup_MsgType = 20006****
+//****������ֲ�S2C_AddGroup_MsgType = 20006****
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,13 +11,13 @@ using Server;
 
 namespace IMClub{
 /// <summary>
-///�������ֲ�S2C_AddGroup_MsgType = 20006
+///������ֲ�S2C_AddGroup_MsgType = 20006
 /// <\summary>
-public class SC_AddGroup : CherishBitProtocolBase {
+public class SC_AddGroup : LantisBitProtocolBase {
 /// <summary>
 ///������Ϣ 0ʧ�� 1�ɹ�
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///Ⱥ����Ϣ
 /// <\summary>
@@ -28,34 +28,34 @@ public P_GroupInfo groupInfo;
 public List<P_RoomInfo> thisRroomList;
 public SC_AddGroup(){}
 
-public SC_AddGroup(byte _result, P_GroupInfo _groupInfo, List<P_RoomInfo> _thisRroomList){
+public SC_AddGroup(Byte _result, P_GroupInfo _groupInfo, List<P_RoomInfo> _thisRroomList){
 this.result = _result;
 this.groupInfo = _groupInfo;
 this.thisRroomList = _thisRroomList;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_groupInfo_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)groupInfo).Serializer();
+private Byte[] get_groupInfo_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)groupInfo).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_thisRroomList_encoding(){
-byte[] outBuf = null;
+private Byte[] get_thisRroomList_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_RoomInfo> listBase = thisRroomList;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
-byte[] baseBuf = baseObject.Serializer();
+LantisBitProtocolBase baseObject = listBase[i];
+Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
 outBuf = memoryWrite.ToArray();
@@ -63,25 +63,25 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_groupInfo_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_groupInfo_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 groupInfo = new P_GroupInfo();
 curIndex = groupInfo.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_thisRroomList_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_thisRroomList_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 thisRroomList = new List<P_RoomInfo>();
@@ -94,9 +94,9 @@ thisRroomList.Add(curTarget);
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -115,28 +115,28 @@ byteBuf = get_thisRroomList_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_groupInfo_fromBuf(sourceBuf,startOffset);
 startOffset = set_thisRroomList_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_groupInfo_json(){
-if(groupInfo==null){return "";}string resultJson = "\"groupInfo\":";resultJson += ((CherishBitProtocolBase)groupInfo).SerializerJson();return resultJson;
+public String get_groupInfo_json(){
+if(groupInfo==null){return "";}String resultJson = "\"groupInfo\":";resultJson += ((LantisBitProtocolBase)groupInfo).SerializerJson();return resultJson;
 }
 
 
-public string get_thisRroomList_json(){
-if(thisRroomList==null){return "";}string resultJson = "\"thisRroomList\":";resultJson += "[";
+public String get_thisRroomList_json(){
+if(thisRroomList==null){return "";}String resultJson = "\"thisRroomList\":";resultJson += "[";
 List<P_RoomInfo> listObj = (List<P_RoomInfo>)thisRroomList;
 for(int i = 0;i < listObj.Count;++i){
 P_RoomInfo item = listObj[i];
@@ -148,7 +148,7 @@ return resultJson;
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -167,8 +167,8 @@ addB.DeserializerJson(item.ToJson());
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(groupInfo !=  null){
@@ -180,7 +180,7 @@ resultStr += ",";resultStr += get_thisRroomList_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

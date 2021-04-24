@@ -13,23 +13,23 @@ namespace Server{
 /// <summary>
 ///用户登陆
 /// <\summary>
-public class MessageUserLogin : CherishBitProtocolBase {
+public class MessageUserLogin : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
-public string AccountNumber;
+public String AccountNumber;
 /// <summary>
 ///
 /// <\summary>
-public string PassWord;
+public String PassWord;
 /// <summary>
 ///
 /// <\summary>
-public string Unionid;
+public String Unionid;
 /// <summary>
 ///
 /// <\summary>
-public bool IsPhone;
+public Boolean IsPhone;
 /// <summary>
 ///版本
 /// <\summary>
@@ -37,30 +37,30 @@ public Int32 version;
 /// <summary>
 ///昵称
 /// <\summary>
-public string nickName;
+public String nickName;
 /// <summary>
 ///性别
 /// <\summary>
-public byte sex;
+public Byte sex;
 /// <summary>
 ///头像URL
 /// <\summary>
-public string headUrl;
+public String headUrl;
 /// <summary>
 ///1微信 2游客
 /// <\summary>
-public byte isWeiChat;
+public Byte isWeiChat;
 /// <summary>
 ///纬度
 /// <\summary>
-public float latitude;
+public Single latitude;
 /// <summary>
 ///经度
 /// <\summary>
-public float longitude;
+public Single longitude;
 public MessageUserLogin(){}
 
-public MessageUserLogin(string _AccountNumber, string _PassWord, string _Unionid, bool _IsPhone, Int32 _version, string _nickName, byte _sex, string _headUrl, byte _isWeiChat, float _latitude, float _longitude){
+public MessageUserLogin(String _AccountNumber, String _PassWord, String _Unionid, Boolean _IsPhone, Int32 _version, String _nickName, Byte _sex, String _headUrl, Byte _isWeiChat, Single _latitude, Single _longitude){
 this.AccountNumber = _AccountNumber;
 this.PassWord = _PassWord;
 this.Unionid = _Unionid;
@@ -73,13 +73,13 @@ this.isWeiChat = _isWeiChat;
 this.latitude = _latitude;
 this.longitude = _longitude;
 }
-private byte[] get_AccountNumber_encoding(){
-byte[] outBuf = null;
-string str = (string)AccountNumber;
+private Byte[] get_AccountNumber_encoding(){
+Byte[] outBuf = null;
+String str = (String)AccountNumber;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -89,13 +89,13 @@ return outBuf;
 }
 
 
-private byte[] get_PassWord_encoding(){
-byte[] outBuf = null;
-string str = (string)PassWord;
+private Byte[] get_PassWord_encoding(){
+Byte[] outBuf = null;
+String str = (String)PassWord;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -105,13 +105,13 @@ return outBuf;
 }
 
 
-private byte[] get_Unionid_encoding(){
-byte[] outBuf = null;
-string str = (string)Unionid;
+private Byte[] get_Unionid_encoding(){
+Byte[] outBuf = null;
+String str = (String)Unionid;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -121,27 +121,27 @@ return outBuf;
 }
 
 
-private byte[] get_IsPhone_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((bool)IsPhone);
+private Byte[] get_IsPhone_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Boolean)IsPhone);
 return outBuf;
 }
 
 
-private byte[] get_version_encoding(){
-byte[] outBuf = null;
+private Byte[] get_version_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)version);
 return outBuf;
 }
 
 
-private byte[] get_nickName_encoding(){
-byte[] outBuf = null;
-string str = (string)nickName;
+private Byte[] get_nickName_encoding(){
+Byte[] outBuf = null;
+String str = (String)nickName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -151,21 +151,21 @@ return outBuf;
 }
 
 
-private byte[] get_sex_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)sex;
+private Byte[] get_sex_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)sex;
 return outBuf;
 }
 
 
-private byte[] get_headUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)headUrl;
+private Byte[] get_headUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)headUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -175,29 +175,29 @@ return outBuf;
 }
 
 
-private byte[] get_isWeiChat_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)isWeiChat;
+private Byte[] get_isWeiChat_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)isWeiChat;
 return outBuf;
 }
 
 
-private byte[] get_latitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)latitude);
+private Byte[] get_latitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)latitude);
 return outBuf;
 }
 
 
-private byte[] get_longitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)longitude);
+private Byte[] get_longitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)longitude);
 return outBuf;
 }
 
-private int set_AccountNumber_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_AccountNumber_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 AccountNumber = "";
@@ -211,8 +211,8 @@ curIndex++;
 AccountNumber = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_PassWord_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_PassWord_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 PassWord = "";
@@ -226,8 +226,8 @@ curIndex++;
 PassWord = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_Unionid_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_Unionid_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 Unionid = "";
@@ -241,17 +241,17 @@ curIndex++;
 Unionid = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_IsPhone_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_IsPhone_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-IsPhone = new bool();
+IsPhone = new Boolean();
 IsPhone = BitConverter.ToBoolean(sourceBuf,curIndex);
 curIndex += 1;
 }return curIndex;
 }
-private int set_version_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_version_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 version = new Int32();
@@ -259,8 +259,8 @@ version = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_nickName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_nickName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 nickName = "";
@@ -274,17 +274,17 @@ curIndex++;
 nickName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-sex = new byte();
+sex = new Byte();
 sex = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_headUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_headUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 headUrl = "";
@@ -298,36 +298,36 @@ curIndex++;
 headUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_isWeiChat_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_isWeiChat_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-isWeiChat = new byte();
+isWeiChat = new Byte();
 isWeiChat = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_latitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_latitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-latitude = new float();
+latitude = new Single();
 latitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_longitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_longitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-longitude = new float();
+longitude = new Single();
 longitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(AccountNumber !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_AccountNumber_encoding();
@@ -394,11 +394,11 @@ byteBuf = get_longitude_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_AccountNumber_fromBuf(sourceBuf,startOffset);
 startOffset = set_PassWord_fromBuf(sourceBuf,startOffset);
 startOffset = set_Unionid_fromBuf(sourceBuf,startOffset);
@@ -412,58 +412,58 @@ startOffset = set_latitude_fromBuf(sourceBuf,startOffset);
 startOffset = set_longitude_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_AccountNumber_json(){
-if(AccountNumber==null){return "";}string resultJson = "\"AccountNumber\":";resultJson += "\"";resultJson += AccountNumber.ToString();resultJson += "\"";return resultJson;
+public String get_AccountNumber_json(){
+if(AccountNumber==null){return "";}String resultJson = "\"AccountNumber\":";resultJson += "\"";resultJson += AccountNumber.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_PassWord_json(){
-if(PassWord==null){return "";}string resultJson = "\"PassWord\":";resultJson += "\"";resultJson += PassWord.ToString();resultJson += "\"";return resultJson;
+public String get_PassWord_json(){
+if(PassWord==null){return "";}String resultJson = "\"PassWord\":";resultJson += "\"";resultJson += PassWord.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_Unionid_json(){
-if(Unionid==null){return "";}string resultJson = "\"Unionid\":";resultJson += "\"";resultJson += Unionid.ToString();resultJson += "\"";return resultJson;
+public String get_Unionid_json(){
+if(Unionid==null){return "";}String resultJson = "\"Unionid\":";resultJson += "\"";resultJson += Unionid.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_IsPhone_json(){
-if(IsPhone==null){return "";}string resultJson = "\"IsPhone\":";resultJson += "\"";resultJson += IsPhone.ToString();resultJson += "\"";return resultJson;
+public String get_IsPhone_json(){
+if(IsPhone==null){return "";}String resultJson = "\"IsPhone\":";resultJson += "\"";resultJson += IsPhone.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_version_json(){
-if(version==null){return "";}string resultJson = "\"version\":";resultJson += "\"";resultJson += version.ToString();resultJson += "\"";return resultJson;
+public String get_version_json(){
+if(version==null){return "";}String resultJson = "\"version\":";resultJson += "\"";resultJson += version.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_nickName_json(){
-if(nickName==null){return "";}string resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
+public String get_nickName_json(){
+if(nickName==null){return "";}String resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_sex_json(){
-if(sex==null){return "";}string resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
+public String get_sex_json(){
+if(sex==null){return "";}String resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_headUrl_json(){
-if(headUrl==null){return "";}string resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
+public String get_headUrl_json(){
+if(headUrl==null){return "";}String resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_isWeiChat_json(){
-if(isWeiChat==null){return "";}string resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
+public String get_isWeiChat_json(){
+if(isWeiChat==null){return "";}String resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_latitude_json(){
-if(latitude==null){return "";}string resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
+public String get_latitude_json(){
+if(latitude==null){return "";}String resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_longitude_json(){
-if(longitude==null){return "";}string resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
+public String get_longitude_json(){
+if(longitude==null){return "";}String resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -483,7 +483,7 @@ Unionid= jsonObj.ToString();
 
 
 public void set_IsPhone_fromJson(LitJson.JsonData jsonObj){
-IsPhone= bool.Parse(jsonObj.ToString());
+IsPhone= Boolean.Parse(jsonObj.ToString());
 }
 
 
@@ -498,7 +498,7 @@ nickName= jsonObj.ToString();
 
 
 public void set_sex_fromJson(LitJson.JsonData jsonObj){
-sex= byte.Parse(jsonObj.ToString());
+sex= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -508,21 +508,21 @@ headUrl= jsonObj.ToString();
 
 
 public void set_isWeiChat_fromJson(LitJson.JsonData jsonObj){
-isWeiChat= byte.Parse(jsonObj.ToString());
+isWeiChat= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_latitude_fromJson(LitJson.JsonData jsonObj){
-latitude= float.Parse(jsonObj.ToString());
+latitude= Single.Parse(jsonObj.ToString());
 }
 
 
 public void set_longitude_fromJson(LitJson.JsonData jsonObj){
-longitude= float.Parse(jsonObj.ToString());
+longitude= Single.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(AccountNumber !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(AccountNumber !=  null){
 resultStr += get_AccountNumber_json();
 }
 else {}if(PassWord !=  null){
@@ -558,7 +558,7 @@ resultStr += ",";resultStr += get_longitude_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["AccountNumber"] != null){
 set_AccountNumber_fromJson(jsonObj["AccountNumber"]);

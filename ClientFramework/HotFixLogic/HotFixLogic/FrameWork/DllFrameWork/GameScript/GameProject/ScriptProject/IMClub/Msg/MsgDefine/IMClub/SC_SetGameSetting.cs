@@ -13,11 +13,11 @@ namespace IMClub{
 /// <summary>
 ///������Ϸ����[ʹ��֪ͨ=setGameSetting]
 /// <\summary>
-public class SC_SetGameSetting : CherishBitProtocolBase {
+public class SC_SetGameSetting : LantisBitProtocolBase {
 /// <summary>
 ///���ֲ�ID
 /// <\summary>
-public string clubId;
+public String clubId;
 /// <summary>
 ///��Ϸ����
 /// <\summary>
@@ -28,18 +28,18 @@ public P_GameSetting gameSetting;
 public List<Int32> paramars;
 public SC_SetGameSetting(){}
 
-public SC_SetGameSetting(string _clubId, P_GameSetting _gameSetting, List<Int32> _paramars){
+public SC_SetGameSetting(String _clubId, P_GameSetting _gameSetting, List<Int32> _paramars){
 this.clubId = _clubId;
 this.gameSetting = _gameSetting;
 this.paramars = _paramars;
 }
-private byte[] get_clubId_encoding(){
-byte[] outBuf = null;
-string str = (string)clubId;
+private Byte[] get_clubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)clubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -49,15 +49,15 @@ return outBuf;
 }
 
 
-private byte[] get_gameSetting_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)gameSetting).Serializer();
+private Byte[] get_gameSetting_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)gameSetting).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_paramars_encoding(){
-byte[] outBuf = null;
+private Byte[] get_paramars_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<Int32> listInt32 = (List<Int32>)paramars;
 memoryWrite.Write(BitConverter.GetBytes(listInt32.Count),0,4);
@@ -70,8 +70,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_clubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_clubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 clubId = "";
@@ -85,16 +85,16 @@ curIndex++;
 clubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_gameSetting_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gameSetting_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 gameSetting = new P_GameSetting();
 curIndex = gameSetting.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_paramars_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_paramars_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 paramars = new List<Int32>();
@@ -107,9 +107,9 @@ curIndex += 4;
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(clubId !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_clubId_encoding();
@@ -128,28 +128,28 @@ byteBuf = get_paramars_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_clubId_fromBuf(sourceBuf,startOffset);
 startOffset = set_gameSetting_fromBuf(sourceBuf,startOffset);
 startOffset = set_paramars_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_clubId_json(){
-if(clubId==null){return "";}string resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
+public String get_clubId_json(){
+if(clubId==null){return "";}String resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_gameSetting_json(){
-if(gameSetting==null){return "";}string resultJson = "\"gameSetting\":";resultJson += ((CherishBitProtocolBase)gameSetting).SerializerJson();return resultJson;
+public String get_gameSetting_json(){
+if(gameSetting==null){return "";}String resultJson = "\"gameSetting\":";resultJson += ((LantisBitProtocolBase)gameSetting).SerializerJson();return resultJson;
 }
 
 
-public string get_paramars_json(){
-if(paramars==null){return "";}string resultJson = "\"paramars\":";resultJson += "[";List<Int32> listObj = (List<Int32>)paramars;
+public String get_paramars_json(){
+if(paramars==null){return "";}String resultJson = "\"paramars\":";resultJson += "[";List<Int32> listObj = (List<Int32>)paramars;
 for(int i = 0;i < listObj.Count;++i){
 Int32 item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
@@ -176,8 +176,8 @@ paramars.Add(Int32.Parse(jsonItem.ToString()));}
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(clubId !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(clubId !=  null){
 resultStr += get_clubId_json();
 }
 else {}if(gameSetting !=  null){
@@ -189,7 +189,7 @@ resultStr += ",";resultStr += get_paramars_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["clubId"] != null){
 set_clubId_fromJson(jsonObj["clubId"]);

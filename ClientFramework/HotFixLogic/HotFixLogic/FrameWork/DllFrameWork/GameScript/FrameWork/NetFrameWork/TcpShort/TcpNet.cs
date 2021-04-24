@@ -63,7 +63,7 @@ public class TcpGoable
     }  
 }
 
-public class TcpNet<T> where T : CherishBitProtocolBase
+public class TcpNet<T> where T : LantisBitProtocolBase
 {
     public static int OutTime = 10000;
 
@@ -75,7 +75,7 @@ public class TcpNet<T> where T : CherishBitProtocolBase
 
 public class TcpNetSend
 {
-	public static void Send<T>(int outTime,string IpAddress, int Port, MonoBehaviour BehaviourInstance, T dataPark, int netMessageType) where T : CherishBitProtocolBase
+	public static void Send<T>(int outTime,string IpAddress, int Port, MonoBehaviour BehaviourInstance, T dataPark, int netMessageType) where T : LantisBitProtocolBase
 	{
 		CherishSocket.AddressFamily useFamily = CherishSocket.AddressFamily.InterNetwork;
 		IpAddress = NetDataManager.DomainIp(IpAddress, NetDataManager.DomainExctption, ref useFamily);
@@ -116,7 +116,7 @@ public class TcpNetSend
 
 public class NetDataManager
 {
-	public static void NotThreadSendMessageTcp<T>(CherishSocket ClientSocket, T Date, int messageType, bool needRecaveCall = true) where T : CherishBitProtocolBase
+	public static void NotThreadSendMessageTcp<T>(CherishSocket ClientSocket, T Date, int messageType, bool needRecaveCall = true) where T : LantisBitProtocolBase
 	{
 		byte[] _typeDate = System.BitConverter.GetBytes((int)messageType);
 		byte[] _bufferDate = Date.Serializer();
@@ -197,7 +197,7 @@ public class NetDataManager
 		}
 	}
 	
-	public static void SendMessageTcp<T>(CherishSocket ClientSocket, T Date, int messageType, bool needRecaveCall = true) where T : CherishBitProtocolBase
+	public static void SendMessageTcp<T>(CherishSocket ClientSocket, T Date, int messageType, bool needRecaveCall = true) where T : LantisBitProtocolBase
 	{
 		byte[] _typeDate = System.BitConverter.GetBytes((int)messageType);
 		byte[] _bufferDate = Date.Serializer();

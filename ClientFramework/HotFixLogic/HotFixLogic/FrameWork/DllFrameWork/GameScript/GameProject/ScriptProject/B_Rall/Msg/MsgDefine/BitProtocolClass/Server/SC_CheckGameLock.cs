@@ -12,46 +12,46 @@ namespace Server{
 /// <summary>
 ///
 /// <\summary>
-public class SC_CheckGameLock : CherishBitProtocolBase {
+public class SC_CheckGameLock : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
-public byte state;
+public Byte state;
 /// <summary>
 ///0不能进入 1可以进入
 /// <\summary>
-public string id;
+public String id;
 /// <summary>
 ///
 /// <\summary>
-public string ip;
+public String ip;
 /// <summary>
 ///
 /// <\summary>
 public Int32 port;
 public SC_CheckGameLock(){}
 
-public SC_CheckGameLock(byte _state, string _id, string _ip, Int32 _port){
+public SC_CheckGameLock(Byte _state, String _id, String _ip, Int32 _port){
 this.state = _state;
 this.id = _id;
 this.ip = _ip;
 this.port = _port;
 }
-private byte[] get_state_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)state;
+private Byte[] get_state_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)state;
 return outBuf;
 }
 
 
-private byte[] get_id_encoding(){
-byte[] outBuf = null;
-string str = (string)id;
+private Byte[] get_id_encoding(){
+Byte[] outBuf = null;
+String str = (String)id;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -61,13 +61,13 @@ return outBuf;
 }
 
 
-private byte[] get_ip_encoding(){
-byte[] outBuf = null;
-string str = (string)ip;
+private Byte[] get_ip_encoding(){
+Byte[] outBuf = null;
+String str = (String)ip;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -77,23 +77,23 @@ return outBuf;
 }
 
 
-private byte[] get_port_encoding(){
-byte[] outBuf = null;
+private Byte[] get_port_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)port);
 return outBuf;
 }
 
-private int set_state_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_state_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-state = new byte();
+state = new Byte();
 state = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_id_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_id_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 id = "";
@@ -107,8 +107,8 @@ curIndex++;
 id = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_ip_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ip_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ip = "";
@@ -122,8 +122,8 @@ curIndex++;
 ip = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_port_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_port_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 port = new Int32();
@@ -131,9 +131,9 @@ port = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(state !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_state_encoding();
@@ -158,39 +158,39 @@ byteBuf = get_port_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_state_fromBuf(sourceBuf,startOffset);
 startOffset = set_id_fromBuf(sourceBuf,startOffset);
 startOffset = set_ip_fromBuf(sourceBuf,startOffset);
 startOffset = set_port_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_state_json(){
-if(state==null){return "";}string resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
+public String get_state_json(){
+if(state==null){return "";}String resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_id_json(){
-if(id==null){return "";}string resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
+public String get_id_json(){
+if(id==null){return "";}String resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_ip_json(){
-if(ip==null){return "";}string resultJson = "\"ip\":";resultJson += "\"";resultJson += ip.ToString();resultJson += "\"";return resultJson;
+public String get_ip_json(){
+if(ip==null){return "";}String resultJson = "\"ip\":";resultJson += "\"";resultJson += ip.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_port_json(){
-if(port==null){return "";}string resultJson = "\"port\":";resultJson += "\"";resultJson += port.ToString();resultJson += "\"";return resultJson;
+public String get_port_json(){
+if(port==null){return "";}String resultJson = "\"port\":";resultJson += "\"";resultJson += port.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_state_fromJson(LitJson.JsonData jsonObj){
-state= byte.Parse(jsonObj.ToString());
+state= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -208,8 +208,8 @@ public void set_port_fromJson(LitJson.JsonData jsonObj){
 port= Int32.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(state !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(state !=  null){
 resultStr += get_state_json();
 }
 else {}if(id !=  null){
@@ -224,7 +224,7 @@ resultStr += ",";resultStr += get_port_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["state"] != null){
 set_state_fromJson(jsonObj["state"]);

@@ -12,11 +12,11 @@ namespace Server{
 /// <summary>
 ///
 /// <\summary>
-public class SC_BankTranlate : CherishBitProtocolBase {
+public class SC_BankTranlate : LantisBitProtocolBase {
 /// <summary>
 ///操作数量
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///1成功 2失败
 /// <\summary>
@@ -35,59 +35,59 @@ public Int32 rechargeCount;
 public Int32 goldCount;
 public SC_BankTranlate(){}
 
-public SC_BankTranlate(byte _result, Int32 _rechargeBank, Int32 _goldBank, Int32 _rechargeCount, Int32 _goldCount){
+public SC_BankTranlate(Byte _result, Int32 _rechargeBank, Int32 _goldBank, Int32 _rechargeCount, Int32 _goldCount){
 this.result = _result;
 this.rechargeBank = _rechargeBank;
 this.goldBank = _goldBank;
 this.rechargeCount = _rechargeCount;
 this.goldCount = _goldCount;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_rechargeBank_encoding(){
-byte[] outBuf = null;
+private Byte[] get_rechargeBank_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)rechargeBank);
 return outBuf;
 }
 
 
-private byte[] get_goldBank_encoding(){
-byte[] outBuf = null;
+private Byte[] get_goldBank_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)goldBank);
 return outBuf;
 }
 
 
-private byte[] get_rechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_rechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)rechargeCount);
 return outBuf;
 }
 
 
-private byte[] get_goldCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_goldCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)goldCount);
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_rechargeBank_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_rechargeBank_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 rechargeBank = new Int32();
@@ -95,8 +95,8 @@ rechargeBank = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_goldBank_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_goldBank_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 goldBank = new Int32();
@@ -104,8 +104,8 @@ goldBank = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_rechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_rechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 rechargeCount = new Int32();
@@ -113,8 +113,8 @@ rechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_goldCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_goldCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 goldCount = new Int32();
@@ -122,9 +122,9 @@ goldCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -155,11 +155,11 @@ byteBuf = get_goldCount_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_rechargeBank_fromBuf(sourceBuf,startOffset);
 startOffset = set_goldBank_fromBuf(sourceBuf,startOffset);
@@ -167,33 +167,33 @@ startOffset = set_rechargeCount_fromBuf(sourceBuf,startOffset);
 startOffset = set_goldCount_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_rechargeBank_json(){
-if(rechargeBank==null){return "";}string resultJson = "\"rechargeBank\":";resultJson += "\"";resultJson += rechargeBank.ToString();resultJson += "\"";return resultJson;
+public String get_rechargeBank_json(){
+if(rechargeBank==null){return "";}String resultJson = "\"rechargeBank\":";resultJson += "\"";resultJson += rechargeBank.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_goldBank_json(){
-if(goldBank==null){return "";}string resultJson = "\"goldBank\":";resultJson += "\"";resultJson += goldBank.ToString();resultJson += "\"";return resultJson;
+public String get_goldBank_json(){
+if(goldBank==null){return "";}String resultJson = "\"goldBank\":";resultJson += "\"";resultJson += goldBank.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_rechargeCount_json(){
-if(rechargeCount==null){return "";}string resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_rechargeCount_json(){
+if(rechargeCount==null){return "";}String resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_goldCount_json(){
-if(goldCount==null){return "";}string resultJson = "\"goldCount\":";resultJson += "\"";resultJson += goldCount.ToString();resultJson += "\"";return resultJson;
+public String get_goldCount_json(){
+if(goldCount==null){return "";}String resultJson = "\"goldCount\":";resultJson += "\"";resultJson += goldCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -216,8 +216,8 @@ public void set_goldCount_fromJson(LitJson.JsonData jsonObj){
 goldCount= Int32.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(rechargeBank !=  null){
@@ -235,7 +235,7 @@ resultStr += ",";resultStr += get_goldCount_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///推送给玩家的战绩消息结构
 /// <\summary>
-public class P_GameLogicRecord : CherishBitProtocolBase {
+public class P_GameLogicRecord : LantisBitProtocolBase {
 /// <summary>
 ///玩家Id
 /// <\summary>
@@ -20,7 +20,7 @@ public Int32 roleId;
 /// <summary>
 ///时间日期
 /// <\summary>
-public string timeTicks;
+public String timeTicks;
 /// <summary>
 ///改变分值 > 0 胜利 <0 失败  可以是具体分值
 /// <\summary>
@@ -32,30 +32,30 @@ public Int32 logicType;
 /// <summary>
 ///逻辑数据
 /// <\summary>
-public List<byte> logicData;
+public List<Byte> logicData;
 public P_GameLogicRecord(){}
 
-public P_GameLogicRecord(Int32 _roleId, string _timeTicks, Int32 _changeCount, Int32 _logicType, List<byte> _logicData){
+public P_GameLogicRecord(Int32 _roleId, String _timeTicks, Int32 _changeCount, Int32 _logicType, List<Byte> _logicData){
 this.roleId = _roleId;
 this.timeTicks = _timeTicks;
 this.changeCount = _changeCount;
 this.logicType = _logicType;
 this.logicData = _logicData;
 }
-private byte[] get_roleId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_roleId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)roleId);
 return outBuf;
 }
 
 
-private byte[] get_timeTicks_encoding(){
-byte[] outBuf = null;
-string str = (string)timeTicks;
+private Byte[] get_timeTicks_encoding(){
+Byte[] outBuf = null;
+String str = (String)timeTicks;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -65,34 +65,34 @@ return outBuf;
 }
 
 
-private byte[] get_changeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_changeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)changeCount);
 return outBuf;
 }
 
 
-private byte[] get_logicType_encoding(){
-byte[] outBuf = null;
+private Byte[] get_logicType_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)logicType);
 return outBuf;
 }
 
 
-private byte[] get_logicData_encoding(){
-byte[] outBuf = null;
+private Byte[] get_logicData_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
-List<byte> listbyte = (List<byte>)logicData;
+List<Byte> listbyte = (List<Byte>)logicData;
 memoryWrite.Write(BitConverter.GetBytes(listbyte.Count),0,4);
-byte[] listBuf = listbyte.ToArray();
+Byte[] listBuf = listbyte.ToArray();
 memoryWrite.Write(listBuf,0,listBuf.Length);
 outBuf = memoryWrite.ToArray();
 }
 return outBuf;
 }
 
-private int set_roleId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_roleId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 roleId = new Int32();
@@ -100,8 +100,8 @@ roleId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_timeTicks_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_timeTicks_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 timeTicks = "";
@@ -115,8 +115,8 @@ curIndex++;
 timeTicks = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_changeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_changeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 changeCount = new Int32();
@@ -124,8 +124,8 @@ changeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_logicType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_logicType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 logicType = new Int32();
@@ -133,22 +133,22 @@ logicType = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_logicData_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_logicData_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-logicData = new List<byte>();
+logicData = new List<Byte>();
 int listCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
-byte[] data = new byte[listCount];
+Byte[] data = new Byte[listCount];
 Buffer.BlockCopy(sourceBuf, curIndex, data, 0, listCount);
-logicData = new List<byte>(data);
+logicData = new List<Byte>(data);
 curIndex += listCount;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(roleId !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_roleId_encoding();
@@ -179,11 +179,11 @@ byteBuf = get_logicData_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_roleId_fromBuf(sourceBuf,startOffset);
 startOffset = set_timeTicks_fromBuf(sourceBuf,startOffset);
 startOffset = set_changeCount_fromBuf(sourceBuf,startOffset);
@@ -191,30 +191,30 @@ startOffset = set_logicType_fromBuf(sourceBuf,startOffset);
 startOffset = set_logicData_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_roleId_json(){
-if(roleId==null){return "";}string resultJson = "\"roleId\":";resultJson += "\"";resultJson += roleId.ToString();resultJson += "\"";return resultJson;
+public String get_roleId_json(){
+if(roleId==null){return "";}String resultJson = "\"roleId\":";resultJson += "\"";resultJson += roleId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_timeTicks_json(){
-if(timeTicks==null){return "";}string resultJson = "\"timeTicks\":";resultJson += "\"";resultJson += timeTicks.ToString();resultJson += "\"";return resultJson;
+public String get_timeTicks_json(){
+if(timeTicks==null){return "";}String resultJson = "\"timeTicks\":";resultJson += "\"";resultJson += timeTicks.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_changeCount_json(){
-if(changeCount==null){return "";}string resultJson = "\"changeCount\":";resultJson += "\"";resultJson += changeCount.ToString();resultJson += "\"";return resultJson;
+public String get_changeCount_json(){
+if(changeCount==null){return "";}String resultJson = "\"changeCount\":";resultJson += "\"";resultJson += changeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_logicType_json(){
-if(logicType==null){return "";}string resultJson = "\"logicType\":";resultJson += "\"";resultJson += logicType.ToString();resultJson += "\"";return resultJson;
+public String get_logicType_json(){
+if(logicType==null){return "";}String resultJson = "\"logicType\":";resultJson += "\"";resultJson += logicType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_logicData_json(){
-if(logicData==null){return "";}string resultJson = "\"logicData\":";resultJson += "[";List<byte> listObj = (List<byte>)logicData;
+public String get_logicData_json(){
+if(logicData==null){return "";}String resultJson = "\"logicData\":";resultJson += "[";List<Byte> listObj = (List<Byte>)logicData;
 for(int i = 0;i < listObj.Count;++i){
-byte item = listObj[i];
+Byte item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
 resultJson += "\"";}
 resultJson += "]";
@@ -243,14 +243,14 @@ logicType= Int32.Parse(jsonObj.ToString());
 
 
 public void set_logicData_fromJson(LitJson.JsonData jsonObj){
-logicData= new List<byte>();
+logicData= new List<Byte>();
 foreach(LitJson.JsonData jsonItem in jsonObj){
-logicData.Add(byte.Parse(jsonItem.ToString()));}
+logicData.Add(Byte.Parse(jsonItem.ToString()));}
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(roleId !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(roleId !=  null){
 resultStr += get_roleId_json();
 }
 else {}if(timeTicks !=  null){
@@ -268,7 +268,7 @@ resultStr += ",";resultStr += get_logicData_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["roleId"] != null){
 set_roleId_fromJson(jsonObj["roleId"]);

@@ -13,7 +13,7 @@ namespace BaseDataAttribute{
 /// <summary>
 ///角色属性
 /// <\summary>
-public class RoleInfor : CherishBitProtocolBase {
+public class RoleInfor : LantisBitProtocolBase {
 /// <summary>
 ///角色Id
 /// <\summary>
@@ -25,7 +25,7 @@ public Int16 sex;
 /// <summary>
 ///角色名字
 /// <\summary>
-public string name;
+public String name;
 /// <summary>
 ///房卡数量
 /// <\summary>
@@ -37,22 +37,22 @@ public Int32 goldCount;
 /// <summary>
 ///创建日期
 /// <\summary>
-public string createTime;
+public String createTime;
 /// <summary>
 ///头像连接
 /// <\summary>
-public string headUrl;
+public String headUrl;
 /// <summary>
 ///是微信登陆
 /// <\summary>
-public byte isWeiChat;
+public Byte isWeiChat;
 /// <summary>
 ///1开启隐藏功能 0不开启隐藏功能
 /// <\summary>
-public byte openHiddent;
+public Byte openHiddent;
 public RoleInfor(){}
 
-public RoleInfor(Int32 _roleId, Int16 _sex, string _name, Int32 _rechargeCount, Int32 _goldCount, string _createTime, string _headUrl, byte _isWeiChat, byte _openHiddent){
+public RoleInfor(Int32 _roleId, Int16 _sex, String _name, Int32 _rechargeCount, Int32 _goldCount, String _createTime, String _headUrl, Byte _isWeiChat, Byte _openHiddent){
 this.roleId = _roleId;
 this.sex = _sex;
 this.name = _name;
@@ -63,27 +63,27 @@ this.headUrl = _headUrl;
 this.isWeiChat = _isWeiChat;
 this.openHiddent = _openHiddent;
 }
-private byte[] get_roleId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_roleId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)roleId);
 return outBuf;
 }
 
 
-private byte[] get_sex_encoding(){
-byte[] outBuf = null;
+private Byte[] get_sex_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((short)sex);
 return outBuf;
 }
 
 
-private byte[] get_name_encoding(){
-byte[] outBuf = null;
-string str = (string)name;
+private Byte[] get_name_encoding(){
+Byte[] outBuf = null;
+String str = (String)name;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -93,27 +93,27 @@ return outBuf;
 }
 
 
-private byte[] get_rechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_rechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)rechargeCount);
 return outBuf;
 }
 
 
-private byte[] get_goldCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_goldCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)goldCount);
 return outBuf;
 }
 
 
-private byte[] get_createTime_encoding(){
-byte[] outBuf = null;
-string str = (string)createTime;
+private Byte[] get_createTime_encoding(){
+Byte[] outBuf = null;
+String str = (String)createTime;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -123,13 +123,13 @@ return outBuf;
 }
 
 
-private byte[] get_headUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)headUrl;
+private Byte[] get_headUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)headUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -139,23 +139,23 @@ return outBuf;
 }
 
 
-private byte[] get_isWeiChat_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)isWeiChat;
+private Byte[] get_isWeiChat_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)isWeiChat;
 return outBuf;
 }
 
 
-private byte[] get_openHiddent_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)openHiddent;
+private Byte[] get_openHiddent_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)openHiddent;
 return outBuf;
 }
 
-private int set_roleId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_roleId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 roleId = new Int32();
@@ -163,8 +163,8 @@ roleId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 sex = new Int16();
@@ -172,8 +172,8 @@ sex = BitConverter.ToInt16(sourceBuf,curIndex);
 curIndex += 2;
 }return curIndex;
 }
-private int set_name_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_name_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 name = "";
@@ -187,8 +187,8 @@ curIndex++;
 name = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_rechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_rechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 rechargeCount = new Int32();
@@ -196,8 +196,8 @@ rechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_goldCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_goldCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 goldCount = new Int32();
@@ -205,8 +205,8 @@ goldCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_createTime_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_createTime_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 createTime = "";
@@ -220,8 +220,8 @@ curIndex++;
 createTime = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_headUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_headUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 headUrl = "";
@@ -235,27 +235,27 @@ curIndex++;
 headUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_isWeiChat_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_isWeiChat_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-isWeiChat = new byte();
+isWeiChat = new Byte();
 isWeiChat = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_openHiddent_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_openHiddent_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-openHiddent = new byte();
+openHiddent = new Byte();
 openHiddent = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(roleId !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_roleId_encoding();
@@ -310,11 +310,11 @@ byteBuf = get_openHiddent_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_roleId_fromBuf(sourceBuf,startOffset);
 startOffset = set_sex_fromBuf(sourceBuf,startOffset);
 startOffset = set_name_fromBuf(sourceBuf,startOffset);
@@ -326,48 +326,48 @@ startOffset = set_isWeiChat_fromBuf(sourceBuf,startOffset);
 startOffset = set_openHiddent_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_roleId_json(){
-if(roleId==null){return "";}string resultJson = "\"roleId\":";resultJson += "\"";resultJson += roleId.ToString();resultJson += "\"";return resultJson;
+public String get_roleId_json(){
+if(roleId==null){return "";}String resultJson = "\"roleId\":";resultJson += "\"";resultJson += roleId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_sex_json(){
-if(sex==null){return "";}string resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
+public String get_sex_json(){
+if(sex==null){return "";}String resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_name_json(){
-if(name==null){return "";}string resultJson = "\"name\":";resultJson += "\"";resultJson += name.ToString();resultJson += "\"";return resultJson;
+public String get_name_json(){
+if(name==null){return "";}String resultJson = "\"name\":";resultJson += "\"";resultJson += name.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_rechargeCount_json(){
-if(rechargeCount==null){return "";}string resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_rechargeCount_json(){
+if(rechargeCount==null){return "";}String resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_goldCount_json(){
-if(goldCount==null){return "";}string resultJson = "\"goldCount\":";resultJson += "\"";resultJson += goldCount.ToString();resultJson += "\"";return resultJson;
+public String get_goldCount_json(){
+if(goldCount==null){return "";}String resultJson = "\"goldCount\":";resultJson += "\"";resultJson += goldCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_createTime_json(){
-if(createTime==null){return "";}string resultJson = "\"createTime\":";resultJson += "\"";resultJson += createTime.ToString();resultJson += "\"";return resultJson;
+public String get_createTime_json(){
+if(createTime==null){return "";}String resultJson = "\"createTime\":";resultJson += "\"";resultJson += createTime.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_headUrl_json(){
-if(headUrl==null){return "";}string resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
+public String get_headUrl_json(){
+if(headUrl==null){return "";}String resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_isWeiChat_json(){
-if(isWeiChat==null){return "";}string resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
+public String get_isWeiChat_json(){
+if(isWeiChat==null){return "";}String resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_openHiddent_json(){
-if(openHiddent==null){return "";}string resultJson = "\"openHiddent\":";resultJson += "\"";resultJson += openHiddent.ToString();resultJson += "\"";return resultJson;
+public String get_openHiddent_json(){
+if(openHiddent==null){return "";}String resultJson = "\"openHiddent\":";resultJson += "\"";resultJson += openHiddent.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -407,16 +407,16 @@ headUrl= jsonObj.ToString();
 
 
 public void set_isWeiChat_fromJson(LitJson.JsonData jsonObj){
-isWeiChat= byte.Parse(jsonObj.ToString());
+isWeiChat= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_openHiddent_fromJson(LitJson.JsonData jsonObj){
-openHiddent= byte.Parse(jsonObj.ToString());
+openHiddent= Byte.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(roleId !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(roleId !=  null){
 resultStr += get_roleId_json();
 }
 else {}if(sex !=  null){
@@ -446,7 +446,7 @@ resultStr += ",";resultStr += get_openHiddent_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["roleId"] != null){
 set_roleId_fromJson(jsonObj["roleId"]);

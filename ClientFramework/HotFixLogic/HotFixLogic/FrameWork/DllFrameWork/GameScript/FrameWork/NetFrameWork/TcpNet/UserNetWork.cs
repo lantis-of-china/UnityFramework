@@ -286,7 +286,7 @@ public  class UserNetWork
         /// <param name="ClientSocket">接受消息的客户端套接字</param>
         /// <param name="Date">发送的消息的实例</param>
         /// <param name="messageType">消息的类型</param>
-        public  void SendMessageTcp<T>(string ip,int port, T Date,NetMessageType messageType) where T :  CherishBitProtocolBase
+        public  void SendMessageTcp<T>(string ip,int port, T Date,NetMessageType messageType) where T :  LantisBitProtocolBase
         {
             NetDataManager.SendMessageTcp<T>(CenterNetServer, Date, (int)messageType, false);
             //new System.Threading.Thread(new System.Threading.ThreadStart(delegate
@@ -330,8 +330,8 @@ public  class UserNetWork
         /// <param name="ClientSocket">接受消息的客户端套接字</param>
         /// <param name="Date">发送的消息的实例</param>
         /// <param name="messageType">消息的类型</param>
-        public void SendMessageUdp<T>(string ip, int port, T Date, int messageType) where T : CherishBitProtocolBase
-        {
+        public void SendMessageUdp<T>(string ip, int port, T Date, int messageType) where T : LantisBitProtocolBase
+    {
             byte[] _typeDate = System.BitConverter.GetBytes((int)messageType);
             byte[] _bufferDate = Date.Serializer();
             int Lenght = _typeDate.Length + _bufferDate.Length;

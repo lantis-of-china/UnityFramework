@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///
 /// <\summary>
-public class SC_RemoveSkillBuff : CherishBitProtocolBase {
+public class SC_RemoveSkillBuff : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>

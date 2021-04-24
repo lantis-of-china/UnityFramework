@@ -13,35 +13,35 @@ namespace IMClub{
 /// <summary>
 ///�������ֲ�C2S_CreateGroup_MsgType = 20001
 /// <\summary>
-public class CS_CreateGroup : CherishBitProtocolBase {
+public class CS_CreateGroup : LantisBitProtocolBase {
 /// <summary>
 ///��Ϣ��֤
 /// <\summary>
 public UserValiadateInfor UserValiadate;
 /// <summary>
-///����Ⱥ��������
+///����Ⱥ�������
 /// <\summary>
-public string groupName;
+public String groupName;
 public CS_CreateGroup(){}
 
-public CS_CreateGroup(UserValiadateInfor _UserValiadate, string _groupName){
+public CS_CreateGroup(UserValiadateInfor _UserValiadate, String _groupName){
 this.UserValiadate = _UserValiadate;
 this.groupName = _groupName;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_groupName_encoding(){
-byte[] outBuf = null;
-string str = (string)groupName;
+private Byte[] get_groupName_encoding(){
+Byte[] outBuf = null;
+String str = (String)groupName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -50,16 +50,16 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_groupName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_groupName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 groupName = "";
@@ -73,9 +73,9 @@ curIndex++;
 groupName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -88,22 +88,22 @@ byteBuf = get_groupName_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_groupName_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_groupName_json(){
-if(groupName==null){return "";}string resultJson = "\"groupName\":";resultJson += "\"";resultJson += groupName.ToString();resultJson += "\"";return resultJson;
+public String get_groupName_json(){
+if(groupName==null){return "";}String resultJson = "\"groupName\":";resultJson += "\"";resultJson += groupName.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -116,8 +116,8 @@ public void set_groupName_fromJson(LitJson.JsonData jsonObj){
 groupName= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(groupName !=  null){
@@ -126,7 +126,7 @@ resultStr += ",";resultStr += get_groupName_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

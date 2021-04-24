@@ -13,19 +13,19 @@ namespace Server{
 /// <summary>
 ///创建房间返回[createRoom]
 /// <\summary>
-public class SC_UserCreateRoom : CherishBitProtocolBase {
+public class SC_UserCreateRoom : LantisBitProtocolBase {
 /// <summary>
 ///返回值
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///房间所在服务器ID
 /// <\summary>
-public string serverId;
+public String serverId;
 /// <summary>
 ///游戏类型
 /// <\summary>
-public byte gameType;
+public Byte gameType;
 /// <summary>
 ///房间ID
 /// <\summary>
@@ -33,30 +33,30 @@ public Int32 roomId;
 /// <summary>
 ///俱乐部ID
 /// <\summary>
-public string clubId;
+public String clubId;
 /// <summary>
 ///当前玩家数量
 /// <\summary>
-public byte curPlayerCount;
+public Byte curPlayerCount;
 /// <summary>
 ///最大玩家数量
 /// <\summary>
-public byte maxPlayerCount;
+public Byte maxPlayerCount;
 /// <summary>
 ///0等待中 1已经开始
 /// <\summary>
-public byte state;
+public Byte state;
 /// <summary>
 ///托管多少钻石
 /// <\summary>
-public byte useRecharge;
+public Byte useRecharge;
 /// <summary>
 ///次数
 /// <\summary>
-public byte times;
+public Byte times;
 public SC_UserCreateRoom(){}
 
-public SC_UserCreateRoom(byte _result, string _serverId, byte _gameType, Int32 _roomId, string _clubId, byte _curPlayerCount, byte _maxPlayerCount, byte _state, byte _useRecharge, byte _times){
+public SC_UserCreateRoom(Byte _result, String _serverId, Byte _gameType, Int32 _roomId, String _clubId, Byte _curPlayerCount, Byte _maxPlayerCount, Byte _state, Byte _useRecharge, Byte _times){
 this.result = _result;
 this.serverId = _serverId;
 this.gameType = _gameType;
@@ -68,21 +68,21 @@ this.state = _state;
 this.useRecharge = _useRecharge;
 this.times = _times;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_serverId_encoding(){
-byte[] outBuf = null;
-string str = (string)serverId;
+private Byte[] get_serverId_encoding(){
+Byte[] outBuf = null;
+String str = (String)serverId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -92,28 +92,28 @@ return outBuf;
 }
 
 
-private byte[] get_gameType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)gameType;
+private Byte[] get_gameType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)gameType;
 return outBuf;
 }
 
 
-private byte[] get_roomId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_roomId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)roomId);
 return outBuf;
 }
 
 
-private byte[] get_clubId_encoding(){
-byte[] outBuf = null;
-string str = (string)clubId;
+private Byte[] get_clubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)clubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -123,56 +123,56 @@ return outBuf;
 }
 
 
-private byte[] get_curPlayerCount_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)curPlayerCount;
+private Byte[] get_curPlayerCount_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)curPlayerCount;
 return outBuf;
 }
 
 
-private byte[] get_maxPlayerCount_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)maxPlayerCount;
+private Byte[] get_maxPlayerCount_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)maxPlayerCount;
 return outBuf;
 }
 
 
-private byte[] get_state_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)state;
+private Byte[] get_state_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)state;
 return outBuf;
 }
 
 
-private byte[] get_useRecharge_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)useRecharge;
+private Byte[] get_useRecharge_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)useRecharge;
 return outBuf;
 }
 
 
-private byte[] get_times_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)times;
+private Byte[] get_times_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)times;
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_serverId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_serverId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 serverId = "";
@@ -186,17 +186,17 @@ curIndex++;
 serverId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_gameType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gameType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-gameType = new byte();
+gameType = new Byte();
 gameType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_roomId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_roomId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 roomId = new Int32();
@@ -204,8 +204,8 @@ roomId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_clubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_clubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 clubId = "";
@@ -219,54 +219,54 @@ curIndex++;
 clubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_curPlayerCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_curPlayerCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-curPlayerCount = new byte();
+curPlayerCount = new Byte();
 curPlayerCount = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_maxPlayerCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_maxPlayerCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-maxPlayerCount = new byte();
+maxPlayerCount = new Byte();
 maxPlayerCount = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_state_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_state_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-state = new byte();
+state = new Byte();
 state = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_useRecharge_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_useRecharge_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-useRecharge = new byte();
+useRecharge = new Byte();
 useRecharge = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_times_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_times_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-times = new byte();
+times = new Byte();
 times = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -327,11 +327,11 @@ byteBuf = get_times_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_serverId_fromBuf(sourceBuf,startOffset);
 startOffset = set_gameType_fromBuf(sourceBuf,startOffset);
@@ -344,58 +344,58 @@ startOffset = set_useRecharge_fromBuf(sourceBuf,startOffset);
 startOffset = set_times_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_serverId_json(){
-if(serverId==null){return "";}string resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
+public String get_serverId_json(){
+if(serverId==null){return "";}String resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_gameType_json(){
-if(gameType==null){return "";}string resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
+public String get_gameType_json(){
+if(gameType==null){return "";}String resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_roomId_json(){
-if(roomId==null){return "";}string resultJson = "\"roomId\":";resultJson += "\"";resultJson += roomId.ToString();resultJson += "\"";return resultJson;
+public String get_roomId_json(){
+if(roomId==null){return "";}String resultJson = "\"roomId\":";resultJson += "\"";resultJson += roomId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_clubId_json(){
-if(clubId==null){return "";}string resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
+public String get_clubId_json(){
+if(clubId==null){return "";}String resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_curPlayerCount_json(){
-if(curPlayerCount==null){return "";}string resultJson = "\"curPlayerCount\":";resultJson += "\"";resultJson += curPlayerCount.ToString();resultJson += "\"";return resultJson;
+public String get_curPlayerCount_json(){
+if(curPlayerCount==null){return "";}String resultJson = "\"curPlayerCount\":";resultJson += "\"";resultJson += curPlayerCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_maxPlayerCount_json(){
-if(maxPlayerCount==null){return "";}string resultJson = "\"maxPlayerCount\":";resultJson += "\"";resultJson += maxPlayerCount.ToString();resultJson += "\"";return resultJson;
+public String get_maxPlayerCount_json(){
+if(maxPlayerCount==null){return "";}String resultJson = "\"maxPlayerCount\":";resultJson += "\"";resultJson += maxPlayerCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_state_json(){
-if(state==null){return "";}string resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
+public String get_state_json(){
+if(state==null){return "";}String resultJson = "\"state\":";resultJson += "\"";resultJson += state.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_useRecharge_json(){
-if(useRecharge==null){return "";}string resultJson = "\"useRecharge\":";resultJson += "\"";resultJson += useRecharge.ToString();resultJson += "\"";return resultJson;
+public String get_useRecharge_json(){
+if(useRecharge==null){return "";}String resultJson = "\"useRecharge\":";resultJson += "\"";resultJson += useRecharge.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_times_json(){
-if(times==null){return "";}string resultJson = "\"times\":";resultJson += "\"";resultJson += times.ToString();resultJson += "\"";return resultJson;
+public String get_times_json(){
+if(times==null){return "";}String resultJson = "\"times\":";resultJson += "\"";resultJson += times.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -405,7 +405,7 @@ serverId= jsonObj.ToString();
 
 
 public void set_gameType_fromJson(LitJson.JsonData jsonObj){
-gameType= byte.Parse(jsonObj.ToString());
+gameType= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -420,31 +420,31 @@ clubId= jsonObj.ToString();
 
 
 public void set_curPlayerCount_fromJson(LitJson.JsonData jsonObj){
-curPlayerCount= byte.Parse(jsonObj.ToString());
+curPlayerCount= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_maxPlayerCount_fromJson(LitJson.JsonData jsonObj){
-maxPlayerCount= byte.Parse(jsonObj.ToString());
+maxPlayerCount= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_state_fromJson(LitJson.JsonData jsonObj){
-state= byte.Parse(jsonObj.ToString());
+state= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_useRecharge_fromJson(LitJson.JsonData jsonObj){
-useRecharge= byte.Parse(jsonObj.ToString());
+useRecharge= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_times_fromJson(LitJson.JsonData jsonObj){
-times= byte.Parse(jsonObj.ToString());
+times= Byte.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(serverId !=  null){
@@ -477,7 +477,7 @@ resultStr += ",";resultStr += get_times_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

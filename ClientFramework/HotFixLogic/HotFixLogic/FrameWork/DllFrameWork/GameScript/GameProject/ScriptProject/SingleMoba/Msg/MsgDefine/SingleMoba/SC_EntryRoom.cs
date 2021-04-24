@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///进入房间返回
 /// <\summary>
-public class SC_EntryRoom : CherishBitProtocolBase {
+public class SC_EntryRoom : LantisBitProtocolBase {
 /// <summary>
 ///房间ID
 /// <\summary>

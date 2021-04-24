@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///系统消息推送
 /// <\summary>
-public class SC_RoleMsg : CherishBitProtocolBase {
+public class SC_RoleMsg : LantisBitProtocolBase {
 /// <summary>
 ///消息列表
 /// <\summary>
@@ -22,14 +22,14 @@ public SC_RoleMsg(){}
 public SC_RoleMsg(List<P_MsgInfo> _msgList){
 this.msgList = _msgList;
 }
-private byte[] get_msgList_encoding(){
-byte[] outBuf = null;
+private Byte[] get_msgList_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_MsgInfo> listBase = msgList;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
-byte[] baseBuf = baseObject.Serializer();
+LantisBitProtocolBase baseObject = listBase[i];
+Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
 outBuf = memoryWrite.ToArray();
@@ -37,8 +37,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_msgList_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_msgList_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 msgList = new List<P_MsgInfo>();
@@ -51,25 +51,25 @@ msgList.Add(curTarget);
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(msgList !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_msgList_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_msgList_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_msgList_json(){
-if(msgList==null){return "";}string resultJson = "\"msgList\":";resultJson += "[";
+public String get_msgList_json(){
+if(msgList==null){return "";}String resultJson = "\"msgList\":";resultJson += "[";
 List<P_MsgInfo> listObj = (List<P_MsgInfo>)msgList;
 for(int i = 0;i < listObj.Count;++i){
 P_MsgInfo item = listObj[i];
@@ -90,14 +90,14 @@ addB.DeserializerJson(item.ToJson());
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(msgList !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(msgList !=  null){
 resultStr += get_msgList_json();
 }
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["msgList"] != null){
 set_msgList_fromJson(jsonObj["msgList"]);

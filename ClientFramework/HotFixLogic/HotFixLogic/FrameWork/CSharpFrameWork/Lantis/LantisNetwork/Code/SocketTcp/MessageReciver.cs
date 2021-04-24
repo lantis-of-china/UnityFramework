@@ -12,7 +12,7 @@ namespace Lantis.Network
 {
     public class MessageReciver : LantisPoolInterface
     {
-		public bool write;
+        public bool write;
         /// <summary>
         /// 客户套接字
         /// </summary>
@@ -97,9 +97,9 @@ namespace Lantis.Network
             }
             catch (Exception e)
             {
-				if (write)
-				{
-				}
+                if (write)
+                {
+                }
             }
         }
 
@@ -112,30 +112,30 @@ namespace Lantis.Network
 
             try
             {
-				int reciveCount = msgBufer.Length;
+                int reciveCount = msgBufer.Length;
 
-				//if (reciveStream != null)
-				//{
-					int needRecive = (int)messageLength - (int)reciveStream.Length;
+                //if (reciveStream != null)
+                //{
+                int needRecive = (int)messageLength - (int)reciveStream.Position;
 
-					if (needRecive >= msgBufer.Length)
-					{
-						reciveCount = msgBufer.Length;
-					}
-					else
-					{
-						reciveCount = needRecive;
-					}
-				//}
+                if (needRecive >= msgBufer.Length)
+                {
+                    reciveCount = msgBufer.Length;
+                }
+                else
+                {
+                    reciveCount = needRecive;
+                }
+                //}
 
-				clientSocket.BeginReceive(msgBufer, 0, reciveCount, SocketFlags.None, ReceiveCallback, null);
+                clientSocket.BeginReceive(msgBufer, 0, reciveCount, SocketFlags.None, ReceiveCallback, null);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-				if (write)
-				{
-				}
-			}
+                if (write)
+                {
+                }
+            }
         }
 
         /// <summary>
@@ -159,7 +159,10 @@ namespace Lantis.Network
                     {
                     }
 
-                    reciveStream.Seek(0, SeekOrigin.Begin);  
+                    reciveStream.Seek(0, SeekOrigin.Begin);
+                    reciveStream.Seek(0, SeekOrigin.Current);
+                    reciveStream.Seek(0, SeekOrigin.End);
+                    reciveStream.SetLength(0);
                     messageLength = System.BitConverter.ToInt32(lengthBuf, 0);
                     BeginReciveMsgBody(null);
                 }
@@ -187,14 +190,14 @@ namespace Lantis.Network
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ReceiveException();
 
-				if (write)
-				{
-				}
-			}
+                if (write)
+                {
+                }
+            }
 
         }
 
@@ -205,6 +208,6 @@ namespace Lantis.Network
             {
                 reciverExeceptionCall();
             }
-		}
+        }
     }
 }

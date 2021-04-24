@@ -13,7 +13,7 @@ namespace IMClub{
 /// <summary>
 ///������ˮC2S_SetCollect_MsgType = 20016
 /// <\summary>
-public class CS_SetCollect : CherishBitProtocolBase {
+public class CS_SetCollect : LantisBitProtocolBase {
 /// <summary>
 ///��Ϣ��֤
 /// <\summary>
@@ -21,15 +21,15 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///���ֲ�ID
 /// <\summary>
-public string clubId;
+public String clubId;
 /// <summary>
-///������Ϸ������ ���ͷ���
+///������Ϸ������ ��ͷ���
 /// <\summary>
 public Int32 scoreLimit;
 /// <summary>
 ///��˰���� 0��Ӯ�� 1������ 2������
 /// <\summary>
-public byte collectTaxesType;
+public Byte collectTaxesType;
 /// <summary>
 ///��Ӯ�ҵ�ʱ�� ��ʼ��ȡ���ż�
 /// <\summary>
@@ -45,10 +45,10 @@ public Int32 collectScore;
 /// <summary>
 ///��ȡģʽ0���� 1����
 /// <\summary>
-public byte collectMode;
+public Byte collectMode;
 public CS_SetCollect(){}
 
-public CS_SetCollect(UserValiadateInfor _UserValiadate, string _clubId, Int32 _scoreLimit, byte _collectTaxesType, Int32 _collectStart, Int32 _collectScale, Int32 _collectScore, byte _collectMode){
+public CS_SetCollect(UserValiadateInfor _UserValiadate, String _clubId, Int32 _scoreLimit, Byte _collectTaxesType, Int32 _collectStart, Int32 _collectScale, Int32 _collectScore, Byte _collectMode){
 this.UserValiadate = _UserValiadate;
 this.clubId = _clubId;
 this.scoreLimit = _scoreLimit;
@@ -58,20 +58,20 @@ this.collectScale = _collectScale;
 this.collectScore = _collectScore;
 this.collectMode = _collectMode;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_clubId_encoding(){
-byte[] outBuf = null;
-string str = (string)clubId;
+private Byte[] get_clubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)clubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -81,59 +81,59 @@ return outBuf;
 }
 
 
-private byte[] get_scoreLimit_encoding(){
-byte[] outBuf = null;
+private Byte[] get_scoreLimit_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)scoreLimit);
 return outBuf;
 }
 
 
-private byte[] get_collectTaxesType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)collectTaxesType;
+private Byte[] get_collectTaxesType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)collectTaxesType;
 return outBuf;
 }
 
 
-private byte[] get_collectStart_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectStart_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectStart);
 return outBuf;
 }
 
 
-private byte[] get_collectScale_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectScale_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectScale);
 return outBuf;
 }
 
 
-private byte[] get_collectScore_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectScore_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectScore);
 return outBuf;
 }
 
 
-private byte[] get_collectMode_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)collectMode;
+private Byte[] get_collectMode_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)collectMode;
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_clubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_clubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 clubId = "";
@@ -147,8 +147,8 @@ curIndex++;
 clubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_scoreLimit_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_scoreLimit_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 scoreLimit = new Int32();
@@ -156,17 +156,17 @@ scoreLimit = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectTaxesType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectTaxesType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-collectTaxesType = new byte();
+collectTaxesType = new Byte();
 collectTaxesType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_collectStart_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectStart_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectStart = new Int32();
@@ -174,8 +174,8 @@ collectStart = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectScale_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectScale = new Int32();
@@ -183,8 +183,8 @@ collectScale = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectScore_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectScore_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectScore = new Int32();
@@ -192,18 +192,18 @@ collectScore = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectMode_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectMode_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-collectMode = new byte();
+collectMode = new Byte();
 collectMode = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -252,11 +252,11 @@ byteBuf = get_collectMode_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_clubId_fromBuf(sourceBuf,startOffset);
 startOffset = set_scoreLimit_fromBuf(sourceBuf,startOffset);
@@ -267,43 +267,43 @@ startOffset = set_collectScore_fromBuf(sourceBuf,startOffset);
 startOffset = set_collectMode_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_clubId_json(){
-if(clubId==null){return "";}string resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
+public String get_clubId_json(){
+if(clubId==null){return "";}String resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_scoreLimit_json(){
-if(scoreLimit==null){return "";}string resultJson = "\"scoreLimit\":";resultJson += "\"";resultJson += scoreLimit.ToString();resultJson += "\"";return resultJson;
+public String get_scoreLimit_json(){
+if(scoreLimit==null){return "";}String resultJson = "\"scoreLimit\":";resultJson += "\"";resultJson += scoreLimit.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectTaxesType_json(){
-if(collectTaxesType==null){return "";}string resultJson = "\"collectTaxesType\":";resultJson += "\"";resultJson += collectTaxesType.ToString();resultJson += "\"";return resultJson;
+public String get_collectTaxesType_json(){
+if(collectTaxesType==null){return "";}String resultJson = "\"collectTaxesType\":";resultJson += "\"";resultJson += collectTaxesType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectStart_json(){
-if(collectStart==null){return "";}string resultJson = "\"collectStart\":";resultJson += "\"";resultJson += collectStart.ToString();resultJson += "\"";return resultJson;
+public String get_collectStart_json(){
+if(collectStart==null){return "";}String resultJson = "\"collectStart\":";resultJson += "\"";resultJson += collectStart.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectScale_json(){
-if(collectScale==null){return "";}string resultJson = "\"collectScale\":";resultJson += "\"";resultJson += collectScale.ToString();resultJson += "\"";return resultJson;
+public String get_collectScale_json(){
+if(collectScale==null){return "";}String resultJson = "\"collectScale\":";resultJson += "\"";resultJson += collectScale.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectScore_json(){
-if(collectScore==null){return "";}string resultJson = "\"collectScore\":";resultJson += "\"";resultJson += collectScore.ToString();resultJson += "\"";return resultJson;
+public String get_collectScore_json(){
+if(collectScore==null){return "";}String resultJson = "\"collectScore\":";resultJson += "\"";resultJson += collectScore.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectMode_json(){
-if(collectMode==null){return "";}string resultJson = "\"collectMode\":";resultJson += "\"";resultJson += collectMode.ToString();resultJson += "\"";return resultJson;
+public String get_collectMode_json(){
+if(collectMode==null){return "";}String resultJson = "\"collectMode\":";resultJson += "\"";resultJson += collectMode.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -323,7 +323,7 @@ scoreLimit= Int32.Parse(jsonObj.ToString());
 
 
 public void set_collectTaxesType_fromJson(LitJson.JsonData jsonObj){
-collectTaxesType= byte.Parse(jsonObj.ToString());
+collectTaxesType= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -343,11 +343,11 @@ collectScore= Int32.Parse(jsonObj.ToString());
 
 
 public void set_collectMode_fromJson(LitJson.JsonData jsonObj){
-collectMode= byte.Parse(jsonObj.ToString());
+collectMode= Byte.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(clubId !=  null){
@@ -374,7 +374,7 @@ resultStr += ",";resultStr += get_collectMode_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

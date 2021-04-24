@@ -1,22 +1,19 @@
 ﻿// 此文件由协议导出插件自动生成
-// ID : 00000]
-
+// ID : 00000]
 //****生成道具****
 using System;
 using System.Collections.Generic;
 using System.IO;
 using BaseDataAttribute;
 using Server;
-using IMClub;
 using SingleMoba;
-using Template;
 
 
 namespace SingleMoba{
 /// <summary>
 ///生成道具
 /// <\summary>
-public class SC_SpawnProps : CherishBitProtocolBase {
+public class SC_SpawnProps : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -32,7 +29,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_Prop> listBase = props;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }

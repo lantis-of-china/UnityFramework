@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///开始游戏
 /// <\summary>
-public class SC_GameInit : CherishBitProtocolBase {
+public class SC_GameInit : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -26,7 +29,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_PlayerInfo> listBase = playerDatas;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }

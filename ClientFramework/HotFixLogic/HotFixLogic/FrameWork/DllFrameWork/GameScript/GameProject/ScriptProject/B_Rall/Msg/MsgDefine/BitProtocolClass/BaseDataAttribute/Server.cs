@@ -1,17 +1,20 @@
 ﻿// 此文件由协议导出插件自动生成
-// ID : 00000]
-//****游戏中的角色信息****
+// ID : 00001]
+//********
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using Template;
 
 
-namespace SingleMoba{
+namespace BaseDataAttribute{
 /// <summary>
-///游戏中的角色信息
+///
 /// <\summary>
-public class P_GamePlayerInfo : CherishBitProtocolBase {
-public P_GamePlayerInfo(){}
+public class Server : LantisBitProtocolBase {
+public Server(){}
 
 public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();

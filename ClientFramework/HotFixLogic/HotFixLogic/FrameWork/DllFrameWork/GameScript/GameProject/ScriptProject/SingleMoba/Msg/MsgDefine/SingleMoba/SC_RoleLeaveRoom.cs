@@ -5,13 +5,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///玩家离开房间
 /// <\summary>
-public class SC_RoleLeaveRoom : CherishBitProtocolBase {
+public class SC_RoleLeaveRoom : LantisBitProtocolBase {
 /// <summary>
 ///离开玩家的Id
 /// <\summary>

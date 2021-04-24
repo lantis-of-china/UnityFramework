@@ -12,11 +12,11 @@ namespace Server{
 /// <summary>
 ///进入房间
 /// <\summary>
-public class CS_EntryRoom : CherishBitProtocolBase {
+public class CS_EntryRoom : LantisBitProtocolBase {
 /// <summary>
 ///进入房间方式 1快速房间 2加入房间
 /// <\summary>
-public byte entryType;
+public Byte entryType;
 /// <summary>
 ///如果是加入房间带上房间ID
 /// <\summary>
@@ -31,51 +31,51 @@ public Int32 conditionId;
 public UserValiadateInfor UserValiadate;
 public CS_EntryRoom(){}
 
-public CS_EntryRoom(byte _entryType, Int32 _roomId, Int32 _conditionId, UserValiadateInfor _UserValiadate){
+public CS_EntryRoom(Byte _entryType, Int32 _roomId, Int32 _conditionId, UserValiadateInfor _UserValiadate){
 this.entryType = _entryType;
 this.roomId = _roomId;
 this.conditionId = _conditionId;
 this.UserValiadate = _UserValiadate;
 }
-private byte[] get_entryType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)entryType;
+private Byte[] get_entryType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)entryType;
 return outBuf;
 }
 
 
-private byte[] get_roomId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_roomId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)roomId);
 return outBuf;
 }
 
 
-private byte[] get_conditionId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_conditionId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)conditionId);
 return outBuf;
 }
 
 
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
-private int set_entryType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_entryType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-entryType = new byte();
+entryType = new Byte();
 entryType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_roomId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_roomId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 roomId = new Int32();
@@ -83,8 +83,8 @@ roomId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_conditionId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_conditionId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 conditionId = new Int32();
@@ -92,17 +92,17 @@ conditionId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(entryType !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_entryType_encoding();
@@ -127,39 +127,39 @@ byteBuf = get_UserValiadate_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_entryType_fromBuf(sourceBuf,startOffset);
 startOffset = set_roomId_fromBuf(sourceBuf,startOffset);
 startOffset = set_conditionId_fromBuf(sourceBuf,startOffset);
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_entryType_json(){
-if(entryType==null){return "";}string resultJson = "\"entryType\":";resultJson += "\"";resultJson += entryType.ToString();resultJson += "\"";return resultJson;
+public String get_entryType_json(){
+if(entryType==null){return "";}String resultJson = "\"entryType\":";resultJson += "\"";resultJson += entryType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_roomId_json(){
-if(roomId==null){return "";}string resultJson = "\"roomId\":";resultJson += "\"";resultJson += roomId.ToString();resultJson += "\"";return resultJson;
+public String get_roomId_json(){
+if(roomId==null){return "";}String resultJson = "\"roomId\":";resultJson += "\"";resultJson += roomId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_conditionId_json(){
-if(conditionId==null){return "";}string resultJson = "\"conditionId\":";resultJson += "\"";resultJson += conditionId.ToString();resultJson += "\"";return resultJson;
+public String get_conditionId_json(){
+if(conditionId==null){return "";}String resultJson = "\"conditionId\":";resultJson += "\"";resultJson += conditionId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
 public void set_entryType_fromJson(LitJson.JsonData jsonObj){
-entryType= byte.Parse(jsonObj.ToString());
+entryType= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -177,8 +177,8 @@ public void set_UserValiadate_fromJson(LitJson.JsonData jsonObj){
 UserValiadate= new UserValiadateInfor();
 UserValiadate.DeserializerJson(jsonObj.ToJson());}
 
-public override string SerializerJson(){
-string resultStr = "{";if(entryType !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(entryType !=  null){
 resultStr += get_entryType_json();
 }
 else {}if(roomId !=  null){
@@ -193,7 +193,7 @@ resultStr += ",";resultStr += get_UserValiadate_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["entryType"] != null){
 set_entryType_fromJson(jsonObj["entryType"]);

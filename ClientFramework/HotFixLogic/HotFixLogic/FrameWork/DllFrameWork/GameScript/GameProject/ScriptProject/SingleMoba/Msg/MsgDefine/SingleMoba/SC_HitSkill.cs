@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///技能命中
 /// <\summary>
-public class SC_HitSkill : CherishBitProtocolBase {
+public class SC_HitSkill : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>

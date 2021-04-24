@@ -13,7 +13,7 @@ namespace IMClub{
 /// <summary>
 ///��Ϸ����
 /// <\summary>
-public class P_GameSetting : CherishBitProtocolBase {
+public class P_GameSetting : LantisBitProtocolBase {
 /// <summary>
 ///��Ϸ����
 /// <\summary>
@@ -21,35 +21,35 @@ public Int32 gameType;
 /// <summary>
 ///����
 /// <\summary>
-public byte roomValue;
+public Byte roomValue;
 /// <summary>
 ///�����趨
 /// <\summary>
 public List<Int32> pamarasSetting;
 public P_GameSetting(){}
 
-public P_GameSetting(Int32 _gameType, byte _roomValue, List<Int32> _pamarasSetting){
+public P_GameSetting(Int32 _gameType, Byte _roomValue, List<Int32> _pamarasSetting){
 this.gameType = _gameType;
 this.roomValue = _roomValue;
 this.pamarasSetting = _pamarasSetting;
 }
-private byte[] get_gameType_encoding(){
-byte[] outBuf = null;
+private Byte[] get_gameType_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)gameType);
 return outBuf;
 }
 
 
-private byte[] get_roomValue_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)roomValue;
+private Byte[] get_roomValue_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)roomValue;
 return outBuf;
 }
 
 
-private byte[] get_pamarasSetting_encoding(){
-byte[] outBuf = null;
+private Byte[] get_pamarasSetting_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<Int32> listInt32 = (List<Int32>)pamarasSetting;
 memoryWrite.Write(BitConverter.GetBytes(listInt32.Count),0,4);
@@ -62,8 +62,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_gameType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gameType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 gameType = new Int32();
@@ -71,17 +71,17 @@ gameType = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_roomValue_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_roomValue_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-roomValue = new byte();
+roomValue = new Byte();
 roomValue = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_pamarasSetting_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_pamarasSetting_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 pamarasSetting = new List<Int32>();
@@ -94,9 +94,9 @@ curIndex += 4;
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(gameType !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_gameType_encoding();
@@ -115,28 +115,28 @@ byteBuf = get_pamarasSetting_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_gameType_fromBuf(sourceBuf,startOffset);
 startOffset = set_roomValue_fromBuf(sourceBuf,startOffset);
 startOffset = set_pamarasSetting_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_gameType_json(){
-if(gameType==null){return "";}string resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
+public String get_gameType_json(){
+if(gameType==null){return "";}String resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_roomValue_json(){
-if(roomValue==null){return "";}string resultJson = "\"roomValue\":";resultJson += "\"";resultJson += roomValue.ToString();resultJson += "\"";return resultJson;
+public String get_roomValue_json(){
+if(roomValue==null){return "";}String resultJson = "\"roomValue\":";resultJson += "\"";resultJson += roomValue.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_pamarasSetting_json(){
-if(pamarasSetting==null){return "";}string resultJson = "\"pamarasSetting\":";resultJson += "[";List<Int32> listObj = (List<Int32>)pamarasSetting;
+public String get_pamarasSetting_json(){
+if(pamarasSetting==null){return "";}String resultJson = "\"pamarasSetting\":";resultJson += "[";List<Int32> listObj = (List<Int32>)pamarasSetting;
 for(int i = 0;i < listObj.Count;++i){
 Int32 item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
@@ -152,7 +152,7 @@ gameType= Int32.Parse(jsonObj.ToString());
 
 
 public void set_roomValue_fromJson(LitJson.JsonData jsonObj){
-roomValue= byte.Parse(jsonObj.ToString());
+roomValue= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -163,8 +163,8 @@ pamarasSetting.Add(Int32.Parse(jsonItem.ToString()));}
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(gameType !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(gameType !=  null){
 resultStr += get_gameType_json();
 }
 else {}if(roomValue !=  null){
@@ -176,7 +176,7 @@ resultStr += ",";resultStr += get_pamarasSetting_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["gameType"] != null){
 set_gameType_fromJson(jsonObj["gameType"]);

@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///
 /// <\summary>
-public class CS_RealName : CherishBitProtocolBase {
+public class CS_RealName : LantisBitProtocolBase {
 /// <summary>
 ///验证码
 /// <\summary>
@@ -20,37 +20,37 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///实名认证
 /// <\summary>
-public string realName;
+public String realName;
 /// <summary>
 ///实名ID
 /// <\summary>
-public string realId;
+public String realId;
 /// <summary>
 ///手机号
 /// <\summary>
-public string realPhone;
+public String realPhone;
 public CS_RealName(){}
 
-public CS_RealName(UserValiadateInfor _UserValiadate, string _realName, string _realId, string _realPhone){
+public CS_RealName(UserValiadateInfor _UserValiadate, String _realName, String _realId, String _realPhone){
 this.UserValiadate = _UserValiadate;
 this.realName = _realName;
 this.realId = _realId;
 this.realPhone = _realPhone;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_realName_encoding(){
-byte[] outBuf = null;
-string str = (string)realName;
+private Byte[] get_realName_encoding(){
+Byte[] outBuf = null;
+String str = (String)realName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -60,13 +60,13 @@ return outBuf;
 }
 
 
-private byte[] get_realId_encoding(){
-byte[] outBuf = null;
-string str = (string)realId;
+private Byte[] get_realId_encoding(){
+Byte[] outBuf = null;
+String str = (String)realId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -76,13 +76,13 @@ return outBuf;
 }
 
 
-private byte[] get_realPhone_encoding(){
-byte[] outBuf = null;
-string str = (string)realPhone;
+private Byte[] get_realPhone_encoding(){
+Byte[] outBuf = null;
+String str = (String)realPhone;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -91,16 +91,16 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_realName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realName = "";
@@ -114,8 +114,8 @@ curIndex++;
 realName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_realId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realId = "";
@@ -129,8 +129,8 @@ curIndex++;
 realId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_realPhone_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realPhone_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realPhone = "";
@@ -144,9 +144,9 @@ curIndex++;
 realPhone = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -171,34 +171,34 @@ byteBuf = get_realPhone_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_realName_fromBuf(sourceBuf,startOffset);
 startOffset = set_realId_fromBuf(sourceBuf,startOffset);
 startOffset = set_realPhone_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_realName_json(){
-if(realName==null){return "";}string resultJson = "\"realName\":";resultJson += "\"";resultJson += realName.ToString();resultJson += "\"";return resultJson;
+public String get_realName_json(){
+if(realName==null){return "";}String resultJson = "\"realName\":";resultJson += "\"";resultJson += realName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_realId_json(){
-if(realId==null){return "";}string resultJson = "\"realId\":";resultJson += "\"";resultJson += realId.ToString();resultJson += "\"";return resultJson;
+public String get_realId_json(){
+if(realId==null){return "";}String resultJson = "\"realId\":";resultJson += "\"";resultJson += realId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_realPhone_json(){
-if(realPhone==null){return "";}string resultJson = "\"realPhone\":";resultJson += "\"";resultJson += realPhone.ToString();resultJson += "\"";return resultJson;
+public String get_realPhone_json(){
+if(realPhone==null){return "";}String resultJson = "\"realPhone\":";resultJson += "\"";resultJson += realPhone.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -221,8 +221,8 @@ public void set_realPhone_fromJson(LitJson.JsonData jsonObj){
 realPhone= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(realName !=  null){
@@ -237,7 +237,7 @@ resultStr += ",";resultStr += get_realPhone_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

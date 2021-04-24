@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///刷新房卡数量
 /// <\summary>
-public class Refencerecharge_SC : CherishBitProtocolBase {
+public class Refencerecharge_SC : LantisBitProtocolBase {
 /// <summary>
 ///房卡数量
 /// <\summary>
@@ -27,21 +27,21 @@ public Refencerecharge_SC(Int32 _rechargeCount, Int32 _oldRechargeCount){
 this.rechargeCount = _rechargeCount;
 this.oldRechargeCount = _oldRechargeCount;
 }
-private byte[] get_rechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_rechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)rechargeCount);
 return outBuf;
 }
 
 
-private byte[] get_oldRechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_oldRechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)oldRechargeCount);
 return outBuf;
 }
 
-private int set_rechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_rechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 rechargeCount = new Int32();
@@ -49,8 +49,8 @@ rechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_oldRechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_oldRechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 oldRechargeCount = new Int32();
@@ -58,9 +58,9 @@ oldRechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(rechargeCount !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_rechargeCount_encoding();
@@ -73,22 +73,22 @@ byteBuf = get_oldRechargeCount_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_rechargeCount_fromBuf(sourceBuf,startOffset);
 startOffset = set_oldRechargeCount_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_rechargeCount_json(){
-if(rechargeCount==null){return "";}string resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_rechargeCount_json(){
+if(rechargeCount==null){return "";}String resultJson = "\"rechargeCount\":";resultJson += "\"";resultJson += rechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_oldRechargeCount_json(){
-if(oldRechargeCount==null){return "";}string resultJson = "\"oldRechargeCount\":";resultJson += "\"";resultJson += oldRechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_oldRechargeCount_json(){
+if(oldRechargeCount==null){return "";}String resultJson = "\"oldRechargeCount\":";resultJson += "\"";resultJson += oldRechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -101,8 +101,8 @@ public void set_oldRechargeCount_fromJson(LitJson.JsonData jsonObj){
 oldRechargeCount= Int32.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(rechargeCount !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(rechargeCount !=  null){
 resultStr += get_rechargeCount_json();
 }
 else {}if(oldRechargeCount !=  null){
@@ -111,7 +111,7 @@ resultStr += ",";resultStr += get_oldRechargeCount_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["rechargeCount"] != null){
 set_rechargeCount_fromJson(jsonObj["rechargeCount"]);

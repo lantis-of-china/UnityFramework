@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///
 /// <\summary>
-public class UserValiadateInforWarp : CherishBitProtocolBase {
+public class UserValiadateInforWarp : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -21,146 +21,122 @@ public UserValiadateInfor value;
 /// <summary>
 ///
 /// <\summary>
-public float hasTime;
+public Single hasTime;
 /// <summary>
 ///代理码
 /// <\summary>
-public string agentCode;
+public String agentCode;
 /// <summary>
 ///后台管理码
 /// <\summary>
-public string backControlCode;
+public String backControlCode;
 /// <summary>
 ///性别
 /// <\summary>
 public Int32 Sex;
 /// <summary>
-///
+///金币
 /// <\summary>
 public Int32 Gold;
 /// <summary>
-///金币
+///钻石
 /// <\summary>
 public Int32 RechargeCount;
 /// <summary>
-///钻石
+///银行钻石
 /// <\summary>
 public Int32 rechargeBank;
 /// <summary>
-///银行钻石
+///银行金币
 /// <\summary>
 public Int32 goldBank;
 /// <summary>
-///银行金币
-/// <\summary>
-public string bankPassword;
-/// <summary>
 ///银行密码
 /// <\summary>
-public Int32 signTimes;
+public String bankPassword;
 /// <summary>
 ///签到次数
 /// <\summary>
-public Int64 signDate;
+public Int32 signTimes;
 /// <summary>
 ///最近签到日期
 /// <\summary>
-public string PikeName;
+public Int64 signDate;
 /// <summary>
 ///名字
 /// <\summary>
-public string headUrl;
+public String PikeName;
 /// <summary>
 ///头像连接
 /// <\summary>
-public byte isWeiChat;
+public String headUrl;
 /// <summary>
 ///是微信登陆
 /// <\summary>
-public string serverId;
+public Byte isWeiChat;
 /// <summary>
 ///在哪个游戏中
 /// <\summary>
-public Int64 loginDate;
+public String serverId;
 /// <summary>
 ///登录日期
 /// <\summary>
-public Int64 registDate;
+public Int64 loginDate;
 /// <summary>
 ///注册日期
 /// <\summary>
-public Int32 EntryGameGold;
+public Int64 registDate;
 /// <summary>
 ///游戏带入金币
 /// <\summary>
-public Int32 EntryGameRechargeCount;
+public Int32 EntryGameGold;
 /// <summary>
 ///游戏带入钻石
 /// <\summary>
-public List<string> groupList;
+public Int32 EntryGameRechargeCount;
 /// <summary>
 ///加入的组群队列
 /// <\summary>
-public Int32 winMinControlScale;
+public List<String> groupList;
 /// <summary>
-///最大概率控制
+///
 /// <\summary>
-public Int32 winMaxControlScale;
+public Int32 luckRecordScore;
 /// <summary>
-///最大赢取阈值 以个人资产作为基数
+///点控值
 /// <\summary>
-public Int32 winMaxScale;
-/// <summary>
-///最小赢取阈值 以个人资产作为基数
-/// <\summary>
-public Int32 winMinScale;
-/// <summary>
-///最近概率控制
-/// <\summary>
-public Int32 curControlScale;
-/// <summary>
-///阈值控制
-/// <\summary>
-public Int32 curScale;
-/// <summary>
-///最大赢取阈值 以个人资产作为基数
-/// <\summary>
-public Int32 recordScore;
-/// <summary>
-///分数记录
-/// <\summary>
-public Int32 scoreChange;
+public Int32 luckScore;
 /// <summary>
 ///实名认证
 /// <\summary>
-public string realName;
+public String realName;
 /// <summary>
 ///实名ID
 /// <\summary>
-public string realId;
+public String realId;
 /// <summary>
 ///手机号
 /// <\summary>
-public string realPhone;
+public String realPhone;
 /// <summary>
 ///UDP IP地址
 /// <\summary>
-public string ipaddr;
+public String ipaddr;
 /// <summary>
 ///UDP 接收端口
 /// <\summary>
-public string port;
+public String port;
 /// <summary>
 ///纬度
 /// <\summary>
-public float latitude;
+public Single latitude;
 /// <summary>
 ///经度
 /// <\summary>
-public float longitude;
+public Single longitude;
 public UserValiadateInforWarp(){}
 
-public UserValiadateInforWarp(UserValiadateInfor _value, float _hasTime, string _agentCode, string _backControlCode, Int32 _Sex, Int32 _Gold, Int32 _RechargeCount, Int32 _rechargeBank, Int32 _goldBank, string _bankPassword, Int32 _signTimes, Int64 _signDate, string _PikeName, string _headUrl, byte _isWeiChat, string _serverId, Int64 _loginDate, Int64 _registDate, Int32 _EntryGameGold, Int32 _EntryGameRechargeCount, List<string> _groupList, Int32 _winMinControlScale, Int32 _winMaxControlScale, Int32 _winMaxScale, Int32 _winMinScale, Int32 _curControlScale, Int32 _curScale, Int32 _recordScore, Int32 _scoreChange, string _realName, string _realId, string _realPhone, string _ipaddr, string _port, float _latitude, float _longitude){
+public UserValiadateInforWarp(UserValiadateInfor _value, Single _hasTime, String _agentCode, String _backControlCode, Int32 _Sex, Int32 _Gold, Int32 _RechargeCount, Int32 _rechargeBank, Int32 _goldBank, String _bankPassword, Int32 _signTimes, Int64 _signDate, String _PikeName, String _headUrl, Byte _isWeiChat, String _serverId, Int64 _loginDate, Int64 _registDate, Int32 _EntryGameGold, Int32 _EntryGameRechargeCount, List<String> _groupList, Int32 _luckRecordScore, Int32 _luckScore, String _realName, String _realId, String _realPhone, String _ipaddr, String _port, Single _latitude, Single _longitude){
 this.value = _value;
 this.hasTime = _hasTime;
 this.agentCode = _agentCode;
@@ -182,14 +158,8 @@ this.registDate = _registDate;
 this.EntryGameGold = _EntryGameGold;
 this.EntryGameRechargeCount = _EntryGameRechargeCount;
 this.groupList = _groupList;
-this.winMinControlScale = _winMinControlScale;
-this.winMaxControlScale = _winMaxControlScale;
-this.winMaxScale = _winMaxScale;
-this.winMinScale = _winMinScale;
-this.curControlScale = _curControlScale;
-this.curScale = _curScale;
-this.recordScore = _recordScore;
-this.scoreChange = _scoreChange;
+this.luckRecordScore = _luckRecordScore;
+this.luckScore = _luckScore;
 this.realName = _realName;
 this.realId = _realId;
 this.realPhone = _realPhone;
@@ -198,27 +168,27 @@ this.port = _port;
 this.latitude = _latitude;
 this.longitude = _longitude;
 }
-private byte[] get_value_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)value).Serializer();
+private Byte[] get_value_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)value).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_hasTime_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)hasTime);
+private Byte[] get_hasTime_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)hasTime);
 return outBuf;
 }
 
 
-private byte[] get_agentCode_encoding(){
-byte[] outBuf = null;
-string str = (string)agentCode;
+private Byte[] get_agentCode_encoding(){
+Byte[] outBuf = null;
+String str = (String)agentCode;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -228,13 +198,13 @@ return outBuf;
 }
 
 
-private byte[] get_backControlCode_encoding(){
-byte[] outBuf = null;
-string str = (string)backControlCode;
+private Byte[] get_backControlCode_encoding(){
+Byte[] outBuf = null;
+String str = (String)backControlCode;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -244,48 +214,48 @@ return outBuf;
 }
 
 
-private byte[] get_Sex_encoding(){
-byte[] outBuf = null;
+private Byte[] get_Sex_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)Sex);
 return outBuf;
 }
 
 
-private byte[] get_Gold_encoding(){
-byte[] outBuf = null;
+private Byte[] get_Gold_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)Gold);
 return outBuf;
 }
 
 
-private byte[] get_RechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_RechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)RechargeCount);
 return outBuf;
 }
 
 
-private byte[] get_rechargeBank_encoding(){
-byte[] outBuf = null;
+private Byte[] get_rechargeBank_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)rechargeBank);
 return outBuf;
 }
 
 
-private byte[] get_goldBank_encoding(){
-byte[] outBuf = null;
+private Byte[] get_goldBank_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)goldBank);
 return outBuf;
 }
 
 
-private byte[] get_bankPassword_encoding(){
-byte[] outBuf = null;
-string str = (string)bankPassword;
+private Byte[] get_bankPassword_encoding(){
+Byte[] outBuf = null;
+String str = (String)bankPassword;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -295,27 +265,27 @@ return outBuf;
 }
 
 
-private byte[] get_signTimes_encoding(){
-byte[] outBuf = null;
+private Byte[] get_signTimes_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)signTimes);
 return outBuf;
 }
 
 
-private byte[] get_signDate_encoding(){
-byte[] outBuf = null;
+private Byte[] get_signDate_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)signDate);
 return outBuf;
 }
 
 
-private byte[] get_PikeName_encoding(){
-byte[] outBuf = null;
-string str = (string)PikeName;
+private Byte[] get_PikeName_encoding(){
+Byte[] outBuf = null;
+String str = (String)PikeName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -325,13 +295,13 @@ return outBuf;
 }
 
 
-private byte[] get_headUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)headUrl;
+private Byte[] get_headUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)headUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -341,21 +311,21 @@ return outBuf;
 }
 
 
-private byte[] get_isWeiChat_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)isWeiChat;
+private Byte[] get_isWeiChat_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)isWeiChat;
 return outBuf;
 }
 
 
-private byte[] get_serverId_encoding(){
-byte[] outBuf = null;
-string str = (string)serverId;
+private Byte[] get_serverId_encoding(){
+Byte[] outBuf = null;
+String str = (String)serverId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -365,49 +335,49 @@ return outBuf;
 }
 
 
-private byte[] get_loginDate_encoding(){
-byte[] outBuf = null;
+private Byte[] get_loginDate_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)loginDate);
 return outBuf;
 }
 
 
-private byte[] get_registDate_encoding(){
-byte[] outBuf = null;
+private Byte[] get_registDate_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)registDate);
 return outBuf;
 }
 
 
-private byte[] get_EntryGameGold_encoding(){
-byte[] outBuf = null;
+private Byte[] get_EntryGameGold_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)EntryGameGold);
 return outBuf;
 }
 
 
-private byte[] get_EntryGameRechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_EntryGameRechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)EntryGameRechargeCount);
 return outBuf;
 }
 
 
-private byte[] get_groupList_encoding(){
-byte[] outBuf = null;
+private Byte[] get_groupList_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
-List<string> listString = (List<string>)groupList;
+List<String> listString = (List<String>)groupList;
 memoryWrite.Write(BitConverter.GetBytes(listString.Count),0,4);
 for(int i = 0;i < listString.Count;++i){
 using(MemoryStream desStream = new MemoryStream()){
-string str = listString[i];
+String str = listString[i];
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
-byte[] strBytes = desStream.ToArray();
+Byte[] strBytes = desStream.ToArray();
 memoryWrite.Write(strBytes,0,strBytes.Length);
 }
 }
@@ -417,69 +387,27 @@ return outBuf;
 }
 
 
-private byte[] get_winMinControlScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)winMinControlScale);
+private Byte[] get_luckRecordScore_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Int32)luckRecordScore);
 return outBuf;
 }
 
 
-private byte[] get_winMaxControlScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)winMaxControlScale);
+private Byte[] get_luckScore_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Int32)luckScore);
 return outBuf;
 }
 
 
-private byte[] get_winMaxScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)winMaxScale);
-return outBuf;
-}
-
-
-private byte[] get_winMinScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)winMinScale);
-return outBuf;
-}
-
-
-private byte[] get_curControlScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)curControlScale);
-return outBuf;
-}
-
-
-private byte[] get_curScale_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)curScale);
-return outBuf;
-}
-
-
-private byte[] get_recordScore_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)recordScore);
-return outBuf;
-}
-
-
-private byte[] get_scoreChange_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((Int32)scoreChange);
-return outBuf;
-}
-
-
-private byte[] get_realName_encoding(){
-byte[] outBuf = null;
-string str = (string)realName;
+private Byte[] get_realName_encoding(){
+Byte[] outBuf = null;
+String str = (String)realName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -489,13 +417,13 @@ return outBuf;
 }
 
 
-private byte[] get_realId_encoding(){
-byte[] outBuf = null;
-string str = (string)realId;
+private Byte[] get_realId_encoding(){
+Byte[] outBuf = null;
+String str = (String)realId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -505,13 +433,13 @@ return outBuf;
 }
 
 
-private byte[] get_realPhone_encoding(){
-byte[] outBuf = null;
-string str = (string)realPhone;
+private Byte[] get_realPhone_encoding(){
+Byte[] outBuf = null;
+String str = (String)realPhone;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -521,13 +449,13 @@ return outBuf;
 }
 
 
-private byte[] get_ipaddr_encoding(){
-byte[] outBuf = null;
-string str = (string)ipaddr;
+private Byte[] get_ipaddr_encoding(){
+Byte[] outBuf = null;
+String str = (String)ipaddr;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -537,13 +465,13 @@ return outBuf;
 }
 
 
-private byte[] get_port_encoding(){
-byte[] outBuf = null;
-string str = (string)port;
+private Byte[] get_port_encoding(){
+Byte[] outBuf = null;
+String str = (String)port;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -553,38 +481,38 @@ return outBuf;
 }
 
 
-private byte[] get_latitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)latitude);
+private Byte[] get_latitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)latitude);
 return outBuf;
 }
 
 
-private byte[] get_longitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)longitude);
+private Byte[] get_longitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)longitude);
 return outBuf;
 }
 
-private int set_value_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_value_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 value = new UserValiadateInfor();
 curIndex = value.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_hasTime_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_hasTime_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-hasTime = new float();
+hasTime = new Single();
 hasTime = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_agentCode_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_agentCode_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 agentCode = "";
@@ -598,8 +526,8 @@ curIndex++;
 agentCode = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_backControlCode_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_backControlCode_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 backControlCode = "";
@@ -613,8 +541,8 @@ curIndex++;
 backControlCode = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_Sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_Sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 Sex = new Int32();
@@ -622,8 +550,8 @@ Sex = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_Gold_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_Gold_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 Gold = new Int32();
@@ -631,8 +559,8 @@ Gold = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_RechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_RechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 RechargeCount = new Int32();
@@ -640,8 +568,8 @@ RechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_rechargeBank_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_rechargeBank_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 rechargeBank = new Int32();
@@ -649,8 +577,8 @@ rechargeBank = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_goldBank_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_goldBank_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 goldBank = new Int32();
@@ -658,8 +586,8 @@ goldBank = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_bankPassword_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_bankPassword_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 bankPassword = "";
@@ -673,8 +601,8 @@ curIndex++;
 bankPassword = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_signTimes_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_signTimes_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 signTimes = new Int32();
@@ -682,8 +610,8 @@ signTimes = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_signDate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_signDate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 signDate = new Int64();
@@ -691,8 +619,8 @@ signDate = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_PikeName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_PikeName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 PikeName = "";
@@ -706,8 +634,8 @@ curIndex++;
 PikeName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_headUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_headUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 headUrl = "";
@@ -721,17 +649,17 @@ curIndex++;
 headUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_isWeiChat_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_isWeiChat_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-isWeiChat = new byte();
+isWeiChat = new Byte();
 isWeiChat = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_serverId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_serverId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 serverId = "";
@@ -745,8 +673,8 @@ curIndex++;
 serverId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_loginDate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_loginDate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 loginDate = new Int64();
@@ -754,8 +682,8 @@ loginDate = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_registDate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_registDate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 registDate = new Int64();
@@ -763,8 +691,8 @@ registDate = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_EntryGameGold_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_EntryGameGold_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 EntryGameGold = new Int32();
@@ -772,8 +700,8 @@ EntryGameGold = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_EntryGameRechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_EntryGameRechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 EntryGameRechargeCount = new Int32();
@@ -781,15 +709,15 @@ EntryGameRechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_groupList_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_groupList_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-groupList = new List<string>();
+groupList = new List<String>();
 int listCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 for(int index = 0;index < listCount;++index){
-string curTarget = "";
+String curTarget = "";
 int strLength = BitConverter.ToInt32(sourceBuf, curIndex);
 curIndex += 4;
 Byte[] byteArray = new Byte[strLength];
@@ -802,80 +730,26 @@ groupList.Add(curTarget);
 }
 }return curIndex;
 }
-private int set_winMinControlScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_luckRecordScore_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-winMinControlScale = new Int32();
-winMinControlScale = BitConverter.ToInt32(sourceBuf,curIndex);
+luckRecordScore = new Int32();
+luckRecordScore = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_winMaxControlScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_luckScore_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-winMaxControlScale = new Int32();
-winMaxControlScale = BitConverter.ToInt32(sourceBuf,curIndex);
+luckScore = new Int32();
+luckScore = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_winMaxScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-winMaxScale = new Int32();
-winMaxScale = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_winMinScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-winMinScale = new Int32();
-winMinScale = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_curControlScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-curControlScale = new Int32();
-curControlScale = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_curScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-curScale = new Int32();
-curScale = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_recordScore_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-recordScore = new Int32();
-recordScore = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_scoreChange_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
-curIndex += 1;
-if(tag != 0){;
-scoreChange = new Int32();
-scoreChange = BitConverter.ToInt32(sourceBuf,curIndex);
-curIndex += 4;
-}return curIndex;
-}
-private int set_realName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realName = "";
@@ -889,8 +763,8 @@ curIndex++;
 realName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_realId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realId = "";
@@ -904,8 +778,8 @@ curIndex++;
 realId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_realPhone_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_realPhone_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 realPhone = "";
@@ -919,8 +793,8 @@ curIndex++;
 realPhone = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_ipaddr_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ipaddr_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ipaddr = "";
@@ -934,8 +808,8 @@ curIndex++;
 ipaddr = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_port_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_port_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 port = "";
@@ -949,27 +823,27 @@ curIndex++;
 port = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_latitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_latitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-latitude = new float();
+latitude = new Single();
 latitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_longitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_longitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-longitude = new float();
+longitude = new Single();
 longitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(value !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_value_encoding();
@@ -1096,51 +970,15 @@ byteBuf = get_groupList_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}if(winMinControlScale !=  null){
+}if(luckRecordScore !=  null){
 memoryWrite.WriteByte(1);
-byteBuf = get_winMinControlScale_encoding();
+byteBuf = get_luckRecordScore_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}if(winMaxControlScale !=  null){
+}if(luckScore !=  null){
 memoryWrite.WriteByte(1);
-byteBuf = get_winMaxControlScale_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(winMaxScale !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_winMaxScale_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(winMinScale !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_winMinScale_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(curControlScale !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_curControlScale_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(curScale !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_curScale_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(recordScore !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_recordScore_encoding();
-memoryWrite.Write(byteBuf,0,byteBuf.Length);
-}
-else {memoryWrite.WriteByte(0);
-}if(scoreChange !=  null){
-memoryWrite.WriteByte(1);
-byteBuf = get_scoreChange_encoding();
+byteBuf = get_luckScore_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
@@ -1186,11 +1024,11 @@ byteBuf = get_longitude_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_value_fromBuf(sourceBuf,startOffset);
 startOffset = set_hasTime_fromBuf(sourceBuf,startOffset);
 startOffset = set_agentCode_fromBuf(sourceBuf,startOffset);
@@ -1212,14 +1050,8 @@ startOffset = set_registDate_fromBuf(sourceBuf,startOffset);
 startOffset = set_EntryGameGold_fromBuf(sourceBuf,startOffset);
 startOffset = set_EntryGameRechargeCount_fromBuf(sourceBuf,startOffset);
 startOffset = set_groupList_fromBuf(sourceBuf,startOffset);
-startOffset = set_winMinControlScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_winMaxControlScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_winMaxScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_winMinScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_curControlScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_curScale_fromBuf(sourceBuf,startOffset);
-startOffset = set_recordScore_fromBuf(sourceBuf,startOffset);
-startOffset = set_scoreChange_fromBuf(sourceBuf,startOffset);
+startOffset = set_luckRecordScore_fromBuf(sourceBuf,startOffset);
+startOffset = set_luckScore_fromBuf(sourceBuf,startOffset);
 startOffset = set_realName_fromBuf(sourceBuf,startOffset);
 startOffset = set_realId_fromBuf(sourceBuf,startOffset);
 startOffset = set_realPhone_fromBuf(sourceBuf,startOffset);
@@ -1229,110 +1061,110 @@ startOffset = set_latitude_fromBuf(sourceBuf,startOffset);
 startOffset = set_longitude_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_value_json(){
-if(value==null){return "";}string resultJson = "\"value\":";resultJson += ((CherishBitProtocolBase)value).SerializerJson();return resultJson;
+public String get_value_json(){
+if(value==null){return "";}String resultJson = "\"value\":";resultJson += ((LantisBitProtocolBase)value).SerializerJson();return resultJson;
 }
 
 
-public string get_hasTime_json(){
-if(hasTime==null){return "";}string resultJson = "\"hasTime\":";resultJson += "\"";resultJson += hasTime.ToString();resultJson += "\"";return resultJson;
+public String get_hasTime_json(){
+if(hasTime==null){return "";}String resultJson = "\"hasTime\":";resultJson += "\"";resultJson += hasTime.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_agentCode_json(){
-if(agentCode==null){return "";}string resultJson = "\"agentCode\":";resultJson += "\"";resultJson += agentCode.ToString();resultJson += "\"";return resultJson;
+public String get_agentCode_json(){
+if(agentCode==null){return "";}String resultJson = "\"agentCode\":";resultJson += "\"";resultJson += agentCode.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_backControlCode_json(){
-if(backControlCode==null){return "";}string resultJson = "\"backControlCode\":";resultJson += "\"";resultJson += backControlCode.ToString();resultJson += "\"";return resultJson;
+public String get_backControlCode_json(){
+if(backControlCode==null){return "";}String resultJson = "\"backControlCode\":";resultJson += "\"";resultJson += backControlCode.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_Sex_json(){
-if(Sex==null){return "";}string resultJson = "\"Sex\":";resultJson += "\"";resultJson += Sex.ToString();resultJson += "\"";return resultJson;
+public String get_Sex_json(){
+if(Sex==null){return "";}String resultJson = "\"Sex\":";resultJson += "\"";resultJson += Sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_Gold_json(){
-if(Gold==null){return "";}string resultJson = "\"Gold\":";resultJson += "\"";resultJson += Gold.ToString();resultJson += "\"";return resultJson;
+public String get_Gold_json(){
+if(Gold==null){return "";}String resultJson = "\"Gold\":";resultJson += "\"";resultJson += Gold.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_RechargeCount_json(){
-if(RechargeCount==null){return "";}string resultJson = "\"RechargeCount\":";resultJson += "\"";resultJson += RechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_RechargeCount_json(){
+if(RechargeCount==null){return "";}String resultJson = "\"RechargeCount\":";resultJson += "\"";resultJson += RechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_rechargeBank_json(){
-if(rechargeBank==null){return "";}string resultJson = "\"rechargeBank\":";resultJson += "\"";resultJson += rechargeBank.ToString();resultJson += "\"";return resultJson;
+public String get_rechargeBank_json(){
+if(rechargeBank==null){return "";}String resultJson = "\"rechargeBank\":";resultJson += "\"";resultJson += rechargeBank.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_goldBank_json(){
-if(goldBank==null){return "";}string resultJson = "\"goldBank\":";resultJson += "\"";resultJson += goldBank.ToString();resultJson += "\"";return resultJson;
+public String get_goldBank_json(){
+if(goldBank==null){return "";}String resultJson = "\"goldBank\":";resultJson += "\"";resultJson += goldBank.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_bankPassword_json(){
-if(bankPassword==null){return "";}string resultJson = "\"bankPassword\":";resultJson += "\"";resultJson += bankPassword.ToString();resultJson += "\"";return resultJson;
+public String get_bankPassword_json(){
+if(bankPassword==null){return "";}String resultJson = "\"bankPassword\":";resultJson += "\"";resultJson += bankPassword.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_signTimes_json(){
-if(signTimes==null){return "";}string resultJson = "\"signTimes\":";resultJson += "\"";resultJson += signTimes.ToString();resultJson += "\"";return resultJson;
+public String get_signTimes_json(){
+if(signTimes==null){return "";}String resultJson = "\"signTimes\":";resultJson += "\"";resultJson += signTimes.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_signDate_json(){
-if(signDate==null){return "";}string resultJson = "\"signDate\":";resultJson += "\"";resultJson += signDate.ToString();resultJson += "\"";return resultJson;
+public String get_signDate_json(){
+if(signDate==null){return "";}String resultJson = "\"signDate\":";resultJson += "\"";resultJson += signDate.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_PikeName_json(){
-if(PikeName==null){return "";}string resultJson = "\"PikeName\":";resultJson += "\"";resultJson += PikeName.ToString();resultJson += "\"";return resultJson;
+public String get_PikeName_json(){
+if(PikeName==null){return "";}String resultJson = "\"PikeName\":";resultJson += "\"";resultJson += PikeName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_headUrl_json(){
-if(headUrl==null){return "";}string resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
+public String get_headUrl_json(){
+if(headUrl==null){return "";}String resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_isWeiChat_json(){
-if(isWeiChat==null){return "";}string resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
+public String get_isWeiChat_json(){
+if(isWeiChat==null){return "";}String resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_serverId_json(){
-if(serverId==null){return "";}string resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
+public String get_serverId_json(){
+if(serverId==null){return "";}String resultJson = "\"serverId\":";resultJson += "\"";resultJson += serverId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_loginDate_json(){
-if(loginDate==null){return "";}string resultJson = "\"loginDate\":";resultJson += "\"";resultJson += loginDate.ToString();resultJson += "\"";return resultJson;
+public String get_loginDate_json(){
+if(loginDate==null){return "";}String resultJson = "\"loginDate\":";resultJson += "\"";resultJson += loginDate.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_registDate_json(){
-if(registDate==null){return "";}string resultJson = "\"registDate\":";resultJson += "\"";resultJson += registDate.ToString();resultJson += "\"";return resultJson;
+public String get_registDate_json(){
+if(registDate==null){return "";}String resultJson = "\"registDate\":";resultJson += "\"";resultJson += registDate.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_EntryGameGold_json(){
-if(EntryGameGold==null){return "";}string resultJson = "\"EntryGameGold\":";resultJson += "\"";resultJson += EntryGameGold.ToString();resultJson += "\"";return resultJson;
+public String get_EntryGameGold_json(){
+if(EntryGameGold==null){return "";}String resultJson = "\"EntryGameGold\":";resultJson += "\"";resultJson += EntryGameGold.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_EntryGameRechargeCount_json(){
-if(EntryGameRechargeCount==null){return "";}string resultJson = "\"EntryGameRechargeCount\":";resultJson += "\"";resultJson += EntryGameRechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_EntryGameRechargeCount_json(){
+if(EntryGameRechargeCount==null){return "";}String resultJson = "\"EntryGameRechargeCount\":";resultJson += "\"";resultJson += EntryGameRechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_groupList_json(){
-if(groupList==null){return "";}string resultJson = "\"groupList\":";resultJson += "[";List<string> listObj = (List<string>)groupList;
+public String get_groupList_json(){
+if(groupList==null){return "";}String resultJson = "\"groupList\":";resultJson += "[";List<String> listObj = (List<String>)groupList;
 for(int i = 0;i < listObj.Count;++i){
-string item = listObj[i];
+String item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item;
 resultJson += "\"";}
 resultJson += "]";
@@ -1340,78 +1172,48 @@ return resultJson;
 }
 
 
-public string get_winMinControlScale_json(){
-if(winMinControlScale==null){return "";}string resultJson = "\"winMinControlScale\":";resultJson += "\"";resultJson += winMinControlScale.ToString();resultJson += "\"";return resultJson;
+public String get_luckRecordScore_json(){
+if(luckRecordScore==null){return "";}String resultJson = "\"luckRecordScore\":";resultJson += "\"";resultJson += luckRecordScore.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_winMaxControlScale_json(){
-if(winMaxControlScale==null){return "";}string resultJson = "\"winMaxControlScale\":";resultJson += "\"";resultJson += winMaxControlScale.ToString();resultJson += "\"";return resultJson;
+public String get_luckScore_json(){
+if(luckScore==null){return "";}String resultJson = "\"luckScore\":";resultJson += "\"";resultJson += luckScore.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_winMaxScale_json(){
-if(winMaxScale==null){return "";}string resultJson = "\"winMaxScale\":";resultJson += "\"";resultJson += winMaxScale.ToString();resultJson += "\"";return resultJson;
+public String get_realName_json(){
+if(realName==null){return "";}String resultJson = "\"realName\":";resultJson += "\"";resultJson += realName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_winMinScale_json(){
-if(winMinScale==null){return "";}string resultJson = "\"winMinScale\":";resultJson += "\"";resultJson += winMinScale.ToString();resultJson += "\"";return resultJson;
+public String get_realId_json(){
+if(realId==null){return "";}String resultJson = "\"realId\":";resultJson += "\"";resultJson += realId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_curControlScale_json(){
-if(curControlScale==null){return "";}string resultJson = "\"curControlScale\":";resultJson += "\"";resultJson += curControlScale.ToString();resultJson += "\"";return resultJson;
+public String get_realPhone_json(){
+if(realPhone==null){return "";}String resultJson = "\"realPhone\":";resultJson += "\"";resultJson += realPhone.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_curScale_json(){
-if(curScale==null){return "";}string resultJson = "\"curScale\":";resultJson += "\"";resultJson += curScale.ToString();resultJson += "\"";return resultJson;
+public String get_ipaddr_json(){
+if(ipaddr==null){return "";}String resultJson = "\"ipaddr\":";resultJson += "\"";resultJson += ipaddr.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_recordScore_json(){
-if(recordScore==null){return "";}string resultJson = "\"recordScore\":";resultJson += "\"";resultJson += recordScore.ToString();resultJson += "\"";return resultJson;
+public String get_port_json(){
+if(port==null){return "";}String resultJson = "\"port\":";resultJson += "\"";resultJson += port.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_scoreChange_json(){
-if(scoreChange==null){return "";}string resultJson = "\"scoreChange\":";resultJson += "\"";resultJson += scoreChange.ToString();resultJson += "\"";return resultJson;
+public String get_latitude_json(){
+if(latitude==null){return "";}String resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_realName_json(){
-if(realName==null){return "";}string resultJson = "\"realName\":";resultJson += "\"";resultJson += realName.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_realId_json(){
-if(realId==null){return "";}string resultJson = "\"realId\":";resultJson += "\"";resultJson += realId.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_realPhone_json(){
-if(realPhone==null){return "";}string resultJson = "\"realPhone\":";resultJson += "\"";resultJson += realPhone.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_ipaddr_json(){
-if(ipaddr==null){return "";}string resultJson = "\"ipaddr\":";resultJson += "\"";resultJson += ipaddr.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_port_json(){
-if(port==null){return "";}string resultJson = "\"port\":";resultJson += "\"";resultJson += port.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_latitude_json(){
-if(latitude==null){return "";}string resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
-}
-
-
-public string get_longitude_json(){
-if(longitude==null){return "";}string resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
+public String get_longitude_json(){
+if(longitude==null){return "";}String resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -1421,7 +1223,7 @@ value.DeserializerJson(jsonObj.ToJson());}
 
 
 public void set_hasTime_fromJson(LitJson.JsonData jsonObj){
-hasTime= float.Parse(jsonObj.ToString());
+hasTime= Single.Parse(jsonObj.ToString());
 }
 
 
@@ -1486,7 +1288,7 @@ headUrl= jsonObj.ToString();
 
 
 public void set_isWeiChat_fromJson(LitJson.JsonData jsonObj){
-isWeiChat= byte.Parse(jsonObj.ToString());
+isWeiChat= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -1516,50 +1318,20 @@ EntryGameRechargeCount= Int32.Parse(jsonObj.ToString());
 
 
 public void set_groupList_fromJson(LitJson.JsonData jsonObj){
-groupList= new List<string>();
+groupList= new List<String>();
 foreach(LitJson.JsonData jsonItem in jsonObj){
 groupList.Add(jsonItem.ToString());}
 
 }
 
 
-public void set_winMinControlScale_fromJson(LitJson.JsonData jsonObj){
-winMinControlScale= Int32.Parse(jsonObj.ToString());
+public void set_luckRecordScore_fromJson(LitJson.JsonData jsonObj){
+luckRecordScore= Int32.Parse(jsonObj.ToString());
 }
 
 
-public void set_winMaxControlScale_fromJson(LitJson.JsonData jsonObj){
-winMaxControlScale= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_winMaxScale_fromJson(LitJson.JsonData jsonObj){
-winMaxScale= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_winMinScale_fromJson(LitJson.JsonData jsonObj){
-winMinScale= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_curControlScale_fromJson(LitJson.JsonData jsonObj){
-curControlScale= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_curScale_fromJson(LitJson.JsonData jsonObj){
-curScale= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_recordScore_fromJson(LitJson.JsonData jsonObj){
-recordScore= Int32.Parse(jsonObj.ToString());
-}
-
-
-public void set_scoreChange_fromJson(LitJson.JsonData jsonObj){
-scoreChange= Int32.Parse(jsonObj.ToString());
+public void set_luckScore_fromJson(LitJson.JsonData jsonObj){
+luckScore= Int32.Parse(jsonObj.ToString());
 }
 
 
@@ -1589,16 +1361,16 @@ port= jsonObj.ToString();
 
 
 public void set_latitude_fromJson(LitJson.JsonData jsonObj){
-latitude= float.Parse(jsonObj.ToString());
+latitude= Single.Parse(jsonObj.ToString());
 }
 
 
 public void set_longitude_fromJson(LitJson.JsonData jsonObj){
-longitude= float.Parse(jsonObj.ToString());
+longitude= Single.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(value !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(value !=  null){
 resultStr += get_value_json();
 }
 else {}if(hasTime !=  null){
@@ -1661,29 +1433,11 @@ resultStr += ",";resultStr += get_EntryGameRechargeCount_json();
 else {}if(groupList !=  null){
 resultStr += ",";resultStr += get_groupList_json();
 }
-else {}if(winMinControlScale !=  null){
-resultStr += ",";resultStr += get_winMinControlScale_json();
+else {}if(luckRecordScore !=  null){
+resultStr += ",";resultStr += get_luckRecordScore_json();
 }
-else {}if(winMaxControlScale !=  null){
-resultStr += ",";resultStr += get_winMaxControlScale_json();
-}
-else {}if(winMaxScale !=  null){
-resultStr += ",";resultStr += get_winMaxScale_json();
-}
-else {}if(winMinScale !=  null){
-resultStr += ",";resultStr += get_winMinScale_json();
-}
-else {}if(curControlScale !=  null){
-resultStr += ",";resultStr += get_curControlScale_json();
-}
-else {}if(curScale !=  null){
-resultStr += ",";resultStr += get_curScale_json();
-}
-else {}if(recordScore !=  null){
-resultStr += ",";resultStr += get_recordScore_json();
-}
-else {}if(scoreChange !=  null){
-resultStr += ",";resultStr += get_scoreChange_json();
+else {}if(luckScore !=  null){
+resultStr += ",";resultStr += get_luckScore_json();
 }
 else {}if(realName !=  null){
 resultStr += ",";resultStr += get_realName_json();
@@ -1709,7 +1463,7 @@ resultStr += ",";resultStr += get_longitude_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["value"] != null){
 set_value_fromJson(jsonObj["value"]);
@@ -1774,29 +1528,11 @@ set_EntryGameRechargeCount_fromJson(jsonObj["EntryGameRechargeCount"]);
 if(jsonObj["groupList"] != null){
 set_groupList_fromJson(jsonObj["groupList"]);
 }
-if(jsonObj["winMinControlScale"] != null){
-set_winMinControlScale_fromJson(jsonObj["winMinControlScale"]);
+if(jsonObj["luckRecordScore"] != null){
+set_luckRecordScore_fromJson(jsonObj["luckRecordScore"]);
 }
-if(jsonObj["winMaxControlScale"] != null){
-set_winMaxControlScale_fromJson(jsonObj["winMaxControlScale"]);
-}
-if(jsonObj["winMaxScale"] != null){
-set_winMaxScale_fromJson(jsonObj["winMaxScale"]);
-}
-if(jsonObj["winMinScale"] != null){
-set_winMinScale_fromJson(jsonObj["winMinScale"]);
-}
-if(jsonObj["curControlScale"] != null){
-set_curControlScale_fromJson(jsonObj["curControlScale"]);
-}
-if(jsonObj["curScale"] != null){
-set_curScale_fromJson(jsonObj["curScale"]);
-}
-if(jsonObj["recordScore"] != null){
-set_recordScore_fromJson(jsonObj["recordScore"]);
-}
-if(jsonObj["scoreChange"] != null){
-set_scoreChange_fromJson(jsonObj["scoreChange"]);
+if(jsonObj["luckScore"] != null){
+set_luckScore_fromJson(jsonObj["luckScore"]);
 }
 if(jsonObj["realName"] != null){
 set_realName_fromJson(jsonObj["realName"]);

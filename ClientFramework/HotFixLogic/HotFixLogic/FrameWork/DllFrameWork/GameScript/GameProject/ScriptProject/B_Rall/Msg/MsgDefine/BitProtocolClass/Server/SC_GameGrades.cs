@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///战绩推送
 /// <\summary>
-public class SC_GameGrades : CherishBitProtocolBase {
+public class SC_GameGrades : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -22,14 +22,14 @@ public SC_GameGrades(){}
 public SC_GameGrades(List<P_GameLogicRecord> _logicDatas){
 this.logicDatas = _logicDatas;
 }
-private byte[] get_logicDatas_encoding(){
-byte[] outBuf = null;
+private Byte[] get_logicDatas_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_GameLogicRecord> listBase = logicDatas;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
-byte[] baseBuf = baseObject.Serializer();
+LantisBitProtocolBase baseObject = listBase[i];
+Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
 outBuf = memoryWrite.ToArray();
@@ -37,8 +37,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_logicDatas_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_logicDatas_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 logicDatas = new List<P_GameLogicRecord>();
@@ -51,25 +51,25 @@ logicDatas.Add(curTarget);
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(logicDatas !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_logicDatas_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_logicDatas_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_logicDatas_json(){
-if(logicDatas==null){return "";}string resultJson = "\"logicDatas\":";resultJson += "[";
+public String get_logicDatas_json(){
+if(logicDatas==null){return "";}String resultJson = "\"logicDatas\":";resultJson += "[";
 List<P_GameLogicRecord> listObj = (List<P_GameLogicRecord>)logicDatas;
 for(int i = 0;i < listObj.Count;++i){
 P_GameLogicRecord item = listObj[i];
@@ -90,14 +90,14 @@ addB.DeserializerJson(item.ToJson());
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(logicDatas !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(logicDatas !=  null){
 resultStr += get_logicDatas_json();
 }
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["logicDatas"] != null){
 set_logicDatas_fromJson(jsonObj["logicDatas"]);

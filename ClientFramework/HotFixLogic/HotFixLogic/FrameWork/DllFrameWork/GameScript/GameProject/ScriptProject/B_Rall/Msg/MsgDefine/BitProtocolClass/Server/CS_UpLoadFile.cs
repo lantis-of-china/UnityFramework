@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///上传文件
 /// <\summary>
-public class CS_UpLoadFile : CherishBitProtocolBase {
+public class CS_UpLoadFile : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -20,42 +20,42 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///文件名
 /// <\summary>
-public string fileName;
+public String fileName;
 /// <summary>
 ///文件类型0-俱乐部图片 1-头像图片
 /// <\summary>
-public byte fileType;
+public Byte fileType;
 /// <summary>
 ///和文件类型相关
 /// <\summary>
-public List<byte> otherBuf;
+public List<Byte> otherBuf;
 /// <summary>
 ///文件数据
 /// <\summary>
-public List<byte> fileBuf;
+public List<Byte> fileBuf;
 public CS_UpLoadFile(){}
 
-public CS_UpLoadFile(UserValiadateInfor _UserValiadate, string _fileName, byte _fileType, List<byte> _otherBuf, List<byte> _fileBuf){
+public CS_UpLoadFile(UserValiadateInfor _UserValiadate, String _fileName, Byte _fileType, List<Byte> _otherBuf, List<Byte> _fileBuf){
 this.UserValiadate = _UserValiadate;
 this.fileName = _fileName;
 this.fileType = _fileType;
 this.otherBuf = _otherBuf;
 this.fileBuf = _fileBuf;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_fileName_encoding(){
-byte[] outBuf = null;
-string str = (string)fileName;
+private Byte[] get_fileName_encoding(){
+Byte[] outBuf = null;
+String str = (String)fileName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -65,20 +65,20 @@ return outBuf;
 }
 
 
-private byte[] get_fileType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)fileType;
+private Byte[] get_fileType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)fileType;
 return outBuf;
 }
 
 
-private byte[] get_otherBuf_encoding(){
-byte[] outBuf = null;
+private Byte[] get_otherBuf_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
-List<byte> listbyte = (List<byte>)otherBuf;
+List<Byte> listbyte = (List<Byte>)otherBuf;
 memoryWrite.Write(BitConverter.GetBytes(listbyte.Count),0,4);
-byte[] listBuf = listbyte.ToArray();
+Byte[] listBuf = listbyte.ToArray();
 memoryWrite.Write(listBuf,0,listBuf.Length);
 outBuf = memoryWrite.ToArray();
 }
@@ -86,28 +86,28 @@ return outBuf;
 }
 
 
-private byte[] get_fileBuf_encoding(){
-byte[] outBuf = null;
+private Byte[] get_fileBuf_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
-List<byte> listbyte = (List<byte>)fileBuf;
+List<Byte> listbyte = (List<Byte>)fileBuf;
 memoryWrite.Write(BitConverter.GetBytes(listbyte.Count),0,4);
-byte[] listBuf = listbyte.ToArray();
+Byte[] listBuf = listbyte.ToArray();
 memoryWrite.Write(listBuf,0,listBuf.Length);
 outBuf = memoryWrite.ToArray();
 }
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_fileName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_fileName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 fileName = "";
@@ -121,44 +121,44 @@ curIndex++;
 fileName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_fileType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_fileType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-fileType = new byte();
+fileType = new Byte();
 fileType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_otherBuf_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_otherBuf_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-otherBuf = new List<byte>();
+otherBuf = new List<Byte>();
 int listCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
-byte[] data = new byte[listCount];
+Byte[] data = new Byte[listCount];
 Buffer.BlockCopy(sourceBuf, curIndex, data, 0, listCount);
-otherBuf = new List<byte>(data);
+otherBuf = new List<Byte>(data);
 curIndex += listCount;
 }return curIndex;
 }
-private int set_fileBuf_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_fileBuf_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-fileBuf = new List<byte>();
+fileBuf = new List<Byte>();
 int listCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
-byte[] data = new byte[listCount];
+Byte[] data = new Byte[listCount];
 Buffer.BlockCopy(sourceBuf, curIndex, data, 0, listCount);
-fileBuf = new List<byte>(data);
+fileBuf = new List<Byte>(data);
 curIndex += listCount;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -189,11 +189,11 @@ byteBuf = get_fileBuf_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_fileName_fromBuf(sourceBuf,startOffset);
 startOffset = set_fileType_fromBuf(sourceBuf,startOffset);
@@ -201,25 +201,25 @@ startOffset = set_otherBuf_fromBuf(sourceBuf,startOffset);
 startOffset = set_fileBuf_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_fileName_json(){
-if(fileName==null){return "";}string resultJson = "\"fileName\":";resultJson += "\"";resultJson += fileName.ToString();resultJson += "\"";return resultJson;
+public String get_fileName_json(){
+if(fileName==null){return "";}String resultJson = "\"fileName\":";resultJson += "\"";resultJson += fileName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_fileType_json(){
-if(fileType==null){return "";}string resultJson = "\"fileType\":";resultJson += "\"";resultJson += fileType.ToString();resultJson += "\"";return resultJson;
+public String get_fileType_json(){
+if(fileType==null){return "";}String resultJson = "\"fileType\":";resultJson += "\"";resultJson += fileType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_otherBuf_json(){
-if(otherBuf==null){return "";}string resultJson = "\"otherBuf\":";resultJson += "[";List<byte> listObj = (List<byte>)otherBuf;
+public String get_otherBuf_json(){
+if(otherBuf==null){return "";}String resultJson = "\"otherBuf\":";resultJson += "[";List<Byte> listObj = (List<Byte>)otherBuf;
 for(int i = 0;i < listObj.Count;++i){
-byte item = listObj[i];
+Byte item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
 resultJson += "\"";}
 resultJson += "]";
@@ -227,10 +227,10 @@ return resultJson;
 }
 
 
-public string get_fileBuf_json(){
-if(fileBuf==null){return "";}string resultJson = "\"fileBuf\":";resultJson += "[";List<byte> listObj = (List<byte>)fileBuf;
+public String get_fileBuf_json(){
+if(fileBuf==null){return "";}String resultJson = "\"fileBuf\":";resultJson += "[";List<Byte> listObj = (List<Byte>)fileBuf;
 for(int i = 0;i < listObj.Count;++i){
-byte item = listObj[i];
+Byte item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
 resultJson += "\"";}
 resultJson += "]";
@@ -249,27 +249,27 @@ fileName= jsonObj.ToString();
 
 
 public void set_fileType_fromJson(LitJson.JsonData jsonObj){
-fileType= byte.Parse(jsonObj.ToString());
+fileType= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_otherBuf_fromJson(LitJson.JsonData jsonObj){
-otherBuf= new List<byte>();
+otherBuf= new List<Byte>();
 foreach(LitJson.JsonData jsonItem in jsonObj){
-otherBuf.Add(byte.Parse(jsonItem.ToString()));}
+otherBuf.Add(Byte.Parse(jsonItem.ToString()));}
 
 }
 
 
 public void set_fileBuf_fromJson(LitJson.JsonData jsonObj){
-fileBuf= new List<byte>();
+fileBuf= new List<Byte>();
 foreach(LitJson.JsonData jsonItem in jsonObj){
-fileBuf.Add(byte.Parse(jsonItem.ToString()));}
+fileBuf.Add(Byte.Parse(jsonItem.ToString()));}
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(fileName !=  null){
@@ -287,7 +287,7 @@ resultStr += ",";resultStr += get_fileBuf_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

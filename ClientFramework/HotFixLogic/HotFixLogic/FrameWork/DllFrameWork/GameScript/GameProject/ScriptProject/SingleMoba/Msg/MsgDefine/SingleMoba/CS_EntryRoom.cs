@@ -4,14 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
 using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///进入房间
 /// <\summary>
-public class CS_EntryRoom : CherishBitProtocolBase {
+public class CS_EntryRoom : LantisBitProtocolBase {
 /// <summary>
 ///进入房间方式 1快速房间 2加入房间
 /// <\summary>
@@ -48,7 +50,7 @@ return outBuf;
 
 private Byte[] get_UserValiadate_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
@@ -120,7 +122,7 @@ if(roomId==null){return "";}String resultJson = "\"roomId\":";resultJson += "\""
 
 
 public String get_UserValiadate_json(){
-if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 

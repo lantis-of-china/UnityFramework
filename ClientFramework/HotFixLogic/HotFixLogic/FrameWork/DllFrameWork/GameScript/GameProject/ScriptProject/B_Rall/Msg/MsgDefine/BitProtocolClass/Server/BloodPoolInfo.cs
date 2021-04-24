@@ -13,11 +13,11 @@ namespace Server{
 /// <summary>
 ///血池和奖池
 /// <\summary>
-public class BloodPoolInfo : CherishBitProtocolBase {
+public class BloodPoolInfo : LantisBitProtocolBase {
 /// <summary>
 ///游戏类型
 /// <\summary>
-public byte gameType;
+public Byte gameType;
 /// <summary>
 ///场次ID
 /// <\summary>
@@ -48,7 +48,7 @@ public Int64 gameValue;
 public Int64 awardValue;
 public BloodPoolInfo(){}
 
-public BloodPoolInfo(byte _gameType, Int32 _cid, Int64 _poolSpitMin, Int64 _poolSpitMax, Int64 _poolEatMin, Int64 _poolEatMax, Int64 _gameValue, Int64 _awardValue){
+public BloodPoolInfo(Byte _gameType, Int32 _cid, Int64 _poolSpitMin, Int64 _poolSpitMax, Int64 _poolEatMin, Int64 _poolEatMax, Int64 _gameValue, Int64 _awardValue){
 this.gameType = _gameType;
 this.cid = _cid;
 this.poolSpitMin = _poolSpitMin;
@@ -58,73 +58,73 @@ this.poolEatMax = _poolEatMax;
 this.gameValue = _gameValue;
 this.awardValue = _awardValue;
 }
-private byte[] get_gameType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)gameType;
+private Byte[] get_gameType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)gameType;
 return outBuf;
 }
 
 
-private byte[] get_cid_encoding(){
-byte[] outBuf = null;
+private Byte[] get_cid_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)cid);
 return outBuf;
 }
 
 
-private byte[] get_poolSpitMin_encoding(){
-byte[] outBuf = null;
+private Byte[] get_poolSpitMin_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)poolSpitMin);
 return outBuf;
 }
 
 
-private byte[] get_poolSpitMax_encoding(){
-byte[] outBuf = null;
+private Byte[] get_poolSpitMax_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)poolSpitMax);
 return outBuf;
 }
 
 
-private byte[] get_poolEatMin_encoding(){
-byte[] outBuf = null;
+private Byte[] get_poolEatMin_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)poolEatMin);
 return outBuf;
 }
 
 
-private byte[] get_poolEatMax_encoding(){
-byte[] outBuf = null;
+private Byte[] get_poolEatMax_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)poolEatMax);
 return outBuf;
 }
 
 
-private byte[] get_gameValue_encoding(){
-byte[] outBuf = null;
+private Byte[] get_gameValue_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)gameValue);
 return outBuf;
 }
 
 
-private byte[] get_awardValue_encoding(){
-byte[] outBuf = null;
+private Byte[] get_awardValue_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)awardValue);
 return outBuf;
 }
 
-private int set_gameType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gameType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-gameType = new byte();
+gameType = new Byte();
 gameType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_cid_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_cid_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 cid = new Int32();
@@ -132,8 +132,8 @@ cid = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_poolSpitMin_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_poolSpitMin_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 poolSpitMin = new Int64();
@@ -141,8 +141,8 @@ poolSpitMin = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_poolSpitMax_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_poolSpitMax_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 poolSpitMax = new Int64();
@@ -150,8 +150,8 @@ poolSpitMax = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_poolEatMin_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_poolEatMin_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 poolEatMin = new Int64();
@@ -159,8 +159,8 @@ poolEatMin = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_poolEatMax_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_poolEatMax_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 poolEatMax = new Int64();
@@ -168,8 +168,8 @@ poolEatMax = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_gameValue_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gameValue_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 gameValue = new Int64();
@@ -177,8 +177,8 @@ gameValue = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-private int set_awardValue_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_awardValue_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 awardValue = new Int64();
@@ -186,9 +186,9 @@ awardValue = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(gameType !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_gameType_encoding();
@@ -237,11 +237,11 @@ byteBuf = get_awardValue_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_gameType_fromBuf(sourceBuf,startOffset);
 startOffset = set_cid_fromBuf(sourceBuf,startOffset);
 startOffset = set_poolSpitMin_fromBuf(sourceBuf,startOffset);
@@ -252,48 +252,48 @@ startOffset = set_gameValue_fromBuf(sourceBuf,startOffset);
 startOffset = set_awardValue_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_gameType_json(){
-if(gameType==null){return "";}string resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
+public String get_gameType_json(){
+if(gameType==null){return "";}String resultJson = "\"gameType\":";resultJson += "\"";resultJson += gameType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_cid_json(){
-if(cid==null){return "";}string resultJson = "\"cid\":";resultJson += "\"";resultJson += cid.ToString();resultJson += "\"";return resultJson;
+public String get_cid_json(){
+if(cid==null){return "";}String resultJson = "\"cid\":";resultJson += "\"";resultJson += cid.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_poolSpitMin_json(){
-if(poolSpitMin==null){return "";}string resultJson = "\"poolSpitMin\":";resultJson += "\"";resultJson += poolSpitMin.ToString();resultJson += "\"";return resultJson;
+public String get_poolSpitMin_json(){
+if(poolSpitMin==null){return "";}String resultJson = "\"poolSpitMin\":";resultJson += "\"";resultJson += poolSpitMin.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_poolSpitMax_json(){
-if(poolSpitMax==null){return "";}string resultJson = "\"poolSpitMax\":";resultJson += "\"";resultJson += poolSpitMax.ToString();resultJson += "\"";return resultJson;
+public String get_poolSpitMax_json(){
+if(poolSpitMax==null){return "";}String resultJson = "\"poolSpitMax\":";resultJson += "\"";resultJson += poolSpitMax.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_poolEatMin_json(){
-if(poolEatMin==null){return "";}string resultJson = "\"poolEatMin\":";resultJson += "\"";resultJson += poolEatMin.ToString();resultJson += "\"";return resultJson;
+public String get_poolEatMin_json(){
+if(poolEatMin==null){return "";}String resultJson = "\"poolEatMin\":";resultJson += "\"";resultJson += poolEatMin.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_poolEatMax_json(){
-if(poolEatMax==null){return "";}string resultJson = "\"poolEatMax\":";resultJson += "\"";resultJson += poolEatMax.ToString();resultJson += "\"";return resultJson;
+public String get_poolEatMax_json(){
+if(poolEatMax==null){return "";}String resultJson = "\"poolEatMax\":";resultJson += "\"";resultJson += poolEatMax.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_gameValue_json(){
-if(gameValue==null){return "";}string resultJson = "\"gameValue\":";resultJson += "\"";resultJson += gameValue.ToString();resultJson += "\"";return resultJson;
+public String get_gameValue_json(){
+if(gameValue==null){return "";}String resultJson = "\"gameValue\":";resultJson += "\"";resultJson += gameValue.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_awardValue_json(){
-if(awardValue==null){return "";}string resultJson = "\"awardValue\":";resultJson += "\"";resultJson += awardValue.ToString();resultJson += "\"";return resultJson;
+public String get_awardValue_json(){
+if(awardValue==null){return "";}String resultJson = "\"awardValue\":";resultJson += "\"";resultJson += awardValue.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_gameType_fromJson(LitJson.JsonData jsonObj){
-gameType= byte.Parse(jsonObj.ToString());
+gameType= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -331,8 +331,8 @@ public void set_awardValue_fromJson(LitJson.JsonData jsonObj){
 awardValue= Int64.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(gameType !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(gameType !=  null){
 resultStr += get_gameType_json();
 }
 else {}if(cid !=  null){
@@ -359,7 +359,7 @@ resultStr += ",";resultStr += get_awardValue_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["gameType"] != null){
 set_gameType_fromJson(jsonObj["gameType"]);

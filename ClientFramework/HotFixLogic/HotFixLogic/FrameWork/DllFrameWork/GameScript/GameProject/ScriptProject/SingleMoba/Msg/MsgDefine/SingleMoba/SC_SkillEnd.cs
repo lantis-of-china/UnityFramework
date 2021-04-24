@@ -1,22 +1,19 @@
 ﻿// 此文件由协议导出插件自动生成
-// ID : 00000]
-
+// ID : 00000]
 //****技能结束****
 using System;
 using System.Collections.Generic;
 using System.IO;
 using BaseDataAttribute;
 using Server;
-using IMClub;
 using SingleMoba;
-using Template;
 
 
 namespace SingleMoba{
 /// <summary>
 ///技能结束
 /// <\summary>
-public class SC_SkillEnd : CherishBitProtocolBase {
+public class SC_SkillEnd : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>

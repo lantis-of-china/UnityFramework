@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///加入房间
 /// <\summary>
-public class SC_JoinRoom : CherishBitProtocolBase {
+public class SC_JoinRoom : LantisBitProtocolBase {
 /// <summary>
 ///房间中的玩家
 /// <\summary>
@@ -22,7 +25,7 @@ this.joinPlayerInfo = _joinPlayerInfo;
 }
 private Byte[] get_joinPlayerInfo_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)joinPlayerInfo).Serializer();
+outBuf = ((LantisBitProtocolBase)joinPlayerInfo).Serializer();
 return outBuf;
 }
 
@@ -52,7 +55,7 @@ startOffset = set_joinPlayerInfo_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
 public String get_joinPlayerInfo_json(){
-if(joinPlayerInfo==null){return "";}String resultJson = "\"joinPlayerInfo\":";resultJson += ((CherishBitProtocolBase)joinPlayerInfo).SerializerJson();return resultJson;
+if(joinPlayerInfo==null){return "";}String resultJson = "\"joinPlayerInfo\":";resultJson += ((LantisBitProtocolBase)joinPlayerInfo).SerializerJson();return resultJson;
 }
 
 

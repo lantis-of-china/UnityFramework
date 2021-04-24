@@ -12,7 +12,7 @@ namespace Server{
 /// <summary>
 ///购买商品
 /// <\summary>
-public class CS_BuyStore : CherishBitProtocolBase {
+public class CS_BuyStore : LantisBitProtocolBase {
 /// <summary>
 ///验证码
 /// <\summary>
@@ -20,37 +20,37 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///商品ID
 /// <\summary>
-public string id;
+public String id;
 /// <summary>
 ///支付类型
 /// <\summary>
-public string payType;
+public String payType;
 /// <summary>
 ///代理号
 /// <\summary>
-public string agentCode;
+public String agentCode;
 public CS_BuyStore(){}
 
-public CS_BuyStore(UserValiadateInfor _UserValiadate, string _id, string _payType, string _agentCode){
+public CS_BuyStore(UserValiadateInfor _UserValiadate, String _id, String _payType, String _agentCode){
 this.UserValiadate = _UserValiadate;
 this.id = _id;
 this.payType = _payType;
 this.agentCode = _agentCode;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_id_encoding(){
-byte[] outBuf = null;
-string str = (string)id;
+private Byte[] get_id_encoding(){
+Byte[] outBuf = null;
+String str = (String)id;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -60,13 +60,13 @@ return outBuf;
 }
 
 
-private byte[] get_payType_encoding(){
-byte[] outBuf = null;
-string str = (string)payType;
+private Byte[] get_payType_encoding(){
+Byte[] outBuf = null;
+String str = (String)payType;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -76,13 +76,13 @@ return outBuf;
 }
 
 
-private byte[] get_agentCode_encoding(){
-byte[] outBuf = null;
-string str = (string)agentCode;
+private Byte[] get_agentCode_encoding(){
+Byte[] outBuf = null;
+String str = (String)agentCode;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -91,16 +91,16 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_id_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_id_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 id = "";
@@ -114,8 +114,8 @@ curIndex++;
 id = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_payType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_payType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 payType = "";
@@ -129,8 +129,8 @@ curIndex++;
 payType = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_agentCode_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_agentCode_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 agentCode = "";
@@ -144,9 +144,9 @@ curIndex++;
 agentCode = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -171,34 +171,34 @@ byteBuf = get_agentCode_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_id_fromBuf(sourceBuf,startOffset);
 startOffset = set_payType_fromBuf(sourceBuf,startOffset);
 startOffset = set_agentCode_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_id_json(){
-if(id==null){return "";}string resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
+public String get_id_json(){
+if(id==null){return "";}String resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_payType_json(){
-if(payType==null){return "";}string resultJson = "\"payType\":";resultJson += "\"";resultJson += payType.ToString();resultJson += "\"";return resultJson;
+public String get_payType_json(){
+if(payType==null){return "";}String resultJson = "\"payType\":";resultJson += "\"";resultJson += payType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_agentCode_json(){
-if(agentCode==null){return "";}string resultJson = "\"agentCode\":";resultJson += "\"";resultJson += agentCode.ToString();resultJson += "\"";return resultJson;
+public String get_agentCode_json(){
+if(agentCode==null){return "";}String resultJson = "\"agentCode\":";resultJson += "\"";resultJson += agentCode.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -221,8 +221,8 @@ public void set_agentCode_fromJson(LitJson.JsonData jsonObj){
 agentCode= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(id !=  null){
@@ -237,7 +237,7 @@ resultStr += ",";resultStr += get_agentCode_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

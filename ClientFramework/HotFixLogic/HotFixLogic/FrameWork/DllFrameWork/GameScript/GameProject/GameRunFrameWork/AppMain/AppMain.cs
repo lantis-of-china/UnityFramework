@@ -627,7 +627,7 @@ public class LSharpEntryGame
 		UINameSpace.UITipMessage.OpenTip();
 		yield return new WaitForSeconds(0.2f);
 
-		
+
 		//GameLogic.ConfigLoader.Load();
 		//FrameWorkDrvice.Instance.AddEventToUpdate(GLGame.WorldManager.Instance.Update);
 		//FrameWorkDrvice.Instance.AddEventToLateUpdate(GLGame.WorldManager.Instance.LateUpdate);
@@ -638,7 +638,6 @@ public class LSharpEntryGame
 		//	GLGame.WorldManager.Instance.RegisterFunction();
 		//	GLGame.WorldManager.Instance.OpenWorld(GameLogic.ConfigProject.projectFloderName, GameLogic.WorldDefineSoupport.startSence);
 		//});
-		
 
 		FrameWorkDrvice.ConfigDataManagerInstance.LoaeConfig();
 		ChekExternIcon();

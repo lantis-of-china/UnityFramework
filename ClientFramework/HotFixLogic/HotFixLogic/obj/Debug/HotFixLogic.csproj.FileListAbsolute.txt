@@ -91,3 +91,4 @@ F:\Gits\UnityFramework\ClientFramework\HotFixLogic\HotFixLogic\obj\Debug\HotFixL
 F:\Gits\UnityFramework\ClientFramework\HotFixLogic\HotFixLogic\obj\Debug\HotFixLogic.csproj.CopyComplete
 F:\Gits\UnityFramework\ClientFramework\HotFixLogic\HotFixLogic\obj\Debug\HotFixLogic.dll
 F:\Gits\UnityFramework\ClientFramework\HotFixLogic\HotFixLogic\obj\Debug\HotFixLogic.pdb
+F:\Gits\UnityFramework\ClientFramework\HotFixLogic\HotFixLogic\obj\Debug\HotFixLogic.csprojAssemblyReference.cache

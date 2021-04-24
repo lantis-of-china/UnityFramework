@@ -13,28 +13,28 @@ namespace Server{
 /// <summary>
 ///用户验证信息
 /// <\summary>
-public class UserValiadateInfor : CherishBitProtocolBase {
+public class UserValiadateInfor : LantisBitProtocolBase {
 /// <summary>
-///
+///用户键值
 /// <\summary>
-public string DatingNumber;
+public String DatingNumber;
 /// <summary>
 ///验证字段
 /// <\summary>
-public string ValidateGUID;
+public String ValidateGUID;
 public UserValiadateInfor(){}
 
-public UserValiadateInfor(string _DatingNumber, string _ValidateGUID){
+public UserValiadateInfor(String _DatingNumber, String _ValidateGUID){
 this.DatingNumber = _DatingNumber;
 this.ValidateGUID = _ValidateGUID;
 }
-private byte[] get_DatingNumber_encoding(){
-byte[] outBuf = null;
-string str = (string)DatingNumber;
+private Byte[] get_DatingNumber_encoding(){
+Byte[] outBuf = null;
+String str = (String)DatingNumber;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -44,13 +44,13 @@ return outBuf;
 }
 
 
-private byte[] get_ValidateGUID_encoding(){
-byte[] outBuf = null;
-string str = (string)ValidateGUID;
+private Byte[] get_ValidateGUID_encoding(){
+Byte[] outBuf = null;
+String str = (String)ValidateGUID;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -59,8 +59,8 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_DatingNumber_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_DatingNumber_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 DatingNumber = "";
@@ -74,8 +74,8 @@ curIndex++;
 DatingNumber = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_ValidateGUID_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ValidateGUID_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ValidateGUID = "";
@@ -89,9 +89,9 @@ curIndex++;
 ValidateGUID = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(DatingNumber !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_DatingNumber_encoding();
@@ -104,22 +104,22 @@ byteBuf = get_ValidateGUID_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_DatingNumber_fromBuf(sourceBuf,startOffset);
 startOffset = set_ValidateGUID_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_DatingNumber_json(){
-if(DatingNumber==null){return "";}string resultJson = "\"DatingNumber\":";resultJson += "\"";resultJson += DatingNumber.ToString();resultJson += "\"";return resultJson;
+public String get_DatingNumber_json(){
+if(DatingNumber==null){return "";}String resultJson = "\"DatingNumber\":";resultJson += "\"";resultJson += DatingNumber.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_ValidateGUID_json(){
-if(ValidateGUID==null){return "";}string resultJson = "\"ValidateGUID\":";resultJson += "\"";resultJson += ValidateGUID.ToString();resultJson += "\"";return resultJson;
+public String get_ValidateGUID_json(){
+if(ValidateGUID==null){return "";}String resultJson = "\"ValidateGUID\":";resultJson += "\"";resultJson += ValidateGUID.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -132,8 +132,8 @@ public void set_ValidateGUID_fromJson(LitJson.JsonData jsonObj){
 ValidateGUID= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(DatingNumber !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(DatingNumber !=  null){
 resultStr += get_DatingNumber_json();
 }
 else {}if(ValidateGUID !=  null){
@@ -142,7 +142,7 @@ resultStr += ",";resultStr += get_ValidateGUID_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["DatingNumber"] != null){
 set_DatingNumber_fromJson(jsonObj["DatingNumber"]);

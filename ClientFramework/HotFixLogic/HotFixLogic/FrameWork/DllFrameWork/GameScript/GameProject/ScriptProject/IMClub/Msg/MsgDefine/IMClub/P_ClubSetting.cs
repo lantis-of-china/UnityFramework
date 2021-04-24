@@ -13,15 +13,15 @@ namespace IMClub{
 /// <summary>
 ///���ֲ�����
 /// <\summary>
-public class P_ClubSetting : CherishBitProtocolBase {
+public class P_ClubSetting : LantisBitProtocolBase {
 /// <summary>
-///������Ϸ������ ���ͷ���
+///������Ϸ������ ��ͷ���
 /// <\summary>
 public Int32 scoreLimit;
 /// <summary>
 ///��˰���� 0��Ӯ�� 1������ 2������
 /// <\summary>
-public byte collectTaxesType;
+public Byte collectTaxesType;
 /// <summary>
 ///��Ӯ�ҵ�ʱ�� ��ʼ��ȡ���ż�
 /// <\summary>
@@ -37,14 +37,14 @@ public Int32 collectScore;
 /// <summary>
 ///��ȡģʽ0���� 1����
 /// <\summary>
-public byte collectMode;
+public Byte collectMode;
 /// <summary>
 ///��Ϸ����Щ
 /// <\summary>
 public List<P_GameSetting> gamesSetting;
 public P_ClubSetting(){}
 
-public P_ClubSetting(Int32 _scoreLimit, byte _collectTaxesType, Int32 _collectStart, Int32 _collectScale, Int32 _collectScore, byte _collectMode, List<P_GameSetting> _gamesSetting){
+public P_ClubSetting(Int32 _scoreLimit, Byte _collectTaxesType, Int32 _collectStart, Int32 _collectScale, Int32 _collectScore, Byte _collectMode, List<P_GameSetting> _gamesSetting){
 this.scoreLimit = _scoreLimit;
 this.collectTaxesType = _collectTaxesType;
 this.collectStart = _collectStart;
@@ -53,58 +53,58 @@ this.collectScore = _collectScore;
 this.collectMode = _collectMode;
 this.gamesSetting = _gamesSetting;
 }
-private byte[] get_scoreLimit_encoding(){
-byte[] outBuf = null;
+private Byte[] get_scoreLimit_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)scoreLimit);
 return outBuf;
 }
 
 
-private byte[] get_collectTaxesType_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)collectTaxesType;
+private Byte[] get_collectTaxesType_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)collectTaxesType;
 return outBuf;
 }
 
 
-private byte[] get_collectStart_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectStart_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectStart);
 return outBuf;
 }
 
 
-private byte[] get_collectScale_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectScale_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectScale);
 return outBuf;
 }
 
 
-private byte[] get_collectScore_encoding(){
-byte[] outBuf = null;
+private Byte[] get_collectScore_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)collectScore);
 return outBuf;
 }
 
 
-private byte[] get_collectMode_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)collectMode;
+private Byte[] get_collectMode_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)collectMode;
 return outBuf;
 }
 
 
-private byte[] get_gamesSetting_encoding(){
-byte[] outBuf = null;
+private Byte[] get_gamesSetting_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_GameSetting> listBase = gamesSetting;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
-byte[] baseBuf = baseObject.Serializer();
+LantisBitProtocolBase baseObject = listBase[i];
+Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
 outBuf = memoryWrite.ToArray();
@@ -112,8 +112,8 @@ outBuf = memoryWrite.ToArray();
 return outBuf;
 }
 
-private int set_scoreLimit_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_scoreLimit_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 scoreLimit = new Int32();
@@ -121,17 +121,17 @@ scoreLimit = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectTaxesType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectTaxesType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-collectTaxesType = new byte();
+collectTaxesType = new Byte();
 collectTaxesType = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_collectStart_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectStart_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectStart = new Int32();
@@ -139,8 +139,8 @@ collectStart = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectScale_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectScale_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectScale = new Int32();
@@ -148,8 +148,8 @@ collectScale = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectScore_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectScore_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 collectScore = new Int32();
@@ -157,17 +157,17 @@ collectScore = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_collectMode_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_collectMode_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-collectMode = new byte();
+collectMode = new Byte();
 collectMode = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_gamesSetting_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_gamesSetting_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 gamesSetting = new List<P_GameSetting>();
@@ -180,9 +180,9 @@ gamesSetting.Add(curTarget);
 }
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(scoreLimit !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_scoreLimit_encoding();
@@ -225,11 +225,11 @@ byteBuf = get_gamesSetting_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_scoreLimit_fromBuf(sourceBuf,startOffset);
 startOffset = set_collectTaxesType_fromBuf(sourceBuf,startOffset);
 startOffset = set_collectStart_fromBuf(sourceBuf,startOffset);
@@ -239,38 +239,38 @@ startOffset = set_collectMode_fromBuf(sourceBuf,startOffset);
 startOffset = set_gamesSetting_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_scoreLimit_json(){
-if(scoreLimit==null){return "";}string resultJson = "\"scoreLimit\":";resultJson += "\"";resultJson += scoreLimit.ToString();resultJson += "\"";return resultJson;
+public String get_scoreLimit_json(){
+if(scoreLimit==null){return "";}String resultJson = "\"scoreLimit\":";resultJson += "\"";resultJson += scoreLimit.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectTaxesType_json(){
-if(collectTaxesType==null){return "";}string resultJson = "\"collectTaxesType\":";resultJson += "\"";resultJson += collectTaxesType.ToString();resultJson += "\"";return resultJson;
+public String get_collectTaxesType_json(){
+if(collectTaxesType==null){return "";}String resultJson = "\"collectTaxesType\":";resultJson += "\"";resultJson += collectTaxesType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectStart_json(){
-if(collectStart==null){return "";}string resultJson = "\"collectStart\":";resultJson += "\"";resultJson += collectStart.ToString();resultJson += "\"";return resultJson;
+public String get_collectStart_json(){
+if(collectStart==null){return "";}String resultJson = "\"collectStart\":";resultJson += "\"";resultJson += collectStart.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectScale_json(){
-if(collectScale==null){return "";}string resultJson = "\"collectScale\":";resultJson += "\"";resultJson += collectScale.ToString();resultJson += "\"";return resultJson;
+public String get_collectScale_json(){
+if(collectScale==null){return "";}String resultJson = "\"collectScale\":";resultJson += "\"";resultJson += collectScale.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectScore_json(){
-if(collectScore==null){return "";}string resultJson = "\"collectScore\":";resultJson += "\"";resultJson += collectScore.ToString();resultJson += "\"";return resultJson;
+public String get_collectScore_json(){
+if(collectScore==null){return "";}String resultJson = "\"collectScore\":";resultJson += "\"";resultJson += collectScore.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_collectMode_json(){
-if(collectMode==null){return "";}string resultJson = "\"collectMode\":";resultJson += "\"";resultJson += collectMode.ToString();resultJson += "\"";return resultJson;
+public String get_collectMode_json(){
+if(collectMode==null){return "";}String resultJson = "\"collectMode\":";resultJson += "\"";resultJson += collectMode.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_gamesSetting_json(){
-if(gamesSetting==null){return "";}string resultJson = "\"gamesSetting\":";resultJson += "[";
+public String get_gamesSetting_json(){
+if(gamesSetting==null){return "";}String resultJson = "\"gamesSetting\":";resultJson += "[";
 List<P_GameSetting> listObj = (List<P_GameSetting>)gamesSetting;
 for(int i = 0;i < listObj.Count;++i){
 P_GameSetting item = listObj[i];
@@ -287,7 +287,7 @@ scoreLimit= Int32.Parse(jsonObj.ToString());
 
 
 public void set_collectTaxesType_fromJson(LitJson.JsonData jsonObj){
-collectTaxesType= byte.Parse(jsonObj.ToString());
+collectTaxesType= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -307,7 +307,7 @@ collectScore= Int32.Parse(jsonObj.ToString());
 
 
 public void set_collectMode_fromJson(LitJson.JsonData jsonObj){
-collectMode= byte.Parse(jsonObj.ToString());
+collectMode= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -321,8 +321,8 @@ addB.DeserializerJson(item.ToJson());
 
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(scoreLimit !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(scoreLimit !=  null){
 resultStr += get_scoreLimit_json();
 }
 else {}if(collectTaxesType !=  null){
@@ -346,7 +346,7 @@ resultStr += ",";resultStr += get_gamesSetting_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["scoreLimit"] != null){
 set_scoreLimit_fromJson(jsonObj["scoreLimit"]);

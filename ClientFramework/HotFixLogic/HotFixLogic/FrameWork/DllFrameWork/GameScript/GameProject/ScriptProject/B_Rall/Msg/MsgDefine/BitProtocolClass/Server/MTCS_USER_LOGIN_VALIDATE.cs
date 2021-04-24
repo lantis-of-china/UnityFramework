@@ -13,25 +13,25 @@ namespace Server{
 /// <summary>
 ///用户登陆验证
 /// <\summary>
-public class MTCS_USER_LOGIN_VALIDATE : CherishBitProtocolBase {
-/// <summary>
-///
-/// <\summary>
-public string DatingNumber;
+public class MTCS_USER_LOGIN_VALIDATE : LantisBitProtocolBase {
 /// <summary>
 ///用户的关键值ID
 /// <\summary>
-public string ValidateGUID;
+public String DatingNumber;
 /// <summary>
 ///验证的GUID
 /// <\summary>
+public String ValidateGUID;
+/// <summary>
+///用户信息
+/// <\summary>
 public UserValiadateInfor ValiadateInfor;
 /// <summary>
-///
-/// <\summary>
-public string ServerId;
-/// <summary>
 ///服务器ID
+/// <\summary>
+public String ServerId;
+/// <summary>
+///金币
 /// <\summary>
 public Int32 Gold;
 /// <summary>
@@ -40,7 +40,7 @@ public Int32 Gold;
 public Int32 RechargeCount;
 public MTCS_USER_LOGIN_VALIDATE(){}
 
-public MTCS_USER_LOGIN_VALIDATE(string _DatingNumber, string _ValidateGUID, UserValiadateInfor _ValiadateInfor, string _ServerId, Int32 _Gold, Int32 _RechargeCount){
+public MTCS_USER_LOGIN_VALIDATE(String _DatingNumber, String _ValidateGUID, UserValiadateInfor _ValiadateInfor, String _ServerId, Int32 _Gold, Int32 _RechargeCount){
 this.DatingNumber = _DatingNumber;
 this.ValidateGUID = _ValidateGUID;
 this.ValiadateInfor = _ValiadateInfor;
@@ -48,13 +48,13 @@ this.ServerId = _ServerId;
 this.Gold = _Gold;
 this.RechargeCount = _RechargeCount;
 }
-private byte[] get_DatingNumber_encoding(){
-byte[] outBuf = null;
-string str = (string)DatingNumber;
+private Byte[] get_DatingNumber_encoding(){
+Byte[] outBuf = null;
+String str = (String)DatingNumber;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -64,13 +64,13 @@ return outBuf;
 }
 
 
-private byte[] get_ValidateGUID_encoding(){
-byte[] outBuf = null;
-string str = (string)ValidateGUID;
+private Byte[] get_ValidateGUID_encoding(){
+Byte[] outBuf = null;
+String str = (String)ValidateGUID;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -80,20 +80,20 @@ return outBuf;
 }
 
 
-private byte[] get_ValiadateInfor_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)ValiadateInfor).Serializer();
+private Byte[] get_ValiadateInfor_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)ValiadateInfor).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_ServerId_encoding(){
-byte[] outBuf = null;
-string str = (string)ServerId;
+private Byte[] get_ServerId_encoding(){
+Byte[] outBuf = null;
+String str = (String)ServerId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -103,21 +103,21 @@ return outBuf;
 }
 
 
-private byte[] get_Gold_encoding(){
-byte[] outBuf = null;
+private Byte[] get_Gold_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)Gold);
 return outBuf;
 }
 
 
-private byte[] get_RechargeCount_encoding(){
-byte[] outBuf = null;
+private Byte[] get_RechargeCount_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)RechargeCount);
 return outBuf;
 }
 
-private int set_DatingNumber_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_DatingNumber_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 DatingNumber = "";
@@ -131,8 +131,8 @@ curIndex++;
 DatingNumber = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_ValidateGUID_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ValidateGUID_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ValidateGUID = "";
@@ -146,16 +146,16 @@ curIndex++;
 ValidateGUID = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_ValiadateInfor_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ValiadateInfor_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ValiadateInfor = new UserValiadateInfor();
 curIndex = ValiadateInfor.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_ServerId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_ServerId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 ServerId = "";
@@ -169,8 +169,8 @@ curIndex++;
 ServerId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_Gold_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_Gold_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 Gold = new Int32();
@@ -178,8 +178,8 @@ Gold = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_RechargeCount_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_RechargeCount_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 RechargeCount = new Int32();
@@ -187,9 +187,9 @@ RechargeCount = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(DatingNumber !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_DatingNumber_encoding();
@@ -226,11 +226,11 @@ byteBuf = get_RechargeCount_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_DatingNumber_fromBuf(sourceBuf,startOffset);
 startOffset = set_ValidateGUID_fromBuf(sourceBuf,startOffset);
 startOffset = set_ValiadateInfor_fromBuf(sourceBuf,startOffset);
@@ -239,33 +239,33 @@ startOffset = set_Gold_fromBuf(sourceBuf,startOffset);
 startOffset = set_RechargeCount_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_DatingNumber_json(){
-if(DatingNumber==null){return "";}string resultJson = "\"DatingNumber\":";resultJson += "\"";resultJson += DatingNumber.ToString();resultJson += "\"";return resultJson;
+public String get_DatingNumber_json(){
+if(DatingNumber==null){return "";}String resultJson = "\"DatingNumber\":";resultJson += "\"";resultJson += DatingNumber.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_ValidateGUID_json(){
-if(ValidateGUID==null){return "";}string resultJson = "\"ValidateGUID\":";resultJson += "\"";resultJson += ValidateGUID.ToString();resultJson += "\"";return resultJson;
+public String get_ValidateGUID_json(){
+if(ValidateGUID==null){return "";}String resultJson = "\"ValidateGUID\":";resultJson += "\"";resultJson += ValidateGUID.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_ValiadateInfor_json(){
-if(ValiadateInfor==null){return "";}string resultJson = "\"ValiadateInfor\":";resultJson += ((CherishBitProtocolBase)ValiadateInfor).SerializerJson();return resultJson;
+public String get_ValiadateInfor_json(){
+if(ValiadateInfor==null){return "";}String resultJson = "\"ValiadateInfor\":";resultJson += ((LantisBitProtocolBase)ValiadateInfor).SerializerJson();return resultJson;
 }
 
 
-public string get_ServerId_json(){
-if(ServerId==null){return "";}string resultJson = "\"ServerId\":";resultJson += "\"";resultJson += ServerId.ToString();resultJson += "\"";return resultJson;
+public String get_ServerId_json(){
+if(ServerId==null){return "";}String resultJson = "\"ServerId\":";resultJson += "\"";resultJson += ServerId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_Gold_json(){
-if(Gold==null){return "";}string resultJson = "\"Gold\":";resultJson += "\"";resultJson += Gold.ToString();resultJson += "\"";return resultJson;
+public String get_Gold_json(){
+if(Gold==null){return "";}String resultJson = "\"Gold\":";resultJson += "\"";resultJson += Gold.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_RechargeCount_json(){
-if(RechargeCount==null){return "";}string resultJson = "\"RechargeCount\":";resultJson += "\"";resultJson += RechargeCount.ToString();resultJson += "\"";return resultJson;
+public String get_RechargeCount_json(){
+if(RechargeCount==null){return "";}String resultJson = "\"RechargeCount\":";resultJson += "\"";resultJson += RechargeCount.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -298,8 +298,8 @@ public void set_RechargeCount_fromJson(LitJson.JsonData jsonObj){
 RechargeCount= Int32.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(DatingNumber !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(DatingNumber !=  null){
 resultStr += get_DatingNumber_json();
 }
 else {}if(ValidateGUID !=  null){
@@ -320,7 +320,7 @@ resultStr += ",";resultStr += get_RechargeCount_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["DatingNumber"] != null){
 set_DatingNumber_fromJson(jsonObj["DatingNumber"]);

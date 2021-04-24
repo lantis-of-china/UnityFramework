@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///停止移动
 /// <\summary>
-public class SC_GamerMoveStop : CherishBitProtocolBase {
+public class SC_GamerMoveStop : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>

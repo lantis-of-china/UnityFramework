@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///Moba中玩家信息
 /// <\summary>
-public class P_PlayerInfo : CherishBitProtocolBase {
+public class P_PlayerInfo : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -229,7 +232,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_Skill> listBase = skills;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
@@ -245,7 +248,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_SkillBuff> listBase = buffs;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }

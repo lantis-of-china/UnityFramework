@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///创建房间
 /// <\summary>
-public class CreateRoom : CherishBitProtocolBase {
+public class CreateRoom : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -33,39 +33,39 @@ public List<Int32> paramarsList;
 /// <summary>
 ///绑定的俱乐部ID
 /// <\summary>
-public string bindClubId;
+public String bindClubId;
 public CreateRoom(){}
 
-public CreateRoom(UserValiadateInfor _UserValiadate, Int32 __roomType, Int32 __roomValue, List<Int32> _paramarsList, string _bindClubId){
+public CreateRoom(UserValiadateInfor _UserValiadate, Int32 __roomType, Int32 __roomValue, List<Int32> _paramarsList, String _bindClubId){
 this.UserValiadate = _UserValiadate;
 this._roomType = __roomType;
 this._roomValue = __roomValue;
 this.paramarsList = _paramarsList;
 this.bindClubId = _bindClubId;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get__roomType_encoding(){
-byte[] outBuf = null;
+private Byte[] get__roomType_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)_roomType);
 return outBuf;
 }
 
 
-private byte[] get__roomValue_encoding(){
-byte[] outBuf = null;
+private Byte[] get__roomValue_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)_roomValue);
 return outBuf;
 }
 
 
-private byte[] get_paramarsList_encoding(){
-byte[] outBuf = null;
+private Byte[] get_paramarsList_encoding(){
+Byte[] outBuf = null;
 using(MemoryStream memoryWrite = new MemoryStream()){
 List<Int32> listInt32 = (List<Int32>)paramarsList;
 memoryWrite.Write(BitConverter.GetBytes(listInt32.Count),0,4);
@@ -79,13 +79,13 @@ return outBuf;
 }
 
 
-private byte[] get_bindClubId_encoding(){
-byte[] outBuf = null;
-string str = (string)bindClubId;
+private Byte[] get_bindClubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)bindClubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -94,16 +94,16 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set__roomType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__roomType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _roomType = new Int32();
@@ -111,8 +111,8 @@ _roomType = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set__roomValue_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__roomValue_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _roomValue = new Int32();
@@ -120,8 +120,8 @@ _roomValue = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_paramarsList_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_paramarsList_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 paramarsList = new List<Int32>();
@@ -134,8 +134,8 @@ curIndex += 4;
 }
 }return curIndex;
 }
-private int set_bindClubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_bindClubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 bindClubId = "";
@@ -149,9 +149,9 @@ curIndex++;
 bindClubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -182,11 +182,11 @@ byteBuf = get_bindClubId_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set__roomType_fromBuf(sourceBuf,startOffset);
 startOffset = set__roomValue_fromBuf(sourceBuf,startOffset);
@@ -194,23 +194,23 @@ startOffset = set_paramarsList_fromBuf(sourceBuf,startOffset);
 startOffset = set_bindClubId_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get__roomType_json(){
-if(_roomType==null){return "";}string resultJson = "\"_roomType\":";resultJson += "\"";resultJson += _roomType.ToString();resultJson += "\"";return resultJson;
+public String get__roomType_json(){
+if(_roomType==null){return "";}String resultJson = "\"_roomType\":";resultJson += "\"";resultJson += _roomType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get__roomValue_json(){
-if(_roomValue==null){return "";}string resultJson = "\"_roomValue\":";resultJson += "\"";resultJson += _roomValue.ToString();resultJson += "\"";return resultJson;
+public String get__roomValue_json(){
+if(_roomValue==null){return "";}String resultJson = "\"_roomValue\":";resultJson += "\"";resultJson += _roomValue.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_paramarsList_json(){
-if(paramarsList==null){return "";}string resultJson = "\"paramarsList\":";resultJson += "[";List<Int32> listObj = (List<Int32>)paramarsList;
+public String get_paramarsList_json(){
+if(paramarsList==null){return "";}String resultJson = "\"paramarsList\":";resultJson += "[";List<Int32> listObj = (List<Int32>)paramarsList;
 for(int i = 0;i < listObj.Count;++i){
 Int32 item = listObj[i];
 if(i > 0){ resultJson += ","; }resultJson += "\"";resultJson += item.ToString();
@@ -220,8 +220,8 @@ return resultJson;
 }
 
 
-public string get_bindClubId_json(){
-if(bindClubId==null){return "";}string resultJson = "\"bindClubId\":";resultJson += "\"";resultJson += bindClubId.ToString();resultJson += "\"";return resultJson;
+public String get_bindClubId_json(){
+if(bindClubId==null){return "";}String resultJson = "\"bindClubId\":";resultJson += "\"";resultJson += bindClubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -252,8 +252,8 @@ public void set_bindClubId_fromJson(LitJson.JsonData jsonObj){
 bindClubId= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(_roomType !=  null){
@@ -271,7 +271,7 @@ resultStr += ",";resultStr += get_bindClubId_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

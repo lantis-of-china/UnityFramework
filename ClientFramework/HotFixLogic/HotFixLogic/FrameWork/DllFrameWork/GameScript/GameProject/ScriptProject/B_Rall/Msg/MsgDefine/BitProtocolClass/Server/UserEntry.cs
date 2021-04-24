@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///用户进入服务器
 /// <\summary>
-public class UserEntry : CherishBitProtocolBase {
+public class UserEntry : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -21,30 +21,30 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///昵称
 /// <\summary>
-public string nickName;
+public String nickName;
 /// <summary>
 ///性别GolabServerInfor
 /// <\summary>
-public byte sex;
+public Byte sex;
 /// <summary>
 ///头像URL
 /// <\summary>
-public string headUrl;
+public String headUrl;
 /// <summary>
 ///1微信 2游客
 /// <\summary>
-public byte isWeiChat;
+public Byte isWeiChat;
 /// <summary>
 ///纬度
 /// <\summary>
-public float latitude;
+public Single latitude;
 /// <summary>
 ///经度
 /// <\summary>
-public float longitude;
+public Single longitude;
 public UserEntry(){}
 
-public UserEntry(UserValiadateInfor _UserValiadate, string _nickName, byte _sex, string _headUrl, byte _isWeiChat, float _latitude, float _longitude){
+public UserEntry(UserValiadateInfor _UserValiadate, String _nickName, Byte _sex, String _headUrl, Byte _isWeiChat, Single _latitude, Single _longitude){
 this.UserValiadate = _UserValiadate;
 this.nickName = _nickName;
 this.sex = _sex;
@@ -53,20 +53,20 @@ this.isWeiChat = _isWeiChat;
 this.latitude = _latitude;
 this.longitude = _longitude;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get_nickName_encoding(){
-byte[] outBuf = null;
-string str = (string)nickName;
+private Byte[] get_nickName_encoding(){
+Byte[] outBuf = null;
+String str = (String)nickName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -76,21 +76,21 @@ return outBuf;
 }
 
 
-private byte[] get_sex_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)sex;
+private Byte[] get_sex_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)sex;
 return outBuf;
 }
 
 
-private byte[] get_headUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)headUrl;
+private Byte[] get_headUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)headUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -100,37 +100,37 @@ return outBuf;
 }
 
 
-private byte[] get_isWeiChat_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)isWeiChat;
+private Byte[] get_isWeiChat_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)isWeiChat;
 return outBuf;
 }
 
 
-private byte[] get_latitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)latitude);
+private Byte[] get_latitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)latitude);
 return outBuf;
 }
 
 
-private byte[] get_longitude_encoding(){
-byte[] outBuf = null;
-outBuf = BitConverter.GetBytes((float)longitude);
+private Byte[] get_longitude_encoding(){
+Byte[] outBuf = null;
+outBuf = BitConverter.GetBytes((Single)longitude);
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set_nickName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_nickName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 nickName = "";
@@ -144,17 +144,17 @@ curIndex++;
 nickName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-sex = new byte();
+sex = new Byte();
 sex = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_headUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_headUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 headUrl = "";
@@ -168,36 +168,36 @@ curIndex++;
 headUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_isWeiChat_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_isWeiChat_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-isWeiChat = new byte();
+isWeiChat = new Byte();
 isWeiChat = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_latitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_latitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-latitude = new float();
+latitude = new Single();
 latitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_longitude_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_longitude_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-longitude = new float();
+longitude = new Single();
 longitude = BitConverter.ToSingle(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -240,11 +240,11 @@ byteBuf = get_longitude_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set_nickName_fromBuf(sourceBuf,startOffset);
 startOffset = set_sex_fromBuf(sourceBuf,startOffset);
@@ -254,38 +254,38 @@ startOffset = set_latitude_fromBuf(sourceBuf,startOffset);
 startOffset = set_longitude_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get_nickName_json(){
-if(nickName==null){return "";}string resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
+public String get_nickName_json(){
+if(nickName==null){return "";}String resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_sex_json(){
-if(sex==null){return "";}string resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
+public String get_sex_json(){
+if(sex==null){return "";}String resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_headUrl_json(){
-if(headUrl==null){return "";}string resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
+public String get_headUrl_json(){
+if(headUrl==null){return "";}String resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_isWeiChat_json(){
-if(isWeiChat==null){return "";}string resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
+public String get_isWeiChat_json(){
+if(isWeiChat==null){return "";}String resultJson = "\"isWeiChat\":";resultJson += "\"";resultJson += isWeiChat.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_latitude_json(){
-if(latitude==null){return "";}string resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
+public String get_latitude_json(){
+if(latitude==null){return "";}String resultJson = "\"latitude\":";resultJson += "\"";resultJson += latitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_longitude_json(){
-if(longitude==null){return "";}string resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
+public String get_longitude_json(){
+if(longitude==null){return "";}String resultJson = "\"longitude\":";resultJson += "\"";resultJson += longitude.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -300,7 +300,7 @@ nickName= jsonObj.ToString();
 
 
 public void set_sex_fromJson(LitJson.JsonData jsonObj){
-sex= byte.Parse(jsonObj.ToString());
+sex= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -310,21 +310,21 @@ headUrl= jsonObj.ToString();
 
 
 public void set_isWeiChat_fromJson(LitJson.JsonData jsonObj){
-isWeiChat= byte.Parse(jsonObj.ToString());
+isWeiChat= Byte.Parse(jsonObj.ToString());
 }
 
 
 public void set_latitude_fromJson(LitJson.JsonData jsonObj){
-latitude= float.Parse(jsonObj.ToString());
+latitude= Single.Parse(jsonObj.ToString());
 }
 
 
 public void set_longitude_fromJson(LitJson.JsonData jsonObj){
-longitude= float.Parse(jsonObj.ToString());
+longitude= Single.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(nickName !=  null){
@@ -348,7 +348,7 @@ resultStr += ",";resultStr += get_longitude_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

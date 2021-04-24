@@ -13,28 +13,28 @@ namespace Server{
 /// <summary>
 ///俱乐部推送通知
 /// <\summary>
-public class UDPNotice : CherishBitProtocolBase {
+public class UDPNotice : LantisBitProtocolBase {
 /// <summary>
 ///消息类型
 /// <\summary>
-public string type;
+public String type;
 /// <summary>
 ///消息文本
 /// <\summary>
-public string content;
+public String content;
 public UDPNotice(){}
 
-public UDPNotice(string _type, string _content){
+public UDPNotice(String _type, String _content){
 this.type = _type;
 this.content = _content;
 }
-private byte[] get_type_encoding(){
-byte[] outBuf = null;
-string str = (string)type;
+private Byte[] get_type_encoding(){
+Byte[] outBuf = null;
+String str = (String)type;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -44,13 +44,13 @@ return outBuf;
 }
 
 
-private byte[] get_content_encoding(){
-byte[] outBuf = null;
-string str = (string)content;
+private Byte[] get_content_encoding(){
+Byte[] outBuf = null;
+String str = (String)content;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -59,8 +59,8 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_type_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_type_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 type = "";
@@ -74,8 +74,8 @@ curIndex++;
 type = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_content_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_content_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 content = "";
@@ -89,9 +89,9 @@ curIndex++;
 content = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(type !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_type_encoding();
@@ -104,22 +104,22 @@ byteBuf = get_content_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_type_fromBuf(sourceBuf,startOffset);
 startOffset = set_content_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_type_json(){
-if(type==null){return "";}string resultJson = "\"type\":";resultJson += "\"";resultJson += type.ToString();resultJson += "\"";return resultJson;
+public String get_type_json(){
+if(type==null){return "";}String resultJson = "\"type\":";resultJson += "\"";resultJson += type.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_content_json(){
-if(content==null){return "";}string resultJson = "\"content\":";resultJson += "\"";resultJson += content.ToString();resultJson += "\"";return resultJson;
+public String get_content_json(){
+if(content==null){return "";}String resultJson = "\"content\":";resultJson += "\"";resultJson += content.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -132,8 +132,8 @@ public void set_content_fromJson(LitJson.JsonData jsonObj){
 content= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(type !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(type !=  null){
 resultStr += get_type_json();
 }
 else {}if(content !=  null){
@@ -142,7 +142,7 @@ resultStr += ",";resultStr += get_content_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["type"] != null){
 set_type_fromJson(jsonObj["type"]);

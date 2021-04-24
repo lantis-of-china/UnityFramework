@@ -13,7 +13,7 @@ namespace Server{
 /// <summary>
 ///创建角色
 /// <\summary>
-public class CreateRole : CherishBitProtocolBase {
+public class CreateRole : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -21,7 +21,7 @@ public UserValiadateInfor UserValiadate;
 /// <summary>
 ///
 /// <\summary>
-public string _name;
+public String _name;
 /// <summary>
 ///
 /// <\summary>
@@ -32,26 +32,26 @@ public Int16 _sex;
 public Int16 _wuXing;
 public CreateRole(){}
 
-public CreateRole(UserValiadateInfor _UserValiadate, string __name, Int16 __sex, Int16 __wuXing){
+public CreateRole(UserValiadateInfor _UserValiadate, String __name, Int16 __sex, Int16 __wuXing){
 this.UserValiadate = _UserValiadate;
 this._name = __name;
 this._sex = __sex;
 this._wuXing = __wuXing;
 }
-private byte[] get_UserValiadate_encoding(){
-byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+private Byte[] get_UserValiadate_encoding(){
+Byte[] outBuf = null;
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
 
-private byte[] get__name_encoding(){
-byte[] outBuf = null;
-string str = (string)_name;
+private Byte[] get__name_encoding(){
+Byte[] outBuf = null;
+String str = (String)_name;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -61,29 +61,29 @@ return outBuf;
 }
 
 
-private byte[] get__sex_encoding(){
-byte[] outBuf = null;
+private Byte[] get__sex_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((short)_sex);
 return outBuf;
 }
 
 
-private byte[] get__wuXing_encoding(){
-byte[] outBuf = null;
+private Byte[] get__wuXing_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((short)_wuXing);
 return outBuf;
 }
 
-private int set_UserValiadate_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_UserValiadate_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 UserValiadate = new UserValiadateInfor();
 curIndex = UserValiadate.Deserializer(sourceBuf,curIndex);
 }return curIndex;
 }
-private int set__name_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__name_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _name = "";
@@ -97,8 +97,8 @@ curIndex++;
 _name = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set__sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _sex = new Int16();
@@ -106,8 +106,8 @@ _sex = BitConverter.ToInt16(sourceBuf,curIndex);
 curIndex += 2;
 }return curIndex;
 }
-private int set__wuXing_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set__wuXing_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 _wuXing = new Int16();
@@ -115,9 +115,9 @@ _wuXing = BitConverter.ToInt16(sourceBuf,curIndex);
 curIndex += 2;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(UserValiadate !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_UserValiadate_encoding();
@@ -142,34 +142,34 @@ byteBuf = get__wuXing_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_UserValiadate_fromBuf(sourceBuf,startOffset);
 startOffset = set__name_fromBuf(sourceBuf,startOffset);
 startOffset = set__sex_fromBuf(sourceBuf,startOffset);
 startOffset = set__wuXing_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_UserValiadate_json(){
-if(UserValiadate==null){return "";}string resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+public String get_UserValiadate_json(){
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 
-public string get__name_json(){
-if(_name==null){return "";}string resultJson = "\"_name\":";resultJson += "\"";resultJson += _name.ToString();resultJson += "\"";return resultJson;
+public String get__name_json(){
+if(_name==null){return "";}String resultJson = "\"_name\":";resultJson += "\"";resultJson += _name.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get__sex_json(){
-if(_sex==null){return "";}string resultJson = "\"_sex\":";resultJson += "\"";resultJson += _sex.ToString();resultJson += "\"";return resultJson;
+public String get__sex_json(){
+if(_sex==null){return "";}String resultJson = "\"_sex\":";resultJson += "\"";resultJson += _sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get__wuXing_json(){
-if(_wuXing==null){return "";}string resultJson = "\"_wuXing\":";resultJson += "\"";resultJson += _wuXing.ToString();resultJson += "\"";return resultJson;
+public String get__wuXing_json(){
+if(_wuXing==null){return "";}String resultJson = "\"_wuXing\":";resultJson += "\"";resultJson += _wuXing.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -192,8 +192,8 @@ public void set__wuXing_fromJson(LitJson.JsonData jsonObj){
 _wuXing= Int16.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(UserValiadate !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(UserValiadate !=  null){
 resultStr += get_UserValiadate_json();
 }
 else {}if(_name !=  null){
@@ -208,7 +208,7 @@ resultStr += ",";resultStr += get__wuXing_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["UserValiadate"] != null){
 set_UserValiadate_fromJson(jsonObj["UserValiadate"]);

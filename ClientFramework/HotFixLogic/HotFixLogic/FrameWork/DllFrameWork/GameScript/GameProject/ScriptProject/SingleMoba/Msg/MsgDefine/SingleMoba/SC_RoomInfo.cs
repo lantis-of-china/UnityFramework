@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///
 /// <\summary>
-public class SC_RoomInfo : CherishBitProtocolBase {
+public class SC_RoomInfo : LantisBitProtocolBase {
 /// <summary>
 ///房间ID
 /// <\summary>
@@ -73,7 +76,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_PlayerInfo> listBase = roomPlayerInfoList;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
@@ -89,7 +92,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_Prop> listBase = props;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
@@ -105,7 +108,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_Skill> listBase = skills;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
@@ -121,7 +124,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_SkillBuff> listBase = skillBuffs;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }

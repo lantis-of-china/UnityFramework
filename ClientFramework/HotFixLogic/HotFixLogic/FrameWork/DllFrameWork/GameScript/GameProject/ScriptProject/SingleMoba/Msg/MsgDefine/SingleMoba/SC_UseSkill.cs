@@ -6,16 +6,14 @@ using System.Collections.Generic;
 using System.IO;
 using BaseDataAttribute;
 using Server;
-using IMClub;
 using SingleMoba;
-using Template;
 
 
 namespace SingleMoba{
 /// <summary>
 ///施放技能
 /// <\summary>
-public class SC_UseSkill : CherishBitProtocolBase {
+public class SC_UseSkill : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -54,7 +52,7 @@ return outBuf;
 
 private Byte[] get_skill_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)skill).Serializer();
+outBuf = ((LantisBitProtocolBase)skill).Serializer();
 return outBuf;
 }
 
@@ -65,7 +63,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_GamerStateChange> listBase = gamerChanges;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
@@ -188,7 +186,7 @@ if(playerId==null){return "";}String resultJson = "\"playerId\":";resultJson += 
 
 
 public String get_skill_json(){
-if(skill==null){return "";}String resultJson = "\"skill\":";resultJson += ((CherishBitProtocolBase)skill).SerializerJson();return resultJson;
+if(skill==null){return "";}String resultJson = "\"skill\":";resultJson += ((LantisBitProtocolBase)skill).SerializerJson();return resultJson;
 }
 
 

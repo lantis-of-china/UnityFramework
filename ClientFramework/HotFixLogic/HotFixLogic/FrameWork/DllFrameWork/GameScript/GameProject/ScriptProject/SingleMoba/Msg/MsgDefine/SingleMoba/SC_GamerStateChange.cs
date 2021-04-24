@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///状态改变
 /// <\summary>
-public class SC_GamerStateChange : CherishBitProtocolBase {
+public class SC_GamerStateChange : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -22,7 +25,7 @@ this.stateChanges = _stateChanges;
 }
 private Byte[] get_stateChanges_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)stateChanges).Serializer();
+outBuf = ((LantisBitProtocolBase)stateChanges).Serializer();
 return outBuf;
 }
 
@@ -52,7 +55,7 @@ startOffset = set_stateChanges_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
 public String get_stateChanges_json(){
-if(stateChanges==null){return "";}String resultJson = "\"stateChanges\":";resultJson += ((CherishBitProtocolBase)stateChanges).SerializerJson();return resultJson;
+if(stateChanges==null){return "";}String resultJson = "\"stateChanges\":";resultJson += ((LantisBitProtocolBase)stateChanges).SerializerJson();return resultJson;
 }
 
 

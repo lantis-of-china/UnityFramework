@@ -13,7 +13,7 @@ namespace IMClub{
 /// <summary>
 ///��Ա��ϸ�ṹ
 /// <\summary>
-public class P_MenberInfo : CherishBitProtocolBase {
+public class P_MenberInfo : LantisBitProtocolBase {
 /// <summary>
 ///��ԱID
 /// <\summary>
@@ -33,28 +33,28 @@ this.menberId = _menberId;
 this.Score = _Score;
 this.joinTime = _joinTime;
 }
-private byte[] get_menberId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_menberId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)menberId);
 return outBuf;
 }
 
 
-private byte[] get_Score_encoding(){
-byte[] outBuf = null;
+private Byte[] get_Score_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)Score);
 return outBuf;
 }
 
 
-private byte[] get_joinTime_encoding(){
-byte[] outBuf = null;
+private Byte[] get_joinTime_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int64)joinTime);
 return outBuf;
 }
 
-private int set_menberId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_menberId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 menberId = new Int32();
@@ -62,8 +62,8 @@ menberId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_Score_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_Score_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 Score = new Int32();
@@ -71,8 +71,8 @@ Score = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_joinTime_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_joinTime_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 joinTime = new Int64();
@@ -80,9 +80,9 @@ joinTime = BitConverter.ToInt64(sourceBuf,curIndex);
 curIndex += 8;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(menberId !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_menberId_encoding();
@@ -101,28 +101,28 @@ byteBuf = get_joinTime_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_menberId_fromBuf(sourceBuf,startOffset);
 startOffset = set_Score_fromBuf(sourceBuf,startOffset);
 startOffset = set_joinTime_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_menberId_json(){
-if(menberId==null){return "";}string resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
+public String get_menberId_json(){
+if(menberId==null){return "";}String resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_Score_json(){
-if(Score==null){return "";}string resultJson = "\"Score\":";resultJson += "\"";resultJson += Score.ToString();resultJson += "\"";return resultJson;
+public String get_Score_json(){
+if(Score==null){return "";}String resultJson = "\"Score\":";resultJson += "\"";resultJson += Score.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_joinTime_json(){
-if(joinTime==null){return "";}string resultJson = "\"joinTime\":";resultJson += "\"";resultJson += joinTime.ToString();resultJson += "\"";return resultJson;
+public String get_joinTime_json(){
+if(joinTime==null){return "";}String resultJson = "\"joinTime\":";resultJson += "\"";resultJson += joinTime.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -140,8 +140,8 @@ public void set_joinTime_fromJson(LitJson.JsonData jsonObj){
 joinTime= Int64.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(menberId !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(menberId !=  null){
 resultStr += get_menberId_json();
 }
 else {}if(Score !=  null){
@@ -153,7 +153,7 @@ resultStr += ",";resultStr += get_joinTime_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["menberId"] != null){
 set_menberId_fromJson(jsonObj["menberId"]);

@@ -313,7 +313,7 @@ public class UdpNetWork
 	/// <param name="ClientSocket">接受消息的客户端套接字</param>
 	/// <param name="Date">发送的消息的实例</param>
 	/// <param name="messageType">消息的类型</param>
-	public void SendMessageUdp<T>(string ip, int port, T Date, NetMessageType messageType) where T : CherishBitProtocolBase
+	public void SendMessageUdp<T>(string ip, int port, T Date, NetMessageType messageType) where T : LantisBitProtocolBase
 	{
 		CherishWebGLSupport.CherishSocket.AddressFamily useFamily = CherishWebGLSupport.CherishSocket.AddressFamily.AppleTalk;
 		ip = NetDataManager.DomainIp(ip, NetDataManager.DomainExctption, ref useFamily);

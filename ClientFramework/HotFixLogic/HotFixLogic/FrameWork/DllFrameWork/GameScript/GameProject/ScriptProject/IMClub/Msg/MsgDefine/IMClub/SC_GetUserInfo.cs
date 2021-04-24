@@ -13,19 +13,19 @@ namespace IMClub{
 /// <summary>
 ///��ȡ�û���Ϣ �Ƿ��ھ��ֲ���SC_GetUserInfo_MsgType = 20038
 /// <\summary>
-public class SC_GetUserInfo : CherishBitProtocolBase {
+public class SC_GetUserInfo : LantisBitProtocolBase {
 /// <summary>
-///���� 0ʧ�� 1�ɹ�
+///��� 0ʧ�� 1�ɹ�
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///���ֲ�ID
 /// <\summary>
-public string clubId;
+public String clubId;
 /// <summary>
 ///0���ھ��ֲ��� 1�ھ��ֲ���
 /// <\summary>
-public byte inClub;
+public Byte inClub;
 /// <summary>
 ///��ԱID
 /// <\summary>
@@ -33,18 +33,18 @@ public Int32 menberId;
 /// <summary>
 ///����
 /// <\summary>
-public string nickName;
+public String nickName;
 /// <summary>
-///ͷ����ַ
+///ͷ���ַ
 /// <\summary>
-public string headUrl;
+public String headUrl;
 /// <summary>
 ///�Ա� 0Ů 1��
 /// <\summary>
-public byte sex;
+public Byte sex;
 public SC_GetUserInfo(){}
 
-public SC_GetUserInfo(byte _result, string _clubId, byte _inClub, Int32 _menberId, string _nickName, string _headUrl, byte _sex){
+public SC_GetUserInfo(Byte _result, String _clubId, Byte _inClub, Int32 _menberId, String _nickName, String _headUrl, Byte _sex){
 this.result = _result;
 this.clubId = _clubId;
 this.inClub = _inClub;
@@ -53,21 +53,21 @@ this.nickName = _nickName;
 this.headUrl = _headUrl;
 this.sex = _sex;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_clubId_encoding(){
-byte[] outBuf = null;
-string str = (string)clubId;
+private Byte[] get_clubId_encoding(){
+Byte[] outBuf = null;
+String str = (String)clubId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -77,28 +77,28 @@ return outBuf;
 }
 
 
-private byte[] get_inClub_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)inClub;
+private Byte[] get_inClub_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)inClub;
 return outBuf;
 }
 
 
-private byte[] get_menberId_encoding(){
-byte[] outBuf = null;
+private Byte[] get_menberId_encoding(){
+Byte[] outBuf = null;
 outBuf = BitConverter.GetBytes((Int32)menberId);
 return outBuf;
 }
 
 
-private byte[] get_nickName_encoding(){
-byte[] outBuf = null;
-string str = (string)nickName;
+private Byte[] get_nickName_encoding(){
+Byte[] outBuf = null;
+String str = (String)nickName;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -108,13 +108,13 @@ return outBuf;
 }
 
 
-private byte[] get_headUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)headUrl;
+private Byte[] get_headUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)headUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -124,24 +124,24 @@ return outBuf;
 }
 
 
-private byte[] get_sex_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)sex;
+private Byte[] get_sex_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)sex;
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_clubId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_clubId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 clubId = "";
@@ -155,17 +155,17 @@ curIndex++;
 clubId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_inClub_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_inClub_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-inClub = new byte();
+inClub = new Byte();
 inClub = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_menberId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_menberId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 menberId = new Int32();
@@ -173,8 +173,8 @@ menberId = BitConverter.ToInt32(sourceBuf,curIndex);
 curIndex += 4;
 }return curIndex;
 }
-private int set_nickName_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_nickName_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 nickName = "";
@@ -188,8 +188,8 @@ curIndex++;
 nickName = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_headUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_headUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 headUrl = "";
@@ -203,18 +203,18 @@ curIndex++;
 headUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_sex_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_sex_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-sex = new byte();
+sex = new Byte();
 sex = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -257,11 +257,11 @@ byteBuf = get_sex_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_clubId_fromBuf(sourceBuf,startOffset);
 startOffset = set_inClub_fromBuf(sourceBuf,startOffset);
@@ -271,43 +271,43 @@ startOffset = set_headUrl_fromBuf(sourceBuf,startOffset);
 startOffset = set_sex_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_clubId_json(){
-if(clubId==null){return "";}string resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
+public String get_clubId_json(){
+if(clubId==null){return "";}String resultJson = "\"clubId\":";resultJson += "\"";resultJson += clubId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_inClub_json(){
-if(inClub==null){return "";}string resultJson = "\"inClub\":";resultJson += "\"";resultJson += inClub.ToString();resultJson += "\"";return resultJson;
+public String get_inClub_json(){
+if(inClub==null){return "";}String resultJson = "\"inClub\":";resultJson += "\"";resultJson += inClub.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_menberId_json(){
-if(menberId==null){return "";}string resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
+public String get_menberId_json(){
+if(menberId==null){return "";}String resultJson = "\"menberId\":";resultJson += "\"";resultJson += menberId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_nickName_json(){
-if(nickName==null){return "";}string resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
+public String get_nickName_json(){
+if(nickName==null){return "";}String resultJson = "\"nickName\":";resultJson += "\"";resultJson += nickName.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_headUrl_json(){
-if(headUrl==null){return "";}string resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
+public String get_headUrl_json(){
+if(headUrl==null){return "";}String resultJson = "\"headUrl\":";resultJson += "\"";resultJson += headUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_sex_json(){
-if(sex==null){return "";}string resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
+public String get_sex_json(){
+if(sex==null){return "";}String resultJson = "\"sex\":";resultJson += "\"";resultJson += sex.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -317,7 +317,7 @@ clubId= jsonObj.ToString();
 
 
 public void set_inClub_fromJson(LitJson.JsonData jsonObj){
-inClub= byte.Parse(jsonObj.ToString());
+inClub= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -337,11 +337,11 @@ headUrl= jsonObj.ToString();
 
 
 public void set_sex_fromJson(LitJson.JsonData jsonObj){
-sex= byte.Parse(jsonObj.ToString());
+sex= Byte.Parse(jsonObj.ToString());
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(clubId !=  null){
@@ -365,7 +365,7 @@ resultStr += ",";resultStr += get_sex_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

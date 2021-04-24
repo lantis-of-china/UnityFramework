@@ -480,7 +480,7 @@ public class UpResourceManager
         ms.Dispose();
 
         ms.Close();
-		DebugLoger.Log(addressStrInfo);
+		DebugLoger.Log($"login address :{ addressStrInfo}");
 		List<List<string>> serverAddresArray = CsvAnalysic.SplitCSV(addressStrInfo);
 		DebugLoger.Log("serverAddresArray count " + serverAddresArray.Count);
 

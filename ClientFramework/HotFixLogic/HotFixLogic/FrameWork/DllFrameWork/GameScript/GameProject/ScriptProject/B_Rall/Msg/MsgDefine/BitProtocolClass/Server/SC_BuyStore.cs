@@ -12,50 +12,50 @@ namespace Server{
 /// <summary>
 ///购买商品
 /// <\summary>
-public class SC_BuyStore : CherishBitProtocolBase {
+public class SC_BuyStore : LantisBitProtocolBase {
 /// <summary>
 ///0失败 1成功
 /// <\summary>
-public byte result;
+public Byte result;
 /// <summary>
 ///订单ID
 /// <\summary>
-public string orderId;
+public String orderId;
 /// <summary>
 ///支付价格
 /// <\summary>
-public string price;
+public String price;
 /// <summary>
 ///商品ID
 /// <\summary>
-public string id;
+public String id;
 /// <summary>
 ///商户Key支付
 /// <\summary>
-public string payKey;
+public String payKey;
 /// <summary>
 ///商户Id
 /// <\summary>
-public string payUserId;
+public String payUserId;
 /// <summary>
 ///支付类型
 /// <\summary>
-public string payType;
+public String payType;
 /// <summary>
 ///支付路径
 /// <\summary>
-public string payUrl;
+public String payUrl;
 /// <summary>
 ///异步通知地址
 /// <\summary>
-public string url;
+public String url;
 /// <summary>
 ///同步通知地址
 /// <\summary>
-public string hrefurl;
+public String hrefurl;
 public SC_BuyStore(){}
 
-public SC_BuyStore(byte _result, string _orderId, string _price, string _id, string _payKey, string _payUserId, string _payType, string _payUrl, string _url, string _hrefurl){
+public SC_BuyStore(Byte _result, String _orderId, String _price, String _id, String _payKey, String _payUserId, String _payType, String _payUrl, String _url, String _hrefurl){
 this.result = _result;
 this.orderId = _orderId;
 this.price = _price;
@@ -67,21 +67,21 @@ this.payUrl = _payUrl;
 this.url = _url;
 this.hrefurl = _hrefurl;
 }
-private byte[] get_result_encoding(){
-byte[] outBuf = null;
-outBuf = new byte[1];
-outBuf[0] =(byte)result;
+private Byte[] get_result_encoding(){
+Byte[] outBuf = null;
+outBuf = new Byte[1];
+outBuf[0] =(Byte)result;
 return outBuf;
 }
 
 
-private byte[] get_orderId_encoding(){
-byte[] outBuf = null;
-string str = (string)orderId;
+private Byte[] get_orderId_encoding(){
+Byte[] outBuf = null;
+String str = (String)orderId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -91,13 +91,13 @@ return outBuf;
 }
 
 
-private byte[] get_price_encoding(){
-byte[] outBuf = null;
-string str = (string)price;
+private Byte[] get_price_encoding(){
+Byte[] outBuf = null;
+String str = (String)price;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -107,13 +107,13 @@ return outBuf;
 }
 
 
-private byte[] get_id_encoding(){
-byte[] outBuf = null;
-string str = (string)id;
+private Byte[] get_id_encoding(){
+Byte[] outBuf = null;
+String str = (String)id;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -123,13 +123,13 @@ return outBuf;
 }
 
 
-private byte[] get_payKey_encoding(){
-byte[] outBuf = null;
-string str = (string)payKey;
+private Byte[] get_payKey_encoding(){
+Byte[] outBuf = null;
+String str = (String)payKey;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -139,13 +139,13 @@ return outBuf;
 }
 
 
-private byte[] get_payUserId_encoding(){
-byte[] outBuf = null;
-string str = (string)payUserId;
+private Byte[] get_payUserId_encoding(){
+Byte[] outBuf = null;
+String str = (String)payUserId;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -155,13 +155,13 @@ return outBuf;
 }
 
 
-private byte[] get_payType_encoding(){
-byte[] outBuf = null;
-string str = (string)payType;
+private Byte[] get_payType_encoding(){
+Byte[] outBuf = null;
+String str = (String)payType;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -171,13 +171,13 @@ return outBuf;
 }
 
 
-private byte[] get_payUrl_encoding(){
-byte[] outBuf = null;
-string str = (string)payUrl;
+private Byte[] get_payUrl_encoding(){
+Byte[] outBuf = null;
+String str = (String)payUrl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -187,13 +187,13 @@ return outBuf;
 }
 
 
-private byte[] get_url_encoding(){
-byte[] outBuf = null;
-string str = (string)url;
+private Byte[] get_url_encoding(){
+Byte[] outBuf = null;
+String str = (String)url;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -203,13 +203,13 @@ return outBuf;
 }
 
 
-private byte[] get_hrefurl_encoding(){
-byte[] outBuf = null;
-string str = (string)hrefurl;
+private Byte[] get_hrefurl_encoding(){
+Byte[] outBuf = null;
+String str = (String)hrefurl;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -218,17 +218,17 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_result_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_result_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
-result = new byte();
+result = new Byte();
 result = sourceBuf[curIndex];
 curIndex++;
 }return curIndex;
 }
-private int set_orderId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_orderId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 orderId = "";
@@ -242,8 +242,8 @@ curIndex++;
 orderId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_price_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_price_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 price = "";
@@ -257,8 +257,8 @@ curIndex++;
 price = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_id_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_id_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 id = "";
@@ -272,8 +272,8 @@ curIndex++;
 id = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_payKey_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_payKey_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 payKey = "";
@@ -287,8 +287,8 @@ curIndex++;
 payKey = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_payUserId_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_payUserId_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 payUserId = "";
@@ -302,8 +302,8 @@ curIndex++;
 payUserId = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_payType_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_payType_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 payType = "";
@@ -317,8 +317,8 @@ curIndex++;
 payType = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_payUrl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_payUrl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 payUrl = "";
@@ -332,8 +332,8 @@ curIndex++;
 payUrl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_url_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_url_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 url = "";
@@ -347,8 +347,8 @@ curIndex++;
 url = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_hrefurl_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_hrefurl_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 hrefurl = "";
@@ -362,9 +362,9 @@ curIndex++;
 hrefurl = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(result !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_result_encoding();
@@ -425,11 +425,11 @@ byteBuf = get_hrefurl_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_result_fromBuf(sourceBuf,startOffset);
 startOffset = set_orderId_fromBuf(sourceBuf,startOffset);
 startOffset = set_price_fromBuf(sourceBuf,startOffset);
@@ -442,58 +442,58 @@ startOffset = set_url_fromBuf(sourceBuf,startOffset);
 startOffset = set_hrefurl_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_result_json(){
-if(result==null){return "";}string resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
+public String get_result_json(){
+if(result==null){return "";}String resultJson = "\"result\":";resultJson += "\"";resultJson += result.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_orderId_json(){
-if(orderId==null){return "";}string resultJson = "\"orderId\":";resultJson += "\"";resultJson += orderId.ToString();resultJson += "\"";return resultJson;
+public String get_orderId_json(){
+if(orderId==null){return "";}String resultJson = "\"orderId\":";resultJson += "\"";resultJson += orderId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_price_json(){
-if(price==null){return "";}string resultJson = "\"price\":";resultJson += "\"";resultJson += price.ToString();resultJson += "\"";return resultJson;
+public String get_price_json(){
+if(price==null){return "";}String resultJson = "\"price\":";resultJson += "\"";resultJson += price.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_id_json(){
-if(id==null){return "";}string resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
+public String get_id_json(){
+if(id==null){return "";}String resultJson = "\"id\":";resultJson += "\"";resultJson += id.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_payKey_json(){
-if(payKey==null){return "";}string resultJson = "\"payKey\":";resultJson += "\"";resultJson += payKey.ToString();resultJson += "\"";return resultJson;
+public String get_payKey_json(){
+if(payKey==null){return "";}String resultJson = "\"payKey\":";resultJson += "\"";resultJson += payKey.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_payUserId_json(){
-if(payUserId==null){return "";}string resultJson = "\"payUserId\":";resultJson += "\"";resultJson += payUserId.ToString();resultJson += "\"";return resultJson;
+public String get_payUserId_json(){
+if(payUserId==null){return "";}String resultJson = "\"payUserId\":";resultJson += "\"";resultJson += payUserId.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_payType_json(){
-if(payType==null){return "";}string resultJson = "\"payType\":";resultJson += "\"";resultJson += payType.ToString();resultJson += "\"";return resultJson;
+public String get_payType_json(){
+if(payType==null){return "";}String resultJson = "\"payType\":";resultJson += "\"";resultJson += payType.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_payUrl_json(){
-if(payUrl==null){return "";}string resultJson = "\"payUrl\":";resultJson += "\"";resultJson += payUrl.ToString();resultJson += "\"";return resultJson;
+public String get_payUrl_json(){
+if(payUrl==null){return "";}String resultJson = "\"payUrl\":";resultJson += "\"";resultJson += payUrl.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_url_json(){
-if(url==null){return "";}string resultJson = "\"url\":";resultJson += "\"";resultJson += url.ToString();resultJson += "\"";return resultJson;
+public String get_url_json(){
+if(url==null){return "";}String resultJson = "\"url\":";resultJson += "\"";resultJson += url.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_hrefurl_json(){
-if(hrefurl==null){return "";}string resultJson = "\"hrefurl\":";resultJson += "\"";resultJson += hrefurl.ToString();resultJson += "\"";return resultJson;
+public String get_hrefurl_json(){
+if(hrefurl==null){return "";}String resultJson = "\"hrefurl\":";resultJson += "\"";resultJson += hrefurl.ToString();resultJson += "\"";return resultJson;
 }
 
 
 public void set_result_fromJson(LitJson.JsonData jsonObj){
-result= byte.Parse(jsonObj.ToString());
+result= Byte.Parse(jsonObj.ToString());
 }
 
 
@@ -541,8 +541,8 @@ public void set_hrefurl_fromJson(LitJson.JsonData jsonObj){
 hrefurl= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(result !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(result !=  null){
 resultStr += get_result_json();
 }
 else {}if(orderId !=  null){
@@ -575,7 +575,7 @@ resultStr += ",";resultStr += get_hrefurl_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["result"] != null){
 set_result_fromJson(jsonObj["result"]);

@@ -12,33 +12,33 @@ namespace Server{
 /// <summary>
 ///消息
 /// <\summary>
-public class P_MsgInfo : CherishBitProtocolBase {
+public class P_MsgInfo : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
-public string token;
+public String token;
 /// <summary>
 ///
 /// <\summary>
-public string title;
+public String title;
 /// <summary>
 ///
 /// <\summary>
-public string msg;
+public String msg;
 public P_MsgInfo(){}
 
-public P_MsgInfo(string _token, string _title, string _msg){
+public P_MsgInfo(String _token, String _title, String _msg){
 this.token = _token;
 this.title = _title;
 this.msg = _msg;
 }
-private byte[] get_token_encoding(){
-byte[] outBuf = null;
-string str = (string)token;
+private Byte[] get_token_encoding(){
+Byte[] outBuf = null;
+String str = (String)token;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -48,13 +48,13 @@ return outBuf;
 }
 
 
-private byte[] get_title_encoding(){
-byte[] outBuf = null;
-string str = (string)title;
+private Byte[] get_title_encoding(){
+Byte[] outBuf = null;
+String str = (String)title;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -64,13 +64,13 @@ return outBuf;
 }
 
 
-private byte[] get_msg_encoding(){
-byte[] outBuf = null;
-string str = (string)msg;
+private Byte[] get_msg_encoding(){
+Byte[] outBuf = null;
+String str = (String)msg;
 Char[] charArray = str.ToCharArray();
-byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
+Byte[] strBuf = System.Text.UTF8Encoding.UTF8.GetBytes(charArray,0,charArray.Length);
 Int32 length = strBuf.Length;
-byte[] bufLenght = BitConverter.GetBytes(length);
+Byte[] bufLenght = BitConverter.GetBytes(length);
 using(MemoryStream desStream = new MemoryStream()){
 desStream.Write(bufLenght, 0, bufLenght.Length);
 desStream.Write(strBuf, 0, strBuf.Length);
@@ -79,8 +79,8 @@ outBuf = desStream.ToArray();
 return outBuf;
 }
 
-private int set_token_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_token_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 token = "";
@@ -94,8 +94,8 @@ curIndex++;
 token = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_title_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_title_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 title = "";
@@ -109,8 +109,8 @@ curIndex++;
 title = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-private int set_msg_fromBuf(byte[] sourceBuf,int curIndex){
-byte tag = sourceBuf[curIndex];
+private int set_msg_fromBuf(Byte[] sourceBuf,int curIndex){
+Byte tag = sourceBuf[curIndex];
 curIndex += 1;
 if(tag != 0){;
 msg = "";
@@ -124,9 +124,9 @@ curIndex++;
 msg = System.Text.Encoding.UTF8.GetString(byteArray);
 }return curIndex;
 }
-public override byte[] Serializer(){
+public override Byte[] Serializer(){
 MemoryStream memoryWrite = new MemoryStream();
-byte[] byteBuf = null;
+Byte[] byteBuf = null;
 if(token !=  null){
 memoryWrite.WriteByte(1);
 byteBuf = get_token_encoding();
@@ -145,28 +145,28 @@ byteBuf = get_msg_encoding();
 memoryWrite.Write(byteBuf,0,byteBuf.Length);
 }
 else {memoryWrite.WriteByte(0);
-}byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
+}Byte[] bufResult = memoryWrite.ToArray();memoryWrite.Dispose();
 return bufResult;
 }
 
-public override int Deserializer(byte[] sourceBuf,int startOffset){
+public override int Deserializer(Byte[] sourceBuf,int startOffset){
 startOffset = set_token_fromBuf(sourceBuf,startOffset);
 startOffset = set_title_fromBuf(sourceBuf,startOffset);
 startOffset = set_msg_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
-public string get_token_json(){
-if(token==null){return "";}string resultJson = "\"token\":";resultJson += "\"";resultJson += token.ToString();resultJson += "\"";return resultJson;
+public String get_token_json(){
+if(token==null){return "";}String resultJson = "\"token\":";resultJson += "\"";resultJson += token.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_title_json(){
-if(title==null){return "";}string resultJson = "\"title\":";resultJson += "\"";resultJson += title.ToString();resultJson += "\"";return resultJson;
+public String get_title_json(){
+if(title==null){return "";}String resultJson = "\"title\":";resultJson += "\"";resultJson += title.ToString();resultJson += "\"";return resultJson;
 }
 
 
-public string get_msg_json(){
-if(msg==null){return "";}string resultJson = "\"msg\":";resultJson += "\"";resultJson += msg.ToString();resultJson += "\"";return resultJson;
+public String get_msg_json(){
+if(msg==null){return "";}String resultJson = "\"msg\":";resultJson += "\"";resultJson += msg.ToString();resultJson += "\"";return resultJson;
 }
 
 
@@ -184,8 +184,8 @@ public void set_msg_fromJson(LitJson.JsonData jsonObj){
 msg= jsonObj.ToString();
 }
 
-public override string SerializerJson(){
-string resultStr = "{";if(token !=  null){
+public override String SerializerJson(){
+String resultStr = "{";if(token !=  null){
 resultStr += get_token_json();
 }
 else {}if(title !=  null){
@@ -197,7 +197,7 @@ resultStr += ",";resultStr += get_msg_json();
 else {}resultStr += "}";return resultStr;
 }
 
-public override void DeserializerJson(string json){
+public override void DeserializerJson(String json){
 LitJson.JsonData jsonObj = CSTools.JsonToData(json);
 if(jsonObj["token"] != null){
 set_token_fromJson(jsonObj["token"]);

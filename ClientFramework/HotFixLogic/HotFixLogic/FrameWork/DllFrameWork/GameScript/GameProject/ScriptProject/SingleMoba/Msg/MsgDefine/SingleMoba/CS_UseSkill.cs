@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
 using Server;
+using SingleMoba;
+
 
 namespace SingleMoba{
 /// <summary>
 ///施放技能
 /// <\summary>
-public class CS_UseSkill : CherishBitProtocolBase {
+public class CS_UseSkill : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -47,7 +50,7 @@ this.currentY = _currentY;
 }
 private Byte[] get_UserValiadate_encoding(){
 Byte[] outBuf = null;
-outBuf = ((CherishBitProtocolBase)UserValiadate).Serializer();
+outBuf = ((LantisBitProtocolBase)UserValiadate).Serializer();
 return outBuf;
 }
 
@@ -192,7 +195,7 @@ startOffset = set_currentY_fromBuf(sourceBuf,startOffset);
 return startOffset;}
 
 public String get_UserValiadate_json(){
-if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((CherishBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
+if(UserValiadate==null){return "";}String resultJson = "\"UserValiadate\":";resultJson += ((LantisBitProtocolBase)UserValiadate).SerializerJson();return resultJson;
 }
 
 

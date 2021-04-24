@@ -4,12 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
+
 
 namespace SingleMoba{
 /// <summary>
 ///施放道具
 /// <\summary>
-public class SC_ReleseProp : CherishBitProtocolBase {
+public class SC_ReleseProp : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>

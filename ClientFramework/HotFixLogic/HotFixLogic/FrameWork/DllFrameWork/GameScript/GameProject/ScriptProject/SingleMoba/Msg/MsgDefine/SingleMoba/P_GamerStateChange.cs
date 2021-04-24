@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using BaseDataAttribute;
+using Server;
+using SingleMoba;
 
 
 namespace SingleMoba{
 /// <summary>
 ///玩家的状态信息改变
 /// <\summary>
-public class P_GamerStateChange : CherishBitProtocolBase {
+public class P_GamerStateChange : LantisBitProtocolBase {
 /// <summary>
 ///
 /// <\summary>
@@ -140,7 +143,7 @@ using(MemoryStream memoryWrite = new MemoryStream()){
 List<P_SkillBuff> listBase = getBuffs;
 memoryWrite.Write(BitConverter.GetBytes(listBase.Count),0,4);
 for(int i = 0;i < listBase.Count;++i){
-CherishBitProtocolBase baseObject = listBase[i];
+LantisBitProtocolBase baseObject = listBase[i];
 Byte[] baseBuf = baseObject.Serializer();
 memoryWrite.Write(baseBuf,0,baseBuf.Length);
 }
