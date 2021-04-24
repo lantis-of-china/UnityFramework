@@ -457,6 +457,9 @@
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\GameRunFrameWork\StringConfigClass.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\BloodPoolInfo.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_EntryRoom.cs" />
+    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserLoginOut.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\ConfigData\ConfigSkill.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\ConfigData\ConfigSkillBuff.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\SingleMoba\Character\OtherCharacter.cs" />
@@ -633,7 +636,6 @@
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UpLoadFile.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserCreateRoom.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserEntrySucess.cs" />
-    <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_UserLoginOut.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\CS_ValiedBank.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\GolabServerInfor.cs" />
     <Compile Include="FrameWork\DllFrameWork\GameScript\GameProject\ScriptProject\B_Rall\Msg\MsgDefine\BitProtocolClass\Server\JoinRoom.cs" />

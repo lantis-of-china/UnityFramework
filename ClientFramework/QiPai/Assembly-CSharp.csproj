@@ -185,7 +185,6 @@
     <None Include="Assets\OtherCompoments\GameEffect\cgwell_Fresnel_Opaque.shader" />
     <None Include="Assets\AStartPathFindArt\MapEditor\Resources\MapTest.shader" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\Bloom.shader" />
-    <None Include="Assets\StreamingAssets\ResourceVersion.txt" />
     <None Include="Assets\Zip\I18N.dll" />
     <None Include="Assets\Zip\I18N.CJK.dll" />
     <None Include="Assets\OtherCompoments\GameEffect\cgwell Add Mask.shader" />
@@ -203,11 +202,9 @@
     <None Include="Assets\Shader\NewUnlitShader.shader" />
     <None Include="Assets\OtherCompoments\GameEffect\cgwell_dissolution_blend.shader" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Histogram.compute" />
-    <None Include="Assets\StreamingAssets\Version.txt" />
     <None Include="Assets\Shader\Edge.shader" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\API\Metal.hlsl" />
-    <None Include="Assets\StreamingAssets\ServerAddress.txt" />
     <None Include="Assets\Shader\MaskIcon.shader" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
     <None Include="Assets\OtherCompoments\PostProcessing\Shaders\Debug\Waveform.compute" />

@@ -10,17 +10,7 @@ using Server;
 using IMClub;
 using SingleMoba;
 using Template;
-namespace WuXingJingCai { }
-namespace LaoHuJi { }
-namespace MaJiang_QuanZhou { }
-namespace MaJiang_XueZhan { }
-namespace PaoDeKuai { }
-namespace Baccarat { }
-namespace BingShangQuGunQiu { }
-namespace BuYu { }
-namespace CheXuan { }
-namespace CMSloto { }
-namespace AskDao { }
+
 
 namespace Server
 {
